@@ -1,0 +1,169 @@
+﻿<#@ template debug="true" hostspecific="true" language="C#" #>
+<#@ output extension=".cs" #>
+<#@ include file="Helper.tt" #>
+<#
+	clsHelper oHelper = new  clsHelper(this);
+
+	string strDataBaseName = string.Empty, strProvider = string.Empty, strNameSpace = string.Empty, strBaseName = string.Empty, strTypeParameter = string.Empty;	
+	string pathProject = string.Empty, pathTemplate = string.Empty, strConnectionName = string.Empty;	
+
+	foreach (clsConnectionsString oConnectionsString in oHelper.ConnectionStrings())
+	{ 
+		strDataBaseName = oConnectionsString.strDataBaseName;
+		strProvider = oConnectionsString.strProviderName;
+		strConnectionName = oConnectionsString.strConnectionName;
+
+		if(strProvider.Equals("System.Data.SqlClient"))
+        {
+			strNameSpace = "MsSqlCommands";
+			strTypeParameter = "SqlParameter";
+			strBaseName = "MsSQL";
+        }
+		else if(strProvider.Equals("MySql.Data.MySqlClient"))
+        {
+			strNameSpace = "MySqlCommands";
+			strTypeParameter = "MySqlParameter";
+			strBaseName = "MySQL";
+        }
+		
+		pathProject =  "DataAccess\\" + strBaseName;
+		
+		//Crea el directorio donde se guardan los archivos de los procedimientos almacenados
+		oHelper.CreateDirectory(strConnectionName,"T4", pathProject,"AccesoDatos");
+
+		foreach(DataRow dr in oHelper.GetStoreProcedures(oConnectionsString.strConnectionString, strProvider).Rows)
+		{
+			WriteLine("namespace DataAccess." + strNameSpace + "." + oHelper.Uppercase(strConnectionName));
+			WriteLine("{");
+			
+			WriteLine("	using System;");
+			WriteLine("	using System.Collections.Generic;");
+			WriteLine("	using System.Data;");
+
+			if(strProvider.Equals("System.Data.SqlClient"))
+            {
+				WriteLine("	using System.Data.SqlClient;");
+				WriteLine("	using DataAccess.MSSQL;");
+            }
+			else if(strProvider.Equals("MySql.Data.MySqlClient"))
+            {
+				WriteLine("	using MySql.Data.MySqlClient;");
+				WriteLine("	using DataAccess.MYSQL;");
+            }
+
+			WriteLine("	using DataAccess.Utilities;");
+
+			//Indica el nombre del procedimiento almacenado.
+			string strRoutineName = oHelper.Uppercase(dr["routine_name"].ToString()); 
+
+			WriteLine(String.Empty);			
+			WriteLine("	/// <summary>");
+			WriteLine("	/// Controla la ejecucion del procedimientos almacenados " + strRoutineName + ".");
+			WriteLine("	/// </summary>");
+
+			WriteLine("	public partial class " + strRoutineName + " : Access" + strBaseName);
+			WriteLine("	{");
+
+			PushIndent("        ");
+			WriteLine("#region Methods");
+			WriteLine(String.Empty);
+
+			for(int index = 0; index <= 3; index++)
+			{
+				WriteLine("/// <summary>");
+					
+				if(index == 0)
+					WriteLine("/// Obtiene una lista del tipo de objectos indicado con el merge entre las propiedades del objeto y el resulset obtenido de la ejecucion.");	        
+				else if(index == 1)
+					WriteLine("/// Obtiene el scalar resultante de la ejecucion.");	    
+				else if(index == 2)    
+					WriteLine("/// Ejecuta el procedimiento almacenado.");
+				else   
+					WriteLine("/// Obtiene un objeto IDataReader resultante de la ejecucion.");	 
+   
+				WriteLine("/// </summary>");
+				WriteLine("/// <returns></returns>");
+					
+				if(index==0)
+					Write("public List<T> ExeList<T>(");
+				else if(index == 1)
+					Write("public T ExeScalar<T>(");
+				else if(index == 2)   
+					Write("public int ExeNonQuery(");
+				else 
+					Write("public IDataReader ExeReader(");
+
+				using (DataTable dt = oHelper.GetParameters(dr["routine_name"].ToString(), strProvider, strDataBaseName))
+				{
+					for (int i = 0; i < dt.Rows.Count; i++)
+	                {
+						if(dt.Rows[i]["PARAMETER_NAME"].ToString().Replace("@", "") != string.Empty)
+						{
+	                        Write(oHelper.TypedCSharp(dt.Rows[i]["DATA_TYPE"].ToString()) + " " + dt.Rows[i]["PARAMETER_NAME"].ToString().Replace("@", "") + " = null");
+								
+							if(i != dt.Rows.Count - 1)
+								Write(", ");
+						}
+	                }
+
+					if(index==0)
+						WriteLine(") where T : new()");
+					else if(index == 1)
+						WriteLine(")");
+					else
+						WriteLine(")");
+
+					WriteLine("{");
+
+					if(dt.Rows.Count > 0)
+                    {
+						WriteLine("	List<" + strTypeParameter + "> parameters = new List<" + strTypeParameter + ">();");	
+						WriteLine(String.Empty);
+
+						string parameters = "	parameters";
+						
+						for (int i = 0; i < dt.Rows.Count; i++)
+						{
+							string nombre = dt.Rows[i]["PARAMETER_NAME"].ToString().Replace("@", "");
+							string tipo = oHelper.TypeSql(dt.Rows[i]["data_type"].ToString(), strProvider);
+							string tamanio = dt.Rows[i]["CHARACTER_MAXIMUM_LENGTH"].ToString().Equals("") ? "null" : dt.Rows[i]["CHARACTER_MAXIMUM_LENGTH"].ToString();
+							
+							parameters += ".Add(\"@" + nombre + "\", " + tipo + ", " + nombre + ", " + tamanio + ")";
+						}
+
+						WriteLine(parameters + ";");
+						WriteLine(String.Empty);
+                    }
+
+					if(index == 0)
+						Write("	return this.GetListBase<T>(\"" + strConnectionName  + "\", \"");
+					else if(index == 1)
+						Write("	return this.ExecuteScalar<T>(\"" + strConnectionName  + "\", \"");
+					else if(index == 2)
+						Write("	return this.ExecuteNonQuery(\"" + strConnectionName  + "\", \"");
+					else
+						Write("	return this.GetReader(\"" + strConnectionName  + "\", \"");
+
+					WriteLine(dr["routine_name"].ToString() + "\"" + (dt.Rows.Count > 0 ? ",parameters.ToArray()" : string.Empty) + ");");
+
+					WriteLine("}");
+					WriteLine(String.Empty);
+					
+				}
+			}
+
+			ClearIndent();
+			WriteLine("	#endregion");
+			WriteLine("	}");
+			WriteLine("}");
+
+			pathTemplate =  oHelper.GetPath("T4", pathProject) + "\\" + strConnectionName + "\\" + dr["routine_name"].ToString() + ".cs";
+
+			//Elimina el archivo
+			oHelper.DeleteOutputFile(pathTemplate);
+			
+			//Crea el archivo
+			oHelper.ProcessContent(pathTemplate,"T4", pathProject,"DataAccess");
+		}
+	}	
+#>

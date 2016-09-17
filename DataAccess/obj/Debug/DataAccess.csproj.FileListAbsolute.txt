@@ -1,0 +1,92 @@
+D:\codigo fuente\Bebitos\AccesoDatos\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+D:\codigo fuente\Bebitos\AccesoDatos\obj\Debug\AccesoDatos.dll
+D:\codigo fuente\Bebitos\AccesoDatos\obj\Debug\AccesoDatos.pdb
+D:\codigo fuente\Bebitos\DataAccess\bin\Debug\DataAccess.dll.config
+D:\codigo fuente\Bebitos\DataAccess\bin\Debug\DataAccess.dll
+D:\codigo fuente\Bebitos\DataAccess\bin\Debug\DataAccess.pdb
+D:\codigo fuente\Bebitos\DataAccess\bin\Debug\MongoDB.Bson.dll
+D:\codigo fuente\Bebitos\DataAccess\bin\Debug\MongoDB.Driver.dll
+D:\codigo fuente\Bebitos\DataAccess\bin\Debug\MySql.Data.dll
+D:\codigo fuente\Bebitos\DataAccess\bin\Debug\MongoDB.Bson.xml
+D:\codigo fuente\Bebitos\DataAccess\bin\Debug\MongoDB.Driver.xml
+D:\codigo fuente\Bebitos\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+D:\codigo fuente\Bebitos\DataAccess\obj\Debug\DataAccess.dll
+D:\codigo fuente\Bebitos\DataAccess\obj\Debug\DataAccess.pdb
+D:\codigo fuente\Winbits\DataAccess\bin\Debug\DataAccess.dll.config
+D:\codigo fuente\Winbits\DataAccess\bin\Debug\DataAccess.dll
+D:\codigo fuente\Winbits\DataAccess\bin\Debug\DataAccess.pdb
+D:\codigo fuente\Winbits\DataAccess\bin\Debug\MongoDB.Bson.dll
+D:\codigo fuente\Winbits\DataAccess\bin\Debug\MongoDB.Driver.dll
+D:\codigo fuente\Winbits\DataAccess\bin\Debug\MySql.Data.dll
+D:\codigo fuente\Winbits\DataAccess\bin\Debug\MongoDB.Bson.xml
+D:\codigo fuente\Winbits\DataAccess\bin\Debug\MongoDB.Driver.xml
+D:\codigo fuente\Winbits\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+D:\codigo fuente\Winbits\DataAccess\obj\Debug\DataAccess.dll
+D:\codigo fuente\Winbits\DataAccess\obj\Debug\DataAccess.pdb
+D:\Diego\T510\Codigo Fuente\Winbits Ultimo (Nueva Aqruitectura)\DataAccess\bin\Debug\DataAccess.dll.config
+D:\Diego\T510\Codigo Fuente\Winbits Ultimo (Nueva Aqruitectura)\DataAccess\bin\Debug\DataAccess.dll
+D:\Diego\T510\Codigo Fuente\Winbits Ultimo (Nueva Aqruitectura)\DataAccess\bin\Debug\DataAccess.pdb
+D:\Diego\T510\Codigo Fuente\Winbits Ultimo (Nueva Aqruitectura)\DataAccess\bin\Debug\MongoDB.Bson.dll
+D:\Diego\T510\Codigo Fuente\Winbits Ultimo (Nueva Aqruitectura)\DataAccess\bin\Debug\MongoDB.Driver.dll
+D:\Diego\T510\Codigo Fuente\Winbits Ultimo (Nueva Aqruitectura)\DataAccess\bin\Debug\MySql.Data.dll
+D:\Diego\T510\Codigo Fuente\Winbits Ultimo (Nueva Aqruitectura)\DataAccess\bin\Debug\MongoDB.Bson.xml
+D:\Diego\T510\Codigo Fuente\Winbits Ultimo (Nueva Aqruitectura)\DataAccess\bin\Debug\MongoDB.Driver.xml
+D:\Diego\T510\Codigo Fuente\Winbits Ultimo (Nueva Aqruitectura)\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+D:\Diego\T510\Codigo Fuente\Winbits Ultimo (Nueva Aqruitectura)\DataAccess\obj\Debug\DataAccess.dll
+D:\Diego\T510\Codigo Fuente\Winbits Ultimo (Nueva Aqruitectura)\DataAccess\obj\Debug\DataAccess.pdb
+H:\domi\WindowsFormsApplication1\DataAccess\obj\Debug\DataAccess.dll
+H:\domi\WindowsFormsApplication1\DataAccess\obj\Debug\DataAccess.pdb
+H:\domi\WindowsFormsApplication1\DataAccess\bin\Debug\DataAccess.dll.config
+H:\domi\WindowsFormsApplication1\DataAccess\bin\Debug\DataAccess.dll
+H:\domi\WindowsFormsApplication1\DataAccess\bin\Debug\DataAccess.pdb
+H:\domi\WindowsFormsApplication1\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+E:\domi\WindowsFormsApplication1\DataAccess\bin\Debug\DataAccess.dll.config
+E:\domi\WindowsFormsApplication1\DataAccess\bin\Debug\DataAccess.dll
+E:\domi\WindowsFormsApplication1\DataAccess\bin\Debug\DataAccess.pdb
+E:\domi\WindowsFormsApplication1\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+E:\domi\WindowsFormsApplication1\DataAccess\obj\Debug\DataAccess.dll
+E:\domi\WindowsFormsApplication1\DataAccess\obj\Debug\DataAccess.pdb
+E:\Diego\T510\domi\WindowsFormsApplication1\DataAccess\bin\Debug\DataAccess.dll.config
+E:\Diego\T510\domi\WindowsFormsApplication1\DataAccess\bin\Debug\DataAccess.dll
+E:\Diego\T510\domi\WindowsFormsApplication1\DataAccess\bin\Debug\DataAccess.pdb
+E:\Diego\T510\domi\WindowsFormsApplication1\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+E:\Diego\T510\domi\WindowsFormsApplication1\DataAccess\obj\Debug\DataAccess.dll
+E:\Diego\T510\domi\WindowsFormsApplication1\DataAccess\obj\Debug\DataAccess.pdb
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\DataAccess\bin\Debug\DataAccess.dll.config
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\DataAccess\bin\Debug\DataAccess.dll
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\DataAccess\bin\Debug\DataAccess.pdb
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\DataAccess\obj\Debug\DataAccess.dll
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\DataAccess\obj\Debug\DataAccess.pdb
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\DataAccess\bin\Debug\DataAccess.dll.config
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\DataAccess\bin\Debug\DataAccess.dll
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\DataAccess\bin\Debug\DataAccess.pdb
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\DataAccess\obj\Debug\DataAccess.dll
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\DataAccess\obj\Debug\DataAccess.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\DataAccess\bin\Debug\DataAccess.dll.config
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\DataAccess\bin\Debug\DataAccess.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\DataAccess\bin\Debug\DataAccess.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\DataAccess\obj\Debug\DataAccess.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\DataAccess\obj\Debug\DataAccess.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\DataAccess\bin\Debug\DataAccess.dll.config
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\DataAccess\bin\Debug\DataAccess.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\DataAccess\bin\Debug\DataAccess.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\DataAccess\obj\Debug\DataAccess.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\DataAccess\obj\Debug\DataAccess.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\DataAccess\obj\Debug\DataAccess.csprojFakesResolveAssemblyReference.cache
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\DataAccess\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\DataAccess\bin\Debug\DataAccess.dll.config
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\DataAccess\bin\Debug\DataAccess.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\DataAccess\bin\Debug\DataAccess.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\DataAccess\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\DataAccess\obj\Debug\DataAccess.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\DataAccess\obj\Debug\DataAccess.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\DataAccess\bin\Debug\DataAccess.dll.config
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\DataAccess\bin\Debug\DataAccess.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\DataAccess\bin\Debug\DataAccess.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\DataAccess\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\DataAccess\obj\Debug\DataAccess.csprojFakesResolveAssemblyReference.cache
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\DataAccess\obj\Debug\DataAccess.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\DataAccess\obj\Debug\DataAccess.pdb

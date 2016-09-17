@@ -1,0 +1,11 @@
+D:\codigo fuente\Winbits\DataAccess\bin\Release\DataAccess.dll.config
+D:\codigo fuente\Winbits\DataAccess\bin\Release\DataAccess.dll
+D:\codigo fuente\Winbits\DataAccess\bin\Release\DataAccess.pdb
+D:\codigo fuente\Winbits\DataAccess\bin\Release\MongoDB.Bson.dll
+D:\codigo fuente\Winbits\DataAccess\bin\Release\MongoDB.Driver.dll
+D:\codigo fuente\Winbits\DataAccess\bin\Release\MySql.Data.dll
+D:\codigo fuente\Winbits\DataAccess\bin\Release\MongoDB.Bson.xml
+D:\codigo fuente\Winbits\DataAccess\bin\Release\MongoDB.Driver.xml
+D:\codigo fuente\Winbits\DataAccess\obj\Release\DataAccess.dll
+D:\codigo fuente\Winbits\DataAccess\obj\Release\DataAccess.pdb
+D:\codigo fuente\Winbits\DataAccess\obj\Release\DataAccess.csprojResolveAssemblyReference.cache

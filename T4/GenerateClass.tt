@@ -1,0 +1,91 @@
+﻿<#@ template debug="true" hostspecific="true" language="C#" #>
+<#@ output extension=".cs" #>
+<#@ include file="Helper.tt" #>
+<#
+	clsHelper oHelper = new  clsHelper(this);
+
+	string strDataBaseName = string.Empty, strProvider = string.Empty, strNameSpace = string.Empty, strBaseName = string.Empty, strTypeParameter = string.Empty;	
+	string pathProject = string.Empty, pathTemplate = string.Empty, strConnectionName = string.Empty;	
+
+	foreach (clsConnectionsString oConnectionsString in oHelper.ConnectionStrings())
+	{ 
+		string members = string.Empty,
+			   dispose = string.Empty;
+
+		strDataBaseName = oConnectionsString.strDataBaseName;
+		strProvider = oConnectionsString.strProviderName;
+		strConnectionName = oConnectionsString.strConnectionName;
+
+		if(strProvider.Equals("System.Data.SqlClient"))
+        {
+			strNameSpace = "MsSqlCommands";
+			strTypeParameter = "SqlParameter";
+			strBaseName = "MsSQL";
+        }
+		else if(strProvider.Equals("MySql.Data.MySqlClient"))
+        {
+			strNameSpace = "MySqlCommands";
+			strTypeParameter = "MySqlParameter";
+			strBaseName = "MySQL";
+        }
+
+		WriteLine("using System;");
+		WriteLine("using System.Collections.Generic;");
+		WriteLine("using System.Linq;");
+		WriteLine("using System.Text;");
+		WriteLine("using DataAccess." + strNameSpace + ";");
+		WriteLine("");
+		WriteLine("namespace DataAccess." + strBaseName.ToUpper() + "." + oHelper.Uppercase(strConnectionName));
+		WriteLine("{");
+
+		WriteLine("	/// <summary>");
+		WriteLine("	/// Controla la ejecucion de los procedimientos almacenados de la conexion " + oHelper.Uppercase(strConnectionName) + ".");
+		WriteLine("	/// </summary>");
+
+		WriteLine("	public class " + oHelper.Uppercase(strConnectionName) + " : IDisposable");
+		WriteLine("	{");
+
+		foreach(DataRow dr in oHelper.GetStoreProcedures(oConnectionsString.strConnectionString, strProvider).Rows)
+		{
+			//Indica el nombre del procedimiento almacenado.
+			string strRoutineName = oHelper.Uppercase(dr["routine_name"].ToString()); 
+
+			members += "		/// <summary>\r\n";
+			members += "		/// Controla la ejecucion del procedimiento almacenado " + strRoutineName + ".\r\n";
+			members += "		///</summary>\r\n";
+			members += "		public DataAccess." + strNameSpace + "." + oHelper.Uppercase(strConnectionName) +  "." + strRoutineName + " " + strRoutineName + " = new DataAccess." + strNameSpace + "." + oHelper.Uppercase(strConnectionName) + "."  + strRoutineName + "();\r\n\r\n";
+
+			dispose += "			if (this." + strRoutineName + " != null)\r\n";
+			dispose += "				this." + strRoutineName + ".Dispose();\r\n\r\n";
+        }
+
+		WriteLine("		#region Properties\r\n");
+	
+		WriteLine(members);
+
+		WriteLine("		#endregion\r\n");
+		WriteLine("		#region Methods\r\n");
+
+		WriteLine("		public void Dispose()");
+		WriteLine("		{");
+		WriteLine(dispose);
+		WriteLine("		}\r\n");
+		WriteLine("		#endregion");
+		WriteLine("	}");
+		WriteLine("}");
+
+		pathProject =  "DataAccess\\" + strBaseName;
+		
+		//Crea el directorio donde se guardan los archivos de los procedimientos almacenados
+		oHelper.CreateDirectory(strConnectionName,"T4", pathProject,"DataAccess");
+
+		pathTemplate =  oHelper.GetPath("T4", pathProject) + "\\" + strConnectionName + "\\" + strConnectionName + ".cs";
+
+		//Elimina el archivo
+		oHelper.DeleteOutputFile(pathTemplate);
+			
+		//Crea el archivo
+		oHelper.ProcessContent(pathTemplate,"T4", pathProject,"DataAccess");
+	}
+
+#>

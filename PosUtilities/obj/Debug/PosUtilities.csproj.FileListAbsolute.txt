@@ -1,0 +1,56 @@
+E:\domi\WindowsFormsApplication1\PosUtilities\bin\Debug\PosUtilities.dll
+E:\domi\WindowsFormsApplication1\PosUtilities\bin\Debug\PosUtilities.pdb
+E:\domi\WindowsFormsApplication1\PosUtilities\bin\Debug\Utilities.dll
+E:\domi\WindowsFormsApplication1\PosUtilities\bin\Debug\Utilities.pdb
+E:\domi\WindowsFormsApplication1\PosUtilities\obj\Debug\PosUtilities.csprojResolveAssemblyReference.cache
+E:\domi\WindowsFormsApplication1\PosUtilities\obj\Debug\PosUtilities.dll
+E:\domi\WindowsFormsApplication1\PosUtilities\obj\Debug\PosUtilities.pdb
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\PosUtilities\bin\Debug\PosUtilities.dll
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\PosUtilities\bin\Debug\PosUtilities.pdb
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\PosUtilities\bin\Debug\Utilities.dll
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\PosUtilities\bin\Debug\Utilities.pdb
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\PosUtilities\obj\Debug\PosUtilities.csprojResolveAssemblyReference.cache
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\PosUtilities\obj\Debug\PosUtilities.dll
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\PosUtilities\obj\Debug\PosUtilities.pdb
+F:\WindowsFormsApplication1\PosUtilities\bin\Debug\PosUtilities.dll
+F:\WindowsFormsApplication1\PosUtilities\bin\Debug\PosUtilities.pdb
+F:\WindowsFormsApplication1\PosUtilities\bin\Debug\Utilities.dll
+F:\WindowsFormsApplication1\PosUtilities\bin\Debug\Utilities.pdb
+F:\WindowsFormsApplication1\PosUtilities\obj\Debug\PosUtilities.csprojResolveAssemblyReference.cache
+F:\WindowsFormsApplication1\PosUtilities\obj\Debug\PosUtilities.dll
+F:\WindowsFormsApplication1\PosUtilities\obj\Debug\PosUtilities.pdb
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\PosUtilities\bin\Debug\PosUtilities.dll
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\PosUtilities\bin\Debug\PosUtilities.pdb
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\PosUtilities\bin\Debug\Utilities.dll
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\PosUtilities\bin\Debug\Utilities.pdb
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\PosUtilities\obj\Debug\PosUtilities.csprojResolveAssemblyReference.cache
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\PosUtilities\obj\Debug\PosUtilities.dll
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\PosUtilities\obj\Debug\PosUtilities.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\PosUtilities\bin\Debug\PosUtilities.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\PosUtilities\bin\Debug\PosUtilities.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\PosUtilities\bin\Debug\Utilities.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\PosUtilities\bin\Debug\Utilities.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\PosUtilities\obj\Debug\PosUtilities.csprojResolveAssemblyReference.cache
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\PosUtilities\obj\Debug\PosUtilities.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\PosUtilities\obj\Debug\PosUtilities.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\PosUtilities\bin\Debug\PosUtilities.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\PosUtilities\bin\Debug\PosUtilities.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\PosUtilities\bin\Debug\Utilities.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\PosUtilities\bin\Debug\Utilities.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\PosUtilities\obj\Debug\PosUtilities.csprojResolveAssemblyReference.cache
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\PosUtilities\obj\Debug\PosUtilities.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\PosUtilities\obj\Debug\PosUtilities.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\PosUtilities\bin\Debug\PosUtilities.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\PosUtilities\bin\Debug\PosUtilities.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\PosUtilities\bin\Debug\Utilities.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\PosUtilities\bin\Debug\Utilities.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\PosUtilities\obj\Debug\PosUtilities.csprojResolveAssemblyReference.cache
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\PosUtilities\obj\Debug\PosUtilities.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\PosUtilities\obj\Debug\PosUtilities.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\PosUtilities\bin\Debug\PosUtilities.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\PosUtilities\bin\Debug\PosUtilities.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\PosUtilities\bin\Debug\Utilities.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\PosUtilities\bin\Debug\Utilities.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\PosUtilities\obj\Debug\PosUtilities.csprojResolveAssemblyReference.cache
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\PosUtilities\obj\Debug\PosUtilities.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\PosUtilities\obj\Debug\PosUtilities.pdb

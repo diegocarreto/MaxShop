@@ -1,0 +1,663 @@
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.PM.resources
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Product.resources
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ProductEdit.resources
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Measure.resources
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MeasureEdit.resources
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MaxShop.resources
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Sale.resources
+C:\Users\dell\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\dell\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\dell\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\dell\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\dell\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\dell\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+C:\Users\dell\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\dell\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MaxShop.resources
+C:\Users\dell\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Measure.resources
+C:\Users\dell\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MeasureEdit.resources
+C:\Users\dell\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.PM.resources
+C:\Users\dell\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Product.resources
+C:\Users\dell\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ProductEdit.resources
+C:\Users\dell\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\dell\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Sale.resources
+C:\Users\dell\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+H:\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+H:\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+H:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+H:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+H:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Group.resources
+H:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.GroupEdit.resources
+H:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MaxShop.resources
+H:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Measure.resources
+H:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MeasureEdit.resources
+H:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.PM.resources
+H:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Product.resources
+H:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ProductEdit.resources
+H:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+H:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Sale.resources
+H:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+H:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+H:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+H:\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\PosBusiness.dll
+H:\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\DataAccess.dll
+H:\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\MySql.Data.dll
+H:\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\PosBusiness.pdb
+H:\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\DataAccess.pdb
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\PosBusiness.dll
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\PosUtilities.dll
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Utilities.dll
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\UtilitiesForm.dll
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\DataAccess.dll
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\MySql.Data.dll
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\PosBusiness.pdb
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\PosUtilities.pdb
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\UtilitiesForm.pdb
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Utilities.pdb
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\DataAccess.pdb
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.AddProduct.resources
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.AdvancedSearch.resources
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ChangeProductQuantity.resources
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Brand.resources
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.BrandEdit.resources
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.LabelsEdit.resources
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Labels.resources
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MaterialEdit.resources
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Material.resources
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Group.resources
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.GroupEdit.resources
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MaxShop.resources
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Measure.resources
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MeasureEdit.resources
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.PM.resources
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.PMEdit.resources
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Product.resources
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ProductEdit.resources
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ProductMass.resources
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Sale.resources
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+E:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Purchase.resources
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\PosBusiness.dll
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\PosUtilities.dll
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Utilities.dll
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\UtilitiesForm.dll
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\DataAccess.dll
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\MySql.Data.dll
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\PosBusiness.pdb
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\PosUtilities.pdb
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\UtilitiesForm.pdb
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Utilities.pdb
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\DataAccess.pdb
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.AddProduct.resources
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.AdvancedSearch.resources
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ChangeProductQuantity.resources
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Brand.resources
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.BrandEdit.resources
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Purchase.resources
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.LabelsEdit.resources
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Labels.resources
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MaterialEdit.resources
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Material.resources
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Group.resources
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.GroupEdit.resources
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MaxShop.resources
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Measure.resources
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MeasureEdit.resources
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.PM.resources
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.PMEdit.resources
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Product.resources
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ProductEdit.resources
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ProductMass.resources
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Sale.resources
+D:\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\PosBusiness.dll
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\PosUtilities.dll
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Utilities.dll
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\UtilitiesForm.dll
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\DataAccess.dll
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\MySql.Data.dll
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\PosBusiness.pdb
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\PosUtilities.pdb
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\UtilitiesForm.pdb
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Utilities.pdb
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\DataAccess.pdb
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.AddProduct.resources
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.AdvancedSearch.resources
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ChangeProductQuantity.resources
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Brand.resources
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.BrandEdit.resources
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Purchase.resources
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.LabelsEdit.resources
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Labels.resources
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MaterialEdit.resources
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Material.resources
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Group.resources
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.GroupEdit.resources
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MaxShop.resources
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Measure.resources
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MeasureEdit.resources
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.PM.resources
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.PMEdit.resources
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Product.resources
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ProductEdit.resources
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ProductMass.resources
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Sale.resources
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ChangeProductPrice.resources
+E:\Diego\T510\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Budgetary.resources
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\PosBusiness.dll
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\PosUtilities.dll
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Utilities.dll
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\UtilitiesForm.dll
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\DataAccess.dll
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\MySql.Data.dll
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\PosBusiness.pdb
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\PosUtilities.pdb
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\UtilitiesForm.pdb
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Utilities.pdb
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\DataAccess.pdb
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.AddProduct.resources
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.AdvancedSearch.resources
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ChangeProductQuantity.resources
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Brand.resources
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.BrandEdit.resources
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ChangeProductPrice.resources
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Budgetary.resources
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Purchase.resources
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.LabelsEdit.resources
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Labels.resources
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MaterialEdit.resources
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Material.resources
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Group.resources
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.GroupEdit.resources
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.PMEdit.resources
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ProductMass.resources
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Wizard.resources
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.StockPM.resources
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.SalePM.resources
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ImageCapture.resources
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\AForge.Video.DirectShow.dll
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\AForge.Video.dll
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ImageShow.resources
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Calc.resources
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Expense.resources
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ExpenseEdit.resources
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Income.resources
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.IncomeEdit.resources
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.TruperBrowser.resources
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Freight.resources
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.FreightEdit.resources
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.PurchasePM.resources
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Concentrated.resources
+C:\Users\diego.ortega\Desktop\Punto De Venta\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\diego.ortega\Desktop\Punto De Venta\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\diego.ortega\Desktop\Punto De Venta\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+F:\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+F:\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+F:\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+F:\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\AForge.Video.DirectShow.dll
+F:\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\AForge.Video.dll
+F:\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\PosBusiness.dll
+F:\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\PosUtilities.dll
+F:\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Utilities.dll
+F:\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\UtilitiesForm.dll
+F:\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\DataAccess.dll
+F:\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\MySql.Data.dll
+F:\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\PosBusiness.pdb
+F:\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\PosUtilities.pdb
+F:\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\UtilitiesForm.pdb
+F:\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Utilities.pdb
+F:\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\DataAccess.pdb
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.AddProduct.resources
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.AdvancedSearch.resources
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ChangeProductQuantity.resources
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Brand.resources
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.BrandEdit.resources
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ChangeProductPrice.resources
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Budgetary.resources
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Calc.resources
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Concentrated.resources
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.PurchasePM.resources
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.FreightEdit.resources
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Freight.resources
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.TruperBrowser.resources
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.IncomeEdit.resources
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Income.resources
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ExpenseEdit.resources
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Expense.resources
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ImageShow.resources
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ImageCapture.resources
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.SalePM.resources
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.StockPM.resources
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Wizard.resources
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Purchase.resources
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.LabelsEdit.resources
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Labels.resources
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MaterialEdit.resources
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Material.resources
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Group.resources
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.GroupEdit.resources
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MaxShop.resources
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Measure.resources
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MeasureEdit.resources
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.PM.resources
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.PMEdit.resources
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Product.resources
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ProductEdit.resources
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ProductMass.resources
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Sale.resources
+F:\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\bin\Debug\AForge.Video.DirectShow.dll
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\bin\Debug\AForge.Video.dll
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\bin\Debug\PosBusiness.dll
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\bin\Debug\PosUtilities.dll
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\bin\Debug\Utilities.dll
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\bin\Debug\UtilitiesForm.dll
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\bin\Debug\DataAccess.dll
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\bin\Debug\MySql.Data.dll
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\bin\Debug\PosBusiness.pdb
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\bin\Debug\PosUtilities.pdb
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\bin\Debug\UtilitiesForm.pdb
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\bin\Debug\Utilities.pdb
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\bin\Debug\DataAccess.pdb
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.AddProduct.resources
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.AdvancedSearch.resources
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ChangeProductQuantity.resources
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Brand.resources
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.BrandEdit.resources
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ChangeProductPrice.resources
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Budgetary.resources
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Calc.resources
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Concentrated.resources
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.PurchasePM.resources
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.FreightEdit.resources
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Freight.resources
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.TruperBrowser.resources
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.IncomeEdit.resources
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Income.resources
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ExpenseEdit.resources
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Expense.resources
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ImageShow.resources
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ImageCapture.resources
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.SalePM.resources
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.StockPM.resources
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Wizard.resources
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Purchase.resources
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.LabelsEdit.resources
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Labels.resources
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MaterialEdit.resources
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Material.resources
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Group.resources
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.GroupEdit.resources
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MaxShop.resources
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Measure.resources
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MeasureEdit.resources
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.PM.resources
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.PMEdit.resources
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Product.resources
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ProductEdit.resources
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ProductMass.resources
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Sale.resources
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\bin\Debug\AForge.Video.DirectShow.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\bin\Debug\AForge.Video.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\bin\Debug\PosBusiness.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\bin\Debug\PosUtilities.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\bin\Debug\Utilities.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\bin\Debug\UtilitiesForm.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\bin\Debug\DataAccess.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\bin\Debug\MySql.Data.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\bin\Debug\PosBusiness.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\bin\Debug\PosUtilities.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\bin\Debug\UtilitiesForm.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\bin\Debug\Utilities.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\bin\Debug\DataAccess.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.AddProduct.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.AdvancedSearch.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ChangeProductQuantity.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Brand.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.BrandEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ChangeProductPrice.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Budgetary.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Calc.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Concentrated.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.PaymentEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Payment.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Refill.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.LoanEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Loan.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.EmployeeEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Employee.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.PurchasePM.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.FreightEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Freight.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.TruperBrowser.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.IncomeEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Income.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ExpenseEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Expense.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ImageShow.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ImageCapture.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.SalePM.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.StockPM.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Wizard.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Purchase.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.LabelsEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Labels.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MaterialEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Material.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Group.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.GroupEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MaxShop.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Measure.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MeasureEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.PM.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.PMEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Product.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ProductEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ProductMass.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Sale.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ExpenseDetail.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ExpenseDetailEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.AddProduct.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.AdvancedSearch.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ChangeProductQuantity.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Brand.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.BrandEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ChangeProductPrice.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Budgetary.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Calc.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Concentrated.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ExpenseDetailEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ExpenseDetail.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.PaymentEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Payment.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Refill.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.LoanEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Loan.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.EmployeeEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Employee.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.PurchasePM.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.FreightEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Freight.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.TruperBrowser.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.IncomeEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Income.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ExpenseEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Expense.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ImageShow.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ImageCapture.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.SalePM.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.StockPM.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Wizard.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Purchase.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.LabelsEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Labels.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MaterialEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Material.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Group.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.GroupEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MaxShop.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Measure.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MeasureEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.PM.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.PMEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Product.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ProductEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ProductMass.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Sale.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\bin\Debug\AForge.Video.DirectShow.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\bin\Debug\AForge.Video.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\bin\Debug\PosBusiness.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\bin\Debug\PosUtilities.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\bin\Debug\Utilities.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\bin\Debug\UtilitiesForm.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\bin\Debug\DataAccess.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\bin\Debug\MySql.Data.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\bin\Debug\PosBusiness.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\bin\Debug\PosUtilities.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\bin\Debug\UtilitiesForm.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\bin\Debug\Utilities.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\bin\Debug\DataAccess.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Location.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.LocationEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.SearchProducts.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Configuration.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.BarCode.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\bin\Debug\BarcodeLib.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Provider.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Box.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\bin\Debug\AForge.Video.DirectShow.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\bin\Debug\AForge.Video.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\bin\Debug\BarcodeLib.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\bin\Debug\PosBusiness.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\bin\Debug\PosUtilities.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\bin\Debug\tessnet2_64.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\bin\Debug\Utilities.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\bin\Debug\UtilitiesForm.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\bin\Debug\DataAccess.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\bin\Debug\MySql.Data.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\bin\Debug\PosBusiness.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\bin\Debug\PosUtilities.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\bin\Debug\UtilitiesForm.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\bin\Debug\Utilities.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\bin\Debug\tessnet2_64.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\bin\Debug\DataAccess.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.AddProduct.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.AdvancedSearch.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ChangeProductQuantity.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Brand.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.BrandEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ChangeProductPrice.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Budgetary.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Calc.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Concentrated.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Configuration.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.BarCode.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Box.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Client.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ClientEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.SelectByBarCode.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.SmartPayment.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.PmFreightEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Provider.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.SearchProducts.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.LocationEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Location.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ExpenseDetailEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ExpenseDetail.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.PaymentEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Payment.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Refill.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.LoanEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Loan.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.EmployeeEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Employee.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.PurchasePM.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.FreightEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Freight.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.TruperBrowser.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.IncomeEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Income.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ExpenseEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Expense.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ImageShow.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ImageCapture.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.SalePM.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.StockPM.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Wizard.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Purchase.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.LabelsEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Labels.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MaterialEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Material.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Group.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.GroupEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MaxShop.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Measure.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MeasureEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.PM.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.PMEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Product.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ProductEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ProductMass.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Sale.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\bin\Debug\AForge.Video.DirectShow.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\bin\Debug\AForge.Video.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\bin\Debug\BarcodeLib.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\bin\Debug\PosBusiness.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\bin\Debug\PosUtilities.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\bin\Debug\tessnet2_64.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\bin\Debug\Utilities.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\bin\Debug\UtilitiesForm.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\bin\Debug\DataAccess.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\bin\Debug\MySql.Data.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\bin\Debug\PosBusiness.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\bin\Debug\PosUtilities.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\bin\Debug\UtilitiesForm.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\bin\Debug\Utilities.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\bin\Debug\tessnet2_64.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\bin\Debug\DataAccess.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.AddProduct.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.AdvancedSearch.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ChangeProductQuantity.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Brand.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.BrandEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ChangeProductPrice.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Budgetary.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Calc.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Concentrated.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Configuration.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.BarCode.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Box.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Client.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ClientEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.SelectByBarCode.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.SmartPayment.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.PmFreightEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Provider.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.SearchProducts.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.LocationEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Location.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ExpenseDetailEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ExpenseDetail.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.PaymentEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Payment.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Refill.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.LoanEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Loan.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.EmployeeEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Employee.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.PurchasePM.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.FreightEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Freight.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.TruperBrowser.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.IncomeEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Income.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ExpenseEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Expense.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ImageShow.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ImageCapture.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.SalePM.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.StockPM.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Wizard.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Purchase.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.LabelsEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Labels.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MaterialEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Material.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Group.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.GroupEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MaxShop.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Measure.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MeasureEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.PM.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.PMEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Product.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ProductEdit.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ProductMass.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Sale.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.RefillList.resources
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\bin\Debug\DotNetZip.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\WindowsFormsApplication1\bin\Debug\DotNetZip.xml

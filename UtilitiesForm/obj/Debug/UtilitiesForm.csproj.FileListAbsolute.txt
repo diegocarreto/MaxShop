@@ -1,0 +1,40 @@
+E:\domi\WindowsFormsApplication1\UtilitiesForm\bin\Debug\UtilitiesForm.dll
+E:\domi\WindowsFormsApplication1\UtilitiesForm\bin\Debug\UtilitiesForm.pdb
+E:\domi\WindowsFormsApplication1\UtilitiesForm\obj\Debug\UtilitiesForm.csprojResolveAssemblyReference.cache
+E:\domi\WindowsFormsApplication1\UtilitiesForm\obj\Debug\UtilitiesForm.dll
+E:\domi\WindowsFormsApplication1\UtilitiesForm\obj\Debug\UtilitiesForm.pdb
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\UtilitiesForm\obj\Debug\UtilitiesForm.csprojResolveAssemblyReference.cache
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\UtilitiesForm\obj\Debug\UtilitiesForm.dll
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\UtilitiesForm\bin\Debug\UtilitiesForm.dll
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\UtilitiesForm\bin\Debug\UtilitiesForm.pdb
+C:\Users\diego.ortega\Desktop\domi\WindowsFormsApplication1\UtilitiesForm\obj\Debug\UtilitiesForm.pdb
+F:\WindowsFormsApplication1\UtilitiesForm\bin\Debug\UtilitiesForm.dll
+F:\WindowsFormsApplication1\UtilitiesForm\bin\Debug\UtilitiesForm.pdb
+F:\WindowsFormsApplication1\UtilitiesForm\obj\Debug\UtilitiesForm.csprojResolveAssemblyReference.cache
+F:\WindowsFormsApplication1\UtilitiesForm\obj\Debug\UtilitiesForm.dll
+F:\WindowsFormsApplication1\UtilitiesForm\obj\Debug\UtilitiesForm.pdb
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\UtilitiesForm\bin\Debug\UtilitiesForm.dll
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\UtilitiesForm\bin\Debug\UtilitiesForm.pdb
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\UtilitiesForm\obj\Debug\UtilitiesForm.csprojResolveAssemblyReference.cache
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\UtilitiesForm\obj\Debug\UtilitiesForm.dll
+C:\Users\acer\Desktop\Nuevos proyectos\Punto de venta\UtilitiesForm\obj\Debug\UtilitiesForm.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\UtilitiesForm\bin\Debug\UtilitiesForm.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\UtilitiesForm\bin\Debug\UtilitiesForm.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\UtilitiesForm\obj\Debug\UtilitiesForm.csprojResolveAssemblyReference.cache
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\UtilitiesForm\obj\Debug\UtilitiesForm.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta\UtilitiesForm\obj\Debug\UtilitiesForm.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\UtilitiesForm\bin\Debug\UtilitiesForm.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\UtilitiesForm\bin\Debug\UtilitiesForm.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\UtilitiesForm\obj\Debug\UtilitiesForm.csprojResolveAssemblyReference.cache
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\UtilitiesForm\obj\Debug\UtilitiesForm.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 2.0\UtilitiesForm\obj\Debug\UtilitiesForm.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\UtilitiesForm\bin\Debug\UtilitiesForm.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\UtilitiesForm\bin\Debug\UtilitiesForm.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\UtilitiesForm\obj\Debug\UtilitiesForm.csprojResolveAssemblyReference.cache
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\UtilitiesForm\obj\Debug\UtilitiesForm.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 3.0\UtilitiesForm\obj\Debug\UtilitiesForm.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\UtilitiesForm\bin\Debug\UtilitiesForm.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\UtilitiesForm\bin\Debug\UtilitiesForm.pdb
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\UtilitiesForm\obj\Debug\UtilitiesForm.csprojResolveAssemblyReference.cache
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\UtilitiesForm\obj\Debug\UtilitiesForm.dll
+C:\Users\acer\Documents\Nuevos proyectos\Punto de venta Recargas 4.0\UtilitiesForm\obj\Debug\UtilitiesForm.pdb

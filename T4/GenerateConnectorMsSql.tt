@@ -1,0 +1,66 @@
+﻿<#@ template debug="true" hostspecific="true" language="C#" #>
+<#@ output extension=".cs" #>
+<#@ include file="Helper.tt" #>
+<#
+	clsHelper oHelper = new  clsHelper(this);
+
+	string strProvider = string.Empty,  
+		   pathProject = string.Empty,
+		   pathTemplate = string.Empty,
+		   strConnectionName = string.Empty,
+		   members = string.Empty,
+		   dispose = string.Empty;
+
+	WriteLine("using System;");
+	WriteLine("using System.Collections.Generic;");
+	WriteLine("using System.Linq;");
+	WriteLine("using System.Text;");
+	WriteLine("using DataAccess.MsSqlCommands;");
+	WriteLine("");
+	WriteLine("namespace DataAccess.MSSQL");
+	WriteLine("{");
+	WriteLine("	public class MsSQL : IDisposable");
+	WriteLine("	{");
+
+	foreach (clsConnectionsString oConnectionsString in oHelper.ConnectionStrings())
+	{ 
+		strProvider = oConnectionsString.strProviderName;
+		strConnectionName = oHelper.Uppercase(oConnectionsString.strConnectionName);
+
+		if(strProvider.Equals("System.Data.SqlClient"))
+		{
+			members += "		/// <summary>\r\n";
+			members += "		/// Controla la ejecucion de los procedimientos almacenados de la conexion " + strConnectionName + ".\r\n";
+			members += "		/// </summary>\r\n";
+			members += "		public DataAccess.MSSQL." + strConnectionName  + "." + strConnectionName + " " + strConnectionName + " = new DataAccess.MSSQL." + strConnectionName  + "." + strConnectionName + "();\r\n\r\n";
+		
+			dispose += "			if (this." + strConnectionName + " != null)\r\n";
+			dispose += "				this." + strConnectionName + ".Dispose();\r\n\r\n";
+		}
+	}
+
+	WriteLine("		#region Properties\r\n");
+	
+	WriteLine(members);
+
+	WriteLine("		#endregion\r\n");
+	WriteLine("		#region Methods\r\n");
+
+	WriteLine("		public void Dispose()");
+	WriteLine("		{");
+	WriteLine(dispose);
+	WriteLine("		}\r\n");
+	WriteLine("		#endregion");
+	WriteLine("	}");
+	WriteLine("}");
+
+	pathProject =  "DataAccess\\MsSql";
+
+	pathTemplate =  oHelper.GetPath("T4", pathProject) + "\\MsSql.cs";
+			
+	//Elimina el archivo
+	oHelper.DeleteOutputFile(pathTemplate);
+			
+	//Crea el archivo
+	oHelper.ProcessContent(pathTemplate,"T4", pathProject,"DataAccess");
+#>

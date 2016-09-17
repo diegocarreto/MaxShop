@@ -1,0 +1,1163 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ output extension=".txt" #>
+
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.Data.DataSetExtensions" #>
+<#@ assembly name="System.Xml" #>
+<#@ assembly name="System.Xml.Linq" #>
+<#@ assembly name="System.Web" #>
+<#@ assembly name="System.Configuration" #>
+<#@ assembly Name="EnvDTE" #>
+<#@ assembly name="$(SolutionDir)\T4\bin\Debug\MySql.Data.dll" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Data" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<#@ import namespace="System.Xml" #>
+<#@ import namespace="System.Xml.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Configuration" #>
+<#@ import namespace="System.Web.Configuration" #>
+<#@ import namespace="System.Data.Common" #>
+<#@ Import Namespace="EnvDTE" #>
+<#@ Import Namespace="MySql.Data.MySqlClient" #>
+
+<#+
+	/// <summary>
+	/// Ayuda a la generacion de codigo.
+	/// </summary>
+	public class clsHelper
+	{
+		/// <summary>
+		/// Consulta para obtener los procedimientos almacenados de la consulta indicada.
+		/// </summary>
+		private string strStoreProcedureQuery = @"SELECT 
+													  routine_name 
+												  FROM 
+													  information_schema.ROUTINES 
+												  WHERE 
+													  specific_catalog = '@specific_catalog' 
+													  AND ROUTINE_TYPE = 'PROCEDURE' 
+													  AND LAST_ALTERED > DATEADD(day, -400, GETDATE())
+					                        	  ORDER BY 
+					 								  routine_name";
+
+		/// <summary>
+		/// Consulta para obtener los procedimientos almacenados de la consulta indicada en MySql.
+		/// </summary>
+		private string strStoreProcedureQueryMySql = @"SELECT 
+															routine_name  
+													   FROM 
+															information_schema.routines 
+													   WHERE 
+															routine_type = 'PROCEDURE'  
+															AND ROUTINE_SCHEMA = '@specific_catalog'
+															AND LAST_ALTERED > DATE_ADD(CURDATE(), INTERVAL -400 DAY)  
+													   ORDER BY
+															ROUTINE_NAME";
+		
+		/// <summary>
+		/// Consulta para obtener los parametros del procedimiento almacenado indicado.
+		/// </summary>
+		private string strParametersQuery = @"SELECT 
+												   parameter_mode, 
+												   parameter_name, 
+												   data_type, 
+								                   character_maximum_length 
+					                          FROM 
+					                               information_schema.parameters  
+					                          WHERE  
+					                               specific_name = '@strRoutineName'";
+
+		/// <summary>
+		/// Consulta para obtener los parametros del procedimiento almacenado indicado en MySql.
+		/// </summary>
+		private string strParametersQueryMySql = @"SELECT 
+														CONVERT(param_list USING utf8) as param 
+                                                   FROM 
+                                                        mysql.proc 
+                                                   WHERE  
+                                                        name='@strRoutineName' 
+													    AND db = '@specific_catalog'";
+		
+		/// <summary>
+		/// Consulta para obtener las tablas.
+		/// </summary>
+		private string strMetaDataTablesQuery = @"SELECT 
+														LTRIM(RTRIM([@subjacent])) [subjacent],
+														LTRIM(RTRIM([@constant])) [constant]
+									      		  FROM 
+														[@strTableName]";
+		
+		/// <summary>
+		/// Consulta para obtener las tablas.
+		/// </summary>
+		private string strMetaDataTablesCrudQuery = @"SELECT 
+															[TABLE_NAME] 
+									      		  	  FROM 
+															Information_Schema.Tables";
+		
+		/// <summary>
+		/// Consulta para obtener las tablas.
+		/// </summary>
+		private string strMetaDataTablesColumnsCrudQuery = @"SELECT
+																 [c].[COLUMN_NAME],	
+																 [c].[DATA_TYPE],
+																 [c].[IS_NULLABLE],
+																 ISNULL([c].[CHARACTER_MAXIMUM_LENGTH],0) [CHARACTER_MAXIMUM_LENGTH],
+																 (SELECT 
+																	CASE WHEN COUNT(*) > 0 THEN 1 ELSE 0 END 
+																 FROM 
+																	SYS.FOREIGN_KEYS AS [fk] 
+																	INNER JOIN SYS.FOREIGN_KEY_COLUMNS AS [fc] ON [fk].OBJECT_ID = [fc].[constraint_object_id] 
+																 WHERE 
+																	COL_NAME([fc].[parent_object_id],[fc].[parent_column_id]) = [c].[COLUMN_NAME] 
+																	AND OBJECT_NAME([fk].[parent_object_id]) = [c].[TABLE_NAME]) [isFK],
+																 ISNULL(CASE WHEN (SELECT COLUMNPROPERTY(OBJECT_ID([c].[TABLE_NAME]),[c].[COLUMN_NAME],'IsIdentity')) = 1 AND (SELECT 
+																																													COUNT(*) 
+																																											   FROM 
+																																													INFORMATION_SCHEMA.TABLE_CONSTRAINTS T 
+																																													INNER JOIN INFORMATION_SCHEMA.KEY_COLUMN_USAGE K ON T.CONSTRAINT_NAME = K.CONSTRAINT_NAME 
+																																											   WHERE 
+																																													T.CONSTRAINT_TYPE = 'PRIMARY KEY' 
+																																													AND K.ORDINAL_POSITION = 1 
+																																													AND K.COLUMN_NAME = [c].[COLUMN_NAME] 
+																																													AND T.TABLE_NAME = [c].[TABLE_NAME]) = 1 THEN 1 END,0) [isPKIdentity], 
+																		'@' + [c].[COLUMN_NAME] + ' ' + UPPER([c].[DATA_TYPE]) 
+																		+ ISNULL(CASE WHEN [c].[CHARACTER_MAXIMUM_LENGTH] IS NOT NULL THEN 
+																					'(' + CONVERT(VARCHAR(10),[c].[CHARACTER_MAXIMUM_LENGTH]) + ')' 
+																				 END,'')
+																		+ ISNULL(CASE WHEN [c].[IS_NULLABLE] = 'YES' OR ([c].[COLUMN_DEFAULT] IS NOT NULL AND (SELECT 
+																																									COUNT(*) 
+																																							   FROM 
+																																									SYS.FOREIGN_KEYS AS [fk] 
+																																									INNER JOIN SYS.FOREIGN_KEY_COLUMNS AS [fc] ON [fk].OBJECT_ID = [fc].[constraint_object_id] 
+																																							   WHERE 
+																																									COL_NAME([fc].[parent_object_id],[fc].[parent_column_id]) = [c].[COLUMN_NAME] 
+																																									AND OBJECT_NAME([fk].[parent_object_id]) = [c].[TABLE_NAME]) = 0) THEN 
+																					' = NULL'
+																				 END ,'') [parametrosSP],
+																	    ISNULL(('@Html.DropDownListFor(m => m.' + [c].[COLUMN_NAME] + ', new SelectList(Model.lst' + (SELECT OBJECT_NAME (fk.referenced_object_id)
+																																								   FROM sys.foreign_keys fk INNER JOIN sys.foreign_key_columns AS fc ON fk.OBJECT_ID = fc.constraint_object_id 
+																																								   WHERE OBJECT_NAME(fk.parent_object_id) = [c].[TABLE_NAME] AND COL_NAME(fc.parent_object_id,fc.parent_column_id) = [c].[COLUMN_NAME]) 
+																																 + ', ""id"", ""nombre""), ""---Seleccione ' + (SELECT OBJECT_NAME (fk.referenced_object_id)
+																																												FROM sys.foreign_keys fk INNER JOIN sys.foreign_key_columns AS fc ON fk.OBJECT_ID = fc.constraint_object_id 
+																																												WHERE OBJECT_NAME(fk.parent_object_id) = [c].[TABLE_NAME] AND COL_NAME(fc.parent_object_id,fc.parent_column_id) = [c].[COLUMN_NAME]) + '---"", new { @class = ""ddl"" })'),'') AS [ddl],
+																		(SELECT OBJECT_NAME (fk.referenced_object_id)
+																		FROM sys.foreign_keys fk INNER JOIN sys.foreign_key_columns AS fc ON fk.OBJECT_ID = fc.constraint_object_id 
+																		WHERE OBJECT_NAME(fk.parent_object_id) = [c].[TABLE_NAME] AND COL_NAME(fc.parent_object_id,fc.parent_column_id) = [c].[COLUMN_NAME]) [tableRelation]
+															FROM 
+																INFORMATION_SCHEMA.COLUMNS [c]
+															WHERE 
+																[c].[TABLE_NAME] = '@strTableName' 
+															ORDER BY
+																[c].[ORDINAL_POSITION] ";
+		
+		/// <summary>
+		/// Guarda la cadena de conexion.
+		/// </summary>
+		private string strConnectionString;
+		
+		/// <summary>
+		/// Guarda la instancia de la plantilla actual.
+		/// </summary>
+		private GeneratedTextTransformation objT4;
+		
+		/// <summary>
+		/// Indica cual es la cadena de conexion en la cual se va a trabajar.
+		/// </summary>
+		/// <returns></returns>
+		public string ConnectionString
+	    {
+	        set 
+			{ 
+				strConnectionString = value;
+			}
+	    }
+		
+		/// <summary>
+		/// Constructor default.
+		/// </summary>
+		/// <param name="T4">Intancia de la plantilla actual</param>
+		public clsHelper(GeneratedTextTransformation T4)
+        {
+			this.objT4 = T4;
+        } 
+		
+		/// <summary>
+		/// Obtiene la ruta del archivo de configuracion web.
+		/// </summary>
+		/// <returns></returns>
+		public string PathWebConfig()
+	    {
+	        return this.objT4.Host.ResolvePath("") + "\\WebConnectionStrings.config";
+	    }              
+		
+		/// <summary>
+		/// Obtiene las cadenas de conexion de la aplicacion.
+		/// </summary>
+		public List<clsConnectionsString> ConnectionStrings()
+		{
+			//Carga el web cofig
+            XmlDocument xDoc = new XmlDocument();
+            xDoc.Load(this.PathWebConfig());
+			
+			//Obtiene las cadenas de conexion
+            XmlNodeList ConnectionStrings = xDoc.GetElementsByTagName("connectionStrings")[0].ChildNodes;
+
+			//Guarda las cadenas de conexion
+			List<clsConnectionsString> lConnectionsString = new List<clsConnectionsString>();
+			
+			//Configura las cadenas de conexion
+            for (int i = 0; i < ConnectionStrings.Count; i++)
+            {
+                XmlAttributeCollection xml = ConnectionStrings[i].Attributes;
+
+                DbConnectionStringBuilder dbCSB = new DbConnectionStringBuilder();
+                dbCSB.ConnectionString = xml["connectionString"].Value;
+
+                string strInitialCatalog = string.Empty;
+
+				//Apartir del provedor indica el nombre con el que se identifica a la base de datos.
+                switch (xml["providerName"].Value)
+                {
+                    case "System.Data.SqlClient":
+
+                            strInitialCatalog = dbCSB["initial catalog"].ToString();
+
+                        break;
+
+                    case "MySql.Data.MySqlClient":
+
+                        strInitialCatalog = dbCSB["Database"].ToString();
+
+                        break;
+                }
+					
+				//Agrega la cadena de conexion configurada.
+				lConnectionsString.Add(new clsConnectionsString(xml["name"].Value,
+															    strInitialCatalog,
+                                                                xml["connectionString"].Value,
+                                                                xml["providerName"].Value));
+            }
+			return lConnectionsString;   
+		}
+
+		/// <summary>
+		/// Obtiene los procedimientos almacenados de la cadena de conexion indicada.
+		/// </summary>
+		/// <param name="Provider">Indica de que proveedor es la cadena de conexion.</param>
+		/// <returns></returns>
+		public DataTable GetStoreProcedures(string strConnectionString, string Provider)
+		{
+			this.strConnectionString = strConnectionString;
+
+			if(Provider.Equals("System.Data.SqlClient"))
+            {
+				SqlConnectionStringBuilder strbConnectionString = new SqlConnectionStringBuilder(strConnectionString);
+			
+				//Indica el catalogo
+				string strStoreProcedureQuery =  this.strStoreProcedureQuery.Replace("@specific_catalog",strbConnectionString.InitialCatalog);
+			
+				using (SqlConnection conQuery = new SqlConnection(strConnectionString))
+				{
+					using (SqlCommand cmdQuery = new SqlCommand(strStoreProcedureQuery, conQuery))
+					{
+						using (SqlDataAdapter adaQuery = new SqlDataAdapter(cmdQuery))
+						{
+							using (DataTable dt = new DataTable())
+							{
+								conQuery.Open();
+								adaQuery.Fill(dt);
+								conQuery.Close();
+							
+								return dt;
+							}
+						}
+					}
+				}
+            }
+			else if(Provider.Equals("MySql.Data.MySqlClient"))
+            {
+				MySqlConnectionStringBuilder strbConnectionString = new MySqlConnectionStringBuilder(strConnectionString);
+
+				//Indica el catalogo
+				string strStoreProcedureQuery =  this.strStoreProcedureQueryMySql.Replace("@specific_catalog",strbConnectionString.Database);
+			
+				using (MySqlConnection conQuery = new MySqlConnection(strConnectionString))
+				{
+					using (MySqlCommand cmdQuery = new MySqlCommand(strStoreProcedureQuery, conQuery))
+					{
+						using (MySqlDataAdapter adaQuery = new MySqlDataAdapter(cmdQuery))
+						{
+							using (DataTable dt = new DataTable())
+							{
+								conQuery.Open();
+								adaQuery.Fill(dt);
+								conQuery.Close();
+							
+								return dt;
+							}
+						}
+					}
+				}
+            }
+			else
+            {
+				return new DataTable();
+            }
+		} 
+		
+		/// <summary>
+		/// Obtiene las tablas de la cadena de conexion indicada.
+		/// </summary>
+		/// <returns></returns>
+		public DataTable GetMetadataTables(string strConnectionString, string Subjacent, string Constant, string TableName)
+		{
+			this.strConnectionString = strConnectionString;
+
+			//Indica los datos para el enum y el nombre de la tabla
+			string strMetaDataTablesQuery =  this.strMetaDataTablesQuery.Replace("@subjacent",Subjacent)
+																		.Replace("@constant",Constant)
+																		.Replace("@strTableName",TableName);
+			
+			using (SqlConnection conQuery = new SqlConnection(strConnectionString))
+            {
+				using (SqlCommand cmdQuery = new SqlCommand(strMetaDataTablesQuery, conQuery))
+                {
+					using (SqlDataAdapter adaQuery = new SqlDataAdapter(cmdQuery))
+                    {
+						using (DataTable dt = new DataTable())
+			            {
+							conQuery.Open();
+							adaQuery.Fill(dt);
+							conQuery.Close();
+							
+							return dt;
+						}
+					}
+				}
+			}
+		} 
+		
+		/// <summary>
+		/// Obtiene las tablas de la cadena de conexion indicada.
+		/// </summary>
+		/// <returns></returns>
+		public DataTable GetMetadataCRUD(string strConnectionString)
+		{
+			this.strConnectionString = strConnectionString;
+			
+			using (SqlConnection conQuery = new SqlConnection(strConnectionString))
+            {
+				using (SqlCommand cmdQuery = new SqlCommand(strMetaDataTablesCrudQuery, conQuery))
+                {
+					using (SqlDataAdapter adaQuery = new SqlDataAdapter(cmdQuery))
+                    {
+						using (DataTable dt = new DataTable())
+			            {
+							conQuery.Open();
+							adaQuery.Fill(dt);
+							conQuery.Close();
+							
+							return dt;
+						}
+					}
+				}
+			}
+		} 
+
+		/// <summary>
+		/// Obtiene las columnas de la tabla indicada.
+		/// </summary>
+		/// <returns></returns>
+		public DataTable GetMetadataColumnsCRUD(string TableName)
+		{
+			string strMetaDataTablesColumnsCrudQuery =  this.strMetaDataTablesColumnsCrudQuery.Replace("@strTableName",TableName);
+
+			using (SqlConnection conQuery = new SqlConnection(this.strConnectionString))
+            {
+				using (SqlCommand cmdQuery = new SqlCommand(strMetaDataTablesColumnsCrudQuery, conQuery))
+                {
+					using (SqlDataAdapter adaQuery = new SqlDataAdapter(cmdQuery))
+                    {
+						using (DataTable dt = new DataTable())
+			            {
+							conQuery.Open();
+							adaQuery.Fill(dt);
+							conQuery.Close();
+							
+							return dt;
+						}
+					}
+				}
+			}
+		}
+		
+		/// <summary>
+		/// Obtiene los parametros de la cadena del sp indicado.
+		/// </summary>
+		/// <returns></returns>
+		public DataTable GetParameters(string StoreProcedureName, string Provider, string DataBaseName)
+		{
+			if(Provider.Equals("System.Data.SqlClient"))
+            {
+				//Indica el catalogo
+				string strParametersQuery =  this.strParametersQuery.Replace("@strRoutineName",StoreProcedureName);
+			
+				using (SqlConnection conQuery = new SqlConnection(this.strConnectionString))
+				{
+					using (SqlCommand cmdQuery = new SqlCommand(strParametersQuery, conQuery))
+					{
+						using (SqlDataAdapter adaQuery = new SqlDataAdapter(cmdQuery))
+						{
+							using (DataTable dt = new DataTable())
+							{
+								conQuery.Open();
+								adaQuery.Fill(dt);
+								conQuery.Close();
+							
+								return dt;
+							}
+						}
+					}
+				}
+			}
+			else if(Provider.Equals("MySql.Data.MySqlClient"))
+            {
+				//Indica el catalogo  
+				string strParametersQuery =  this.strParametersQueryMySql.Replace("@strRoutineName",StoreProcedureName).Replace("@specific_catalog", DataBaseName);
+			
+				using (MySqlConnection conQuery = new MySqlConnection(this.strConnectionString))
+				{
+					using (MySqlCommand cmdQuery = new MySqlCommand(strParametersQuery, conQuery))
+					{
+						cmdQuery.CommandType = System.Data.CommandType.Text;
+
+						conQuery.Open();
+						string columns = cmdQuery.ExecuteScalar().ToString();
+						conQuery.Close();	
+
+						 columns = Regex.Replace(columns, @"\s+", " ");
+
+						//Quita la indicacion de que es un parametro de entrada y el salto de linea
+						 columns = columns.Trim().Replace("IN ", String.Empty)
+                                               .Replace("in ", String.Empty)
+                                               .Replace("In ", String.Empty)
+                                               .Replace("iN ", String.Empty)
+                                               .Replace("OUT ", String.Empty)
+                                               .Replace("out ", String.Empty)
+                                               .Replace("Out ", String.Empty)
+                                               .Replace("oUt ", String.Empty)
+                                               .Replace("ouT ", String.Empty)
+                                               .Replace("OUt ", String.Empty)
+                                               .Replace("oUT ", String.Empty)
+                                               .Replace("OuT ", String.Empty)
+                                               .Replace("\n", String.Empty)
+                                               .Replace("\t", " ")
+                                               .Replace("`", String.Empty)
+                                               .Replace("UNSIGNED", String.Empty)
+                                               .Replace("unsigned", String.Empty);
+
+						if(columns != "")
+                        {
+							//Lista para guardar los parametros
+							DataTable dt = new DataTable();
+
+							//Crea un array con los parametros
+							string[] sColums = columns.Split(',');
+
+							dt.Columns.Add("parameter_name");
+							dt.Columns.Add("data_type");
+							dt.Columns.Add("character_maximum_length");
+
+							for (int i = 0; i < sColums.Length; i++)
+							{
+								try
+								{
+
+									//Quita los espacios vacios
+									sColums[i] = sColums[i].Trim();
+
+									string name = sColums[i].Split(' ')[0];
+									string type = sColums[i].Split(' ')[1];
+
+									int? size = null;
+
+									//Si el tipo tiene un tamanio lo obtiene
+									if (type.Contains('('))
+									{
+										int preSize = 0;
+
+										//Obtiene el tamanio
+										if (int.TryParse(type.Split('(')[1].Replace(")", String.Empty), out preSize))
+											size = preSize;
+
+										//Quita el tamanio del tipo
+										type = type.Split('(')[0].Trim();
+									}
+
+									DataRow row = dt.NewRow();
+
+									row["parameter_name"] = name;
+									row["data_type"] = type;
+									row["character_maximum_length"] = size;
+
+									dt.Rows.Add(row);
+								}
+								catch
+								{
+								}
+							}
+
+							return dt;
+                        }
+						else
+							return new DataTable();
+					}
+				}
+            }
+			else
+            {
+				return new DataTable();
+            }
+		}
+		
+		/// <summary>
+		///  Ejecuta el contenido agregado.
+		/// </summary>
+		public void ExecuteContent(string strQuery)
+		{
+			using (SqlConnection conQuery = new SqlConnection(this.strConnectionString))
+            {
+				using (SqlCommand cmdQuery = new SqlCommand(strQuery, conQuery))
+                {
+					conQuery.Open();
+					cmdQuery.ExecuteNonQuery();
+					conQuery.Close();
+				}
+			}
+		}
+				
+		/// <summary>
+		/// Convierte la primera letra de cada palabra en Mayusculas.
+		/// </summary>
+		/// <param name="texto">Cadena a convertir</param>
+		/// <returns></returns>
+		public string Uppercase(string texto)
+	    {
+			texto = texto.ToLower();
+
+			texto = texto.Replace("_"," ").Replace("-","").Replace(".","");
+
+	        char[] arreglo = texto.ToCharArray();
+
+	        // Primer letra del texto.
+	        if (arreglo.Length >= 1)
+	        {
+	            if (char.IsLower(arreglo[0]))
+	            {
+	                arreglo[0] = char.ToUpper(arreglo[0]);
+	            }
+	        }
+
+	        // Buscar espacios y reemplazar por mayusculas despues de un espacio.
+	        for (int i = 1; i < arreglo.Length; i++)
+	        {
+	            if (arreglo[i - 1] == ' ')
+	            {
+	                if (char.IsLower(arreglo[i]))
+	                {
+	                    arreglo[i] = char.ToUpper(arreglo[i]);
+	                }
+	            }
+	        }
+
+			texto = new string(arreglo); 
+
+			texto = texto.Trim().Replace(" ","");
+
+	        return texto;
+	    }
+		
+		public string TypeSql(string strDataType, string Provider)
+		{
+			if(Provider.Equals("System.Data.SqlClient"))
+            {
+				switch (strDataType.ToUpper())
+				{
+					case "TABLE TYPE":
+						return "SqlDbType.Structured";
+
+					case "BIGINT":
+						return "SqlDbType.BigInt";
+
+					case "BINARY":
+						return "SqlDbType.Binary";
+
+					case "BIT":
+						return "SqlDbType.Bit";
+
+					case "CHAR":
+						return "SqlDbType.Char";
+
+					case "DATETIME":
+						return "SqlDbType.DateTime";
+
+					case "DECIMAL":
+						return "SqlDbType.Decimal";
+
+					case "FLOAT":
+						return "SqlDbType.Float";
+
+					case "IMAGE":
+						return "SqlDbType.Image";
+
+					case "INT":
+						return "SqlDbType.Int";
+
+					case "MONEY":
+						return "SqlDbType.Money";
+
+					case "NCHAR":
+						return "SqlDbType.NChar";
+
+					case "NTEXT":
+						return "SqlDbType.NText";
+
+					case "NVARCHAR":
+						return "SqlDbType.NVarChar";
+
+					case "REAL":
+						return "SqlDbType.Real";
+
+					case "UNIQUEIDENTIFIER":
+						return "SqlDbType.UniqueIdentifier";
+
+					case "SMALLDATETIME":
+						return "SqlDbType.SmallDateTime";
+
+					case "SMALLINT":
+						return "SqlDbType.SmallInt";
+
+					case "SMALLMONEY":
+						return "SqlDbType.SmallMoney";
+
+					case "TEXT":
+						return "SqlDbType.Text";
+
+					case "TIMESTAMP":
+						return "SqlDbType.Timestamp";
+
+					case "TINYINT":
+						return "SqlDbType.TinyInt";
+
+					case "VARBINARY":
+						return "SqlDbType.VarBinary";
+
+					case "VARCHAR":
+						return "SqlDbType.VarChar";
+
+					case "VARIANT":
+						return "SqlDbType.Variant";
+
+					case "XML":
+						return "SqlDbType.Xml";
+
+					case "UDT":
+						return "SqlDbType.Udt";
+
+					case "STRUCTURED":
+						return "SqlDbType.Structured";
+
+					case "DATE":
+						return "SqlDbType.Date";
+
+					case "TIME":
+						return "SqlDbType.Time";
+
+					case "DATETIME2":
+						return "SqlDbType.DateTime2";
+
+					case "DATETIMEOFFSET":
+						return "SqlDbType.DateTimeOffset";
+					
+					default:
+						return "SqlDbType.VarChar";
+				}
+            }
+			else if(Provider.Equals("MySql.Data.MySqlClient"))
+            {
+				switch (strDataType.ToUpper())
+				{
+					case "BINARY":
+						return "MySqlDbType.Binary";
+
+					case "BIT":
+						return "MySqlDbType.Bit";
+
+					case "BLOB":
+						return "MySqlDbType.Blob";
+
+					case "BYTE":
+						return "MySqlDbType.Byte";
+
+					case "DATE":
+						return "MySqlDbType.Date";
+
+					case "DATETIME":
+						return "MySqlDbType.DateTime";
+
+					case "DECIMAL":
+						return "MySqlDbType.Decimal";
+
+					case "DOUBLE":
+						return "MySqlDbType.Double";
+
+					case "ENUM":
+						return "MySqlDbType.Enum";
+
+					case "FLOAT":
+						return "MySqlDbType.Float";
+
+					case "GEOMETRY":
+						return "MySqlDbType.Geometry";
+
+					case "GUID":
+						return "MySqlDbType.Guid";
+
+					case "INT16":
+						return "MySqlDbType.Int16";
+
+					case "INT24":
+						return "MySqlDbType.Int24";
+
+					case "INT32":
+						return "MySqlDbType.Int32";
+
+					case "BIGINT":
+					case "INT64":
+						return "MySqlDbType.Int64";
+
+					case "LONGBLOB":
+						return "MySqlDbType.LongBlob";
+
+					case "LONGTEXT":
+						return "MySqlDbType.LongText";
+
+					case "MEDIUMBLOB":
+						return "MySqlDbType.MediumBlob";
+
+					case "MEDIUMTEXT":
+						return "MySqlDbType.MediumText";
+
+					case "NEWDATE":
+						return "MySqlDbType.Newdate";
+
+					case "NEWDECIMAL":
+						return "MySqlDbType.NewDecimal";
+
+					case "SET":
+						return "MySqlDbType.Set";
+
+					case "STRING":
+						return "MySqlDbType.String";
+
+					case "TEXT":
+						return "MySqlDbType.Text";
+
+					case "TIME":
+						return "MySqlDbType.Time";
+
+					case "TIMESTAMP":
+						return "MySqlDbType.Timestamp";
+
+					case "TINYBLOB":
+						return "MySqlDbType.TinyBlob";
+
+					case "TINYTEXT":
+						return "MySqlDbType.TinyText";
+
+					case "UBYTE":
+						return "MySqlDbType.UByte";
+
+					case "UINT16":
+						return "MySqlDbType.UInt16";
+
+					case "UINT24":
+						return "MySqlDbType.UInt24";
+
+					case "UINT32":
+						return "MySqlDbType.UInt32";
+
+					case "UINT64":
+						return "MySqlDbType.UInt64";
+
+					case "VARBINARY":
+						return "MySqlDbType.VarBinary";
+
+					case "VARCHAR":
+						return "MySqlDbType.VarChar";
+
+					case "VARSTRING":
+						return "MySqlDbType.VarString";
+
+					case "YEAR":
+						return "MySqlDbType.Year";
+
+					default:
+						return "MySqlDbType.VarChar";
+				}
+            }
+			else 
+				return  "";
+        }
+		
+		public string TypedCSharp(string strDataType)
+        {
+            switch (strDataType.ToUpper())
+            {
+				case "TABLE TYPE":
+					return "DataTable";
+
+                case "BIGINT":
+				case "INT":
+				case "SMALLINT":
+				case "TINYINT":
+					//return "Int32";
+					// return "Int16"; 
+					//return "Byte";
+					return "int?";
+
+				case "CHAR":
+				case "NCHAR":
+				case "NTEXT":
+                case "NVARCHAR":
+				case "TEXT":
+				case "VARCHAR":
+				case "XML":
+                    return "String";
+
+				case "DATE":
+                case "TIME":
+                case "DATETIME2":
+                case "DATETIMEOFFSET":
+				case "DATETIME":
+                case "SMALLDATETIME":
+                    return "DateTime?";
+
+				case "BINARY":
+				case "IMAGE":
+                case "VARBINARY":
+                    return "Byte[]";
+
+                case "DECIMAL":
+                case "SMALLMONEY":
+                case "MONEY":
+                    return "Decimal?";
+
+                case "REAL":
+                    return "Single";
+
+                case "UNIQUEIDENTIFIER":
+                    return "Guid";
+
+                case "TIMESTAMP":
+                    return "TimeSpan";
+
+				case "BIT":
+                    return "Boolean?";
+
+                case "FLOAT":
+                    return "Double?";
+
+                case "VARIANT":
+                case "UDT":
+                case "STRUCTURED":
+                default:
+                    return "Object";
+            }
+		}
+
+		public string HelperMVC(string ColumnName, string DataType, int Length, String Helper)
+		{
+			string helper = String.Empty;
+			string attributes = String.Empty;
+			string extra =  String.Empty;
+
+			if(!String.IsNullOrEmpty(Helper))
+				return Helper;
+
+			switch (DataType.ToUpper())
+            {
+                case "BIGINT":
+				case "INT":
+				case "SMALLINT":
+				case "TINYINT":
+
+					helper = "TextBoxFor";
+					attributes = ", new { @class = \"inputInt spinner\", @maxlength = \"7\", @title = \"Proporcione " + this.Uppercase(ColumnName) + "\" }";
+					
+					break;
+
+				case "CHAR":
+				case "NCHAR":
+				case "NTEXT":
+                case "NVARCHAR":
+				case "TEXT":
+				case "VARCHAR":
+				case "XML":
+                    
+					if(Length < 79)
+                    {
+						helper = "TextBoxFor";
+						attributes = ", new { @class = \"txtSingle\", @maxlength = \"" + Length + "\", @title = \"Proporcione " + this.Uppercase(ColumnName) + "\"}";
+                    }
+					else
+                    {
+						helper = "TextAreaFor";
+
+						string clase = string.Empty;
+
+						if(Length < 150)
+							clase = "txtAreaShort"; 
+                        else
+							clase = "txtArea"; 
+
+						attributes = ", new { @class = \"" + clase + "\", @maxlength = \"" + Length + "\", @onKeyUp=\"MaxLength(this," + Length + ")\", @title = \"Proporcione " + this.Uppercase(ColumnName) + "\"}";
+
+						extra = "\r\n\t\t\t\t<br /><input size=1 readonly=\"readonly\" title = \"Caracteres restantes para " + this.Uppercase(ColumnName) + "\" value=\"" + Length + "\" id=\"cl" + ColumnName + "\"> Caracteres restantes";
+					}
+
+					break;
+
+				case "DATE":
+                case "TIME":
+                case "DATETIME2":
+                case "DATETIMEOFFSET":
+				case "DATETIME":
+                case "SMALLDATETIME":
+                    
+					helper = "TextBoxFor";
+					attributes = ", new { @class = \"inputDate\", @maxlength = \"10\", @title = \"Proporcione " + this.Uppercase(ColumnName) + "\" }";
+
+					break;
+
+				case "BINARY":
+				case "IMAGE":
+                case "VARBINARY":
+
+                    helper = "EditorFor";
+					break;
+
+                case "DECIMAL":
+                case "SMALLMONEY":
+                case "MONEY":
+
+                    helper = "EditorFor";
+					break;
+
+                case "REAL":
+
+                    helper = "EditorFor";
+					break;
+
+                case "UNIQUEIDENTIFIER":
+                    
+                    helper = "EditorFor";
+					break;
+
+                case "TIMESTAMP":
+                    
+                    helper = "EditorFor";
+					break;
+
+				case "BIT":
+                    
+					helper = "CheckBoxFor";
+
+					break;
+
+                case "FLOAT":
+                    
+                    helper = "EditorFor";
+					break;
+
+                case "VARIANT":
+                case "UDT":
+                case "STRUCTURED":
+                default:
+                    
+                    helper = "EditorFor";
+					break;
+            }
+
+			return "@Html." + helper + "(m => m." + ColumnName + attributes + ")" + extra;
+		}
+
+		/// <summary>
+		/// Crea un archivo con el contenido agregado.
+		/// </summary>
+		/// <param name="OutputFileName">Nombre del archivo.</param>
+		/// <param name="Content">Contenido del archivo.</param>
+		/// <param name="ReplaceSource">Cadena a que se va a reemplazar.</param>
+		/// <param name="ReplaceDestination">Cadena por la que se va a reemplazar.</param>
+		/// <param name="ProjectNumber">Numero de projecto.</param>
+		public void ProcessContent(string OutputFileName, string ReplaceSource = "", string ReplaceDestination = "", string ProjectName = "")
+	    {
+			string templateDirectory = GetPath(ReplaceSource,ReplaceDestination);
+	        string outputFilePath = Path.Combine(templateDirectory, OutputFileName);
+			
+	        File.WriteAllText(outputFilePath, this.objT4.GenerationEnvironment.ToString().Trim());
+
+			GetProject(ProjectName).ProjectItems.AddFromFile(outputFilePath);
+
+			this.objT4.GenerationEnvironment.Remove(0, this.objT4.GenerationEnvironment.Length);
+	    }
+		
+		/// <summary>
+		/// Elimina los archivos de una carpeta o un archivo en especifico.
+		/// </summary>
+		/// <param name="name">Nombre del archivo.</param>
+		/// <param name="ReplaceSource">Cadena a que se va a reemplazar.</param>
+		/// <param name="ReplaceDestination">Cadena por la que se va a reemplazar.</param>
+		public void  DeleteOutputFile(string name = "", string ReplaceSource = "", string ReplaceDestination = "")
+		{
+			string templateDirectory = GetPath(ReplaceSource,ReplaceDestination);
+						
+			IServiceProvider hostServiceProvider = (IServiceProvider)this.objT4.Host;
+		    EnvDTE.DTE dte = (EnvDTE.DTE)hostServiceProvider.GetService(typeof(EnvDTE.DTE));
+			
+			if(string.IsNullOrEmpty(name))
+			{
+				foreach(string file in Directory.GetFiles(templateDirectory,"*.cs"))
+	            {
+					ProjectItem containingProjectItem = dte.Solution.FindProjectItem(file);
+		            containingProjectItem.Remove();
+					
+	                File.Delete(file);
+	            }
+			}
+			else
+			{
+				if(File.Exists(templateDirectory  + "//" + name))
+				{
+					ProjectItem containingProjectItem = dte.Solution.FindProjectItem(name);
+		        	containingProjectItem.Remove();
+					
+	            	File.Delete(templateDirectory  + "//" + name);
+				}
+			}
+		}
+		
+
+		public void CreateDirectory(string OutputFileName, string ReplaceSource = "", string ReplaceDestination = "", string ProjectName = "")
+	    {
+			string templateDirectory = GetPath(ReplaceSource,ReplaceDestination);
+	        string outputFilePath = Path.Combine(templateDirectory, OutputFileName);
+
+			//Si la carpeta no existe la crea. La carpeta no se agrega a la solucion hasta que se agregan los archivos
+			if(!Directory.Exists(outputFilePath))
+				Directory.CreateDirectory(outputFilePath);
+	    }
+
+
+		/// <summary>
+		/// Obtiene el path de la platilla.
+		/// </summary>
+		/// <param name="ReplaceSource">Cadena a que se va a reemplazar.</param>
+		/// <param name="ReplaceDestination">Cadena por la que se va a reemplazar.</param>
+		public string GetPath(string ReplaceSource = "", string ReplaceDestination = "")
+		{
+			string templateDirectory = String.Empty;
+			
+			if(!String.IsNullOrEmpty(ReplaceSource) && !String.IsNullOrEmpty(ReplaceDestination))
+				templateDirectory =  Path.GetDirectoryName(this.objT4.Host.TemplateFile).Replace(ReplaceSource,ReplaceDestination);
+			else
+				templateDirectory =  Path.GetDirectoryName(this.objT4.Host.TemplateFile);
+		
+			return templateDirectory;
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
+		private Project GetProject(string ProjectName = "")
+		{
+			IServiceProvider hostServiceProvider = (IServiceProvider)this.objT4.Host;
+	        EnvDTE.DTE dte = (EnvDTE.DTE)hostServiceProvider.GetService(typeof(EnvDTE.DTE));
+
+			if(ProjectName != "")
+			{
+				int i = dte.Solution.Projects.Count;
+
+				foreach (Project p in dte.Solution.Projects)
+                {
+                     if(ProjectName == p.Name)
+					 {
+						return p;
+					 }
+                }
+
+				return null;
+			}
+			else
+				return (Project)dte.Solution.FindProjectItem(this.objT4.Host.TemplateFile);
+		}
+	}
+	
+	/// <summary>
+	/// Guarda las cadenas de conexion.
+	/// </summary>
+	public class clsConnectionsString
+    {
+        #region Properties
+
+		/// <summary>
+        /// Nombre de la cadena de conexion.
+        /// </summary>
+        public string strConnectionName { get; private set; }
+
+        /// <summary>
+        /// Nombre de la base de datos.
+        /// </summary>
+        public string strDataBaseName { get; private set; }
+
+        /// <summary>
+        /// Cadena de conexion.
+        /// </summary>
+        public string strConnectionString { get; private set; }
+
+        /// <summary>
+        /// Proveedor.
+        /// </summary>
+        public string strProviderName { get; private set; }
+
+        #endregion
+
+        #region Builder
+
+        /// <summary>
+        /// Constructor para insertar la informacion de las cadenas de conexion.
+        /// </summary>
+		/// <param name="strConnectionName">Nombre de la conexion.</param>
+        /// <param name="strDataBaseName">Nombre de la base de datos.</param>
+        /// <param name="strConnectionString">Cadena de conexion.</param>
+        /// <param name="strProviderName">Proveedor</param>
+        public clsConnectionsString(string strConnectionName,string strDataBaseName, string strConnectionString, string strProviderName)
+        {
+			this.strConnectionName = strConnectionName;
+            this.strDataBaseName = strDataBaseName;
+            this.strConnectionString = strConnectionString;
+            this.strProviderName = strProviderName;
+        }
+		
+        #endregion
+    }
+#>

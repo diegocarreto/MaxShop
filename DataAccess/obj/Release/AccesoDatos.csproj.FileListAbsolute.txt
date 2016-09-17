@@ -1,0 +1,11 @@
+D:\codigo fuente\Winbits 2\AccesoDatos\bin\Release\AccesoDatos.dll.config
+D:\codigo fuente\Winbits 2\AccesoDatos\bin\Release\AccesoDatos.dll
+D:\codigo fuente\Winbits 2\AccesoDatos\bin\Release\AccesoDatos.pdb
+D:\codigo fuente\Winbits 2\AccesoDatos\bin\Release\MongoDB.Bson.dll
+D:\codigo fuente\Winbits 2\AccesoDatos\bin\Release\MongoDB.Driver.dll
+D:\codigo fuente\Winbits 2\AccesoDatos\bin\Release\MySql.Data.dll
+D:\codigo fuente\Winbits 2\AccesoDatos\bin\Release\MongoDB.Bson.xml
+D:\codigo fuente\Winbits 2\AccesoDatos\bin\Release\MongoDB.Driver.xml
+D:\codigo fuente\Winbits 2\AccesoDatos\obj\Release\AccesoDatos.csprojResolveAssemblyReference.cache
+D:\codigo fuente\Winbits 2\AccesoDatos\obj\Release\AccesoDatos.dll
+D:\codigo fuente\Winbits 2\AccesoDatos\obj\Release\AccesoDatos.pdb
