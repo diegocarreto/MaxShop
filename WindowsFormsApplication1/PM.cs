@@ -175,6 +175,7 @@ namespace WindowsFormsApplication1
         {
             this.ScrollPosition = 0;
 
+
             this.FillGridView();
         }
 
