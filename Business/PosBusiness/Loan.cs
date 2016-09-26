@@ -37,6 +37,11 @@ namespace PosBusiness
         /// </summary>
         public DateTime? Date { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Detail { get; set; }
+
         #endregion
 
         #region Builder
@@ -64,6 +69,7 @@ namespace PosBusiness
                 this.Name = loan.Name;
                 this.Active = loan.Active;
                 this.PaymentTotal = loan.PaymentTotal;
+                this.Detail = loan.Detail;
 
                 return true;
             }
@@ -94,11 +100,11 @@ namespace PosBusiness
             {
                 if (this.Id.HasValue)
                 {
-                    this.AccessMsSql.Pos.Updateloan.ExeScalar<int>(this.Id, this.IdEmployee, this.Amount, this.Date);
+                    this.AccessMsSql.Pos.Updateloan.ExeScalar<int>(this.Id, this.IdEmployee, this.Amount, this.Date, this.Detail);
                 }
                 else
                 {
-                    this.Id = this.AccessMsSql.Pos.Addloan.ExeScalar<int>(this.IdEmployee, this.Amount, this.Date);
+                    this.Id = this.AccessMsSql.Pos.Addloan.ExeScalar<int>(this.IdEmployee, this.Amount, this.Date, this.Detail);
                 }
 
                 return true;

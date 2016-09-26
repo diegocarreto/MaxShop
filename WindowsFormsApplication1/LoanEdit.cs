@@ -55,10 +55,15 @@ namespace WindowsFormsApplication1
             {
                 if (!string.IsNullOrEmpty(this.txtAmount.Text))
                 {
-                    this.Save();
+                    if (!string.IsNullOrEmpty(this.txtDetail.Text))
+                    {
+                        this.Save();
+                    }
+                    else
+                        this.Alert("Debe indicar el detalle del préstamo");
                 }
                 else
-                    this.Alert("Debe indicar el monto del prestamo");
+                    this.Alert("Debe indicar el monto del préstamo");
             }
             else
                 this.Alert("Debe indicar el empleado");
@@ -92,6 +97,8 @@ namespace WindowsFormsApplication1
                 this.dtpDate.Value = Entity.Date.Value;
 
                 this.txtAmount.Text = String.Format("{0:0.00}", Entity.Amount);
+
+                this.txtDetail.Text = Entity.Detail;
             }
         }
 
@@ -101,8 +108,9 @@ namespace WindowsFormsApplication1
             {
                 Amount = decimal.Parse(this.txtAmount.Text),
                 IdEmployee = int.Parse(this.cmbEmployee.SelectedValue.ToString()),
-                Date= dtpDate.Value,
-                Id = this.Id
+                Date = dtpDate.Value,
+                Id = this.Id,
+                Detail = txtDetail.Text
             })
             {
                 Entity.Save();

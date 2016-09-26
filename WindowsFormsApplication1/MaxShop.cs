@@ -393,6 +393,8 @@ namespace WindowsFormsApplication1
             this.mnCatalogosPM.ShortcutKeys = Keys.Alt | Keys.P;
             this.toolStripMenuItem12.ShortcutKeys = Keys.Alt | Keys.R;
             this.ventasToolStripMenuItem.ShortcutKeys = Keys.Alt | Keys.V;
+
+            this.OpenSale();
         }
 
         private void gastosToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -574,11 +576,7 @@ namespace WindowsFormsApplication1
 
         private void ventasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Sale = ShowOrActiveForm(Sale, typeof(Sale)) as Sale;
-            Sale mySale = new Sale();
-
-            mySale.MdiParent = this;
-            mySale.Show();
+            this.OpenSale();
         }
 
         private void cotizaciónToolStripMenuItem_Click(object sender, EventArgs e)
@@ -589,6 +587,14 @@ namespace WindowsFormsApplication1
         #endregion
 
         #region Methods
+
+        public void OpenSale()
+        {
+            Sale mySale = new Sale();
+
+            mySale.MdiParent = this;
+            mySale.Show();
+        }
 
         private void SetConfig(string key, string value)
         {

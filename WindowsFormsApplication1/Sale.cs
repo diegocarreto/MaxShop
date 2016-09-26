@@ -708,8 +708,8 @@ namespace WindowsFormsApplication1
             {
                 if (!string.IsNullOrEmpty(txtPago.Text) && double.Parse(txtPago.Text) > 0)
                 {
-                    if (double.Parse(this.txtPago.Text) - double.Parse(txtTotal.Text) >= 0)
-                    {
+                    //if (double.Parse(this.txtPago.Text) - double.Parse(txtTotal.Text) >= 0)
+                    //{
                         if (this.Confirm("¿Deseas realizar la venta?"))
                         {
                             using (posb.Sale sale = new posb.Sale())
@@ -762,16 +762,16 @@ namespace WindowsFormsApplication1
                                 }
                             }
                         }
-                    }
-                    else
-                    {
-                        this.Alert("El monto pagado no puede ser menor al monto total.");
+                    //}
+                    //else                                                                                           
+                    //{
+                    //    this.Alert("El monto pagado no puede ser menor al monto total.");
 
-                        this.txtPago.Text = "0.00";
-                        this.txtCambio.Text = "0.00";
+                    //    this.txtPago.Text = "0.00";
+                    //    this.txtCambio.Text = "0.00";
 
-                        this.txtPago.Focus();
-                    }
+                    //    this.txtPago.Focus();
+                    //}
                 }
                 else
                 {
@@ -1202,8 +1202,11 @@ namespace WindowsFormsApplication1
                      f08 = new Font(font, 08),
                      f04 = new Font(font, 04);
 
+                string tipoPago = "Pago hecho en una sola exhibición";
+
                 double total = (double)List.Sum(item => item.Price),
                        cambio = Cash - total,
+                       porPagar = 0,
                        iva = total * 0.16,
                        subTotal = total - iva;
 
@@ -1221,13 +1224,6 @@ namespace WindowsFormsApplication1
                     e1.Graphics.DrawString(ticket.TicketAddress1, f09, brush, 10, 45);
                     e1.Graphics.DrawString(ticket.TicketAddress2, f09, brush, 10, 60);
                     e1.Graphics.DrawString("Tel. " + ticket.TicketPhoneNumber, f09, brush, 10, 75);
-
-
-                    //e1.Graphics.DrawString(this.AppSet<string>("ShopName").Replace("°", " "), f14, brush, 10, 20);
-                    //e1.Graphics.DrawString(this.AppSet<string>("TicketAddress1"), f09, brush, 10, 45);
-                    //e1.Graphics.DrawString(this.AppSet<string>("TicketAddress2"), f09, brush, 10, 60);
-                    //e1.Graphics.DrawString("Tel. " + this.AppSet<string>("TicketPhoneNumber"), f09, brush, 10, 75);
-
                 }
 
                 var extra = "  ";
@@ -1288,7 +1284,13 @@ namespace WindowsFormsApplication1
                 e1.Graphics.DrawString("Total:", new Font("Times New Roman", 10), brush, 150, newX + 20);
                 e1.Graphics.DrawString("Efectivo:", new Font("Times New Roman", 10), brush, 150, newX + 40);
                 e1.Graphics.DrawString("Cambio:", new Font("Times New Roman", 10), brush, 150, newX + 60);
-                e1.Graphics.DrawString("IVA:", new Font("Times New Roman", 10), brush, 150, newX + 90);
+
+                if (cambio < 0)
+                {
+                    e1.Graphics.DrawString("Por pagar:", new Font("Times New Roman", 10), brush, 150, newX + 80);
+                }
+
+                e1.Graphics.DrawString("IVA:", new Font("Times New Roman", 10), brush, 150, newX + 105);
 
                 var valueXTotal = this.StartXPosition(total, 260);
                 e1.Graphics.DrawString(String.Format("{0:0.00}", total), f10, brush, valueXTotal, newX + 20);
@@ -1296,11 +1298,23 @@ namespace WindowsFormsApplication1
                 var valueXCash = this.StartXPosition(Cash, 260);
                 e1.Graphics.DrawString(String.Format("{0:0.00}", Cash), f10, brush, valueXCash, newX + 40);
 
+                if (cambio < 0)
+                {
+                    porPagar = cambio * -1;
+
+                    var valueXPorPagar = this.StartXPosition(porPagar, 260);
+                    e1.Graphics.DrawString(String.Format("{0:0.00}", porPagar), f10, brush, valueXPorPagar, newX + 80);
+
+                    cambio = 0;
+
+                    tipoPago = "Pago realizado en parcialidades";
+                }
+
                 var valueXCambio = this.StartXPosition(cambio, 260);
                 e1.Graphics.DrawString(String.Format("{0:0.00}", cambio), f10, brush, valueXCambio, newX + 60);
 
                 var valueXIva = this.StartXPosition(iva, 260);
-                e1.Graphics.DrawString(String.Format("{0:0.00}", iva), f10, brush, valueXIva, newX + 90);
+                e1.Graphics.DrawString(String.Format("{0:0.00}", iva), f10, brush, valueXIva, newX + 105);
 
                 e1.Graphics.DrawString(ChashLetter, f08, brush, 10, newX + 120);
                 e1.Graphics.DrawString("# Arts. vendidos " + numberOfProducts.ToString(), f08, brush, 10, newX + 135);
@@ -1310,9 +1324,8 @@ namespace WindowsFormsApplication1
                     e1.Graphics.DrawString("Reimpresión", f08, brush, 150, newX + 135);
                 }
 
-
                 e1.Graphics.DrawString("==================================", f10, brush, 10, newX + 150);
-                e1.Graphics.DrawString("Pago hecho en una sola exhibición", f10, brush, 10, newX + 170);
+                e1.Graphics.DrawString(tipoPago, f10, brush, 10, newX + 170);
                 e1.Graphics.DrawString("Tipo de pago: " + PaymentType, f10, brush, 10, newX + 185);
                 e1.Graphics.DrawString("Sucursal: " + this.AppSet<string>("branchOffice"), f10, brush, 10, newX + 200);
                 e1.Graphics.DrawString("Caja: " + this.AppSet<string>("CashRegister"), f10, brush, 170, newX + 200);

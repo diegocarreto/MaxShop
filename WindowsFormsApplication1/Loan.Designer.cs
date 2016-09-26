@@ -29,21 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Loan));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnExit = new System.Windows.Forms.Button();
             this.txtFind = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.gvList = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Balance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bntFind = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.cmbEmployee = new System.Windows.Forms.ComboBox();
@@ -61,6 +55,13 @@
             this.dtpDate1 = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Balance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gvList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,7 +71,7 @@
             this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExit.Location = new System.Drawing.Point(840, 466);
+            this.btnExit.Location = new System.Drawing.Point(1079, 462);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 25);
             this.btnExit.TabIndex = 28;
@@ -83,7 +84,7 @@
             this.txtFind.Location = new System.Drawing.Point(81, 13);
             this.txtFind.MaxLength = 100;
             this.txtFind.Name = "txtFind";
-            this.txtFind.Size = new System.Drawing.Size(834, 20);
+            this.txtFind.Size = new System.Drawing.Size(1073, 20);
             this.txtFind.TabIndex = 30;
             this.txtFind.TextChanged += new System.EventHandler(this.txtFind_TextChanged);
             this.txtFind.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtFind_KeyUp);
@@ -103,7 +104,7 @@
             this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(755, 437);
+            this.btnEliminar.Location = new System.Drawing.Point(994, 433);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(77, 25);
             this.btnEliminar.TabIndex = 27;
@@ -117,7 +118,7 @@
             this.btnNuevo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(838, 437);
+            this.btnNuevo.Location = new System.Drawing.Point(1077, 433);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(77, 25);
             this.btnNuevo.TabIndex = 25;
@@ -136,6 +137,7 @@
             this.gvList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
             this.Nombre,
+            this.detail,
             this.Column1,
             this.Column3,
             this.Balance,
@@ -148,65 +150,11 @@
             this.gvList.ShowCellToolTips = false;
             this.gvList.ShowEditingIcon = false;
             this.gvList.ShowRowErrors = false;
-            this.gvList.Size = new System.Drawing.Size(903, 355);
+            this.gvList.Size = new System.Drawing.Size(1142, 355);
             this.gvList.TabIndex = 24;
             this.gvList.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gvList_CellMouseDoubleClick);
             this.gvList.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvList_CellMouseLeave);
             this.gvList.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gvList_CellMouseMove);
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "Id";
-            this.id.HeaderText = "Identificador";
-            this.id.MaxInputLength = 10;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // Nombre
-            // 
-            this.Nombre.DataPropertyName = "Name";
-            this.Nombre.HeaderText = "Empleado";
-            this.Nombre.MaxInputLength = 100;
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            this.Nombre.Width = 378;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "amount";
-            dataGridViewCellStyle7.Format = "N2";
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle7;
-            this.Column1.HeaderText = "Monto";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 80;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "paymentTotal";
-            dataGridViewCellStyle8.Format = "N2";
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle8;
-            this.Column3.HeaderText = "Pagado";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 80;
-            // 
-            // Balance
-            // 
-            this.Balance.DataPropertyName = "Balance";
-            dataGridViewCellStyle9.Format = "N2";
-            this.Balance.DefaultCellStyle = dataGridViewCellStyle9;
-            this.Balance.HeaderText = "Saldo";
-            this.Balance.Name = "Balance";
-            this.Balance.ReadOnly = true;
-            this.Balance.Width = 80;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "date";
-            this.Column2.HeaderText = "Fecha";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
             // 
             // bntFind
             // 
@@ -347,7 +295,7 @@
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(672, 437);
+            this.button1.Location = new System.Drawing.Point(911, 433);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(77, 25);
             this.button1.TabIndex = 85;
@@ -358,7 +306,7 @@
             // dtpDate2
             // 
             this.dtpDate2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dtpDate2.Location = new System.Drawing.Point(708, 40);
+            this.dtpDate2.Location = new System.Drawing.Point(1040, 39);
             this.dtpDate2.Name = "dtpDate2";
             this.dtpDate2.Size = new System.Drawing.Size(114, 20);
             this.dtpDate2.TabIndex = 87;
@@ -367,7 +315,7 @@
             // dtpDate1
             // 
             this.dtpDate1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dtpDate1.Location = new System.Drawing.Point(551, 39);
+            this.dtpDate1.Location = new System.Drawing.Point(883, 38);
             this.dtpDate1.Name = "dtpDate1";
             this.dtpDate1.Size = new System.Drawing.Size(114, 20);
             this.dtpDate1.TabIndex = 86;
@@ -376,7 +324,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(511, 42);
+            this.label7.Location = new System.Drawing.Point(843, 41);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(35, 13);
             this.label7.TabIndex = 88;
@@ -385,18 +333,80 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(678, 42);
+            this.label8.Location = new System.Drawing.Point(1010, 41);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(24, 13);
             this.label8.TabIndex = 89;
             this.label8.Text = "Fin:";
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "Id";
+            this.id.HeaderText = "Identificador";
+            this.id.MaxInputLength = 10;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // Nombre
+            // 
+            this.Nombre.DataPropertyName = "Name";
+            this.Nombre.HeaderText = "Empleado";
+            this.Nombre.MaxInputLength = 100;
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            this.Nombre.Width = 378;
+            // 
+            // detail
+            // 
+            this.detail.DataPropertyName = "detail";
+            this.detail.HeaderText = "Detalle";
+            this.detail.Name = "detail";
+            this.detail.ReadOnly = true;
+            this.detail.Width = 250;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "amount";
+            dataGridViewCellStyle1.Format = "N2";
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Column1.HeaderText = "Monto";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 80;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "paymentTotal";
+            dataGridViewCellStyle2.Format = "N2";
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Column3.HeaderText = "Pagado";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 80;
+            // 
+            // Balance
+            // 
+            this.Balance.DataPropertyName = "Balance";
+            dataGridViewCellStyle3.Format = "N2";
+            this.Balance.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Balance.HeaderText = "Saldo";
+            this.Balance.Name = "Balance";
+            this.Balance.ReadOnly = true;
+            this.Balance.Width = 80;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "date";
+            this.Column2.HeaderText = "Fecha";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // Loan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
-            this.ClientSize = new System.Drawing.Size(924, 496);
+            this.ClientSize = new System.Drawing.Size(1166, 496);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.dtpDate2);
@@ -454,17 +464,18 @@
         private System.Windows.Forms.Label lblSaldo;
         private System.Windows.Forms.ComboBox cmbType;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Balance;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DateTimePicker dtpDate2;
         private System.Windows.Forms.DateTimePicker dtpDate1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn detail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Balance;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
 
     }
 }

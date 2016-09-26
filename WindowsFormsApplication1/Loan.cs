@@ -155,7 +155,7 @@ namespace WindowsFormsApplication1
         {
             dtpDate1.Format = DateTimePickerFormat.Custom;
             dtpDate1.CustomFormat = "dd/MM/yyyy";
-            dtpDate1.Value = DateTime.Now.AddDays(-5);
+            dtpDate1.Value = DateTime.Now.AddDays(-365);
 
             dtpDate2.Format = DateTimePickerFormat.Custom;
             dtpDate2.CustomFormat = "dd/MM/yyyy";
@@ -263,11 +263,17 @@ namespace WindowsFormsApplication1
         {
             if (this.cmbEmployee.SelectedIndex > 0)
             {
-                SmartPayment SmartPayment = new SmartPayment(int.Parse(this.cmbEmployee.SelectedValue.ToString()),decimal.Parse(this.lblSaldo.Text));
+                SmartPayment SmartPayment = new SmartPayment(int.Parse(this.cmbEmployee.SelectedValue.ToString()), decimal.Parse(this.lblSaldo.Text));
 
                 SmartPayment.Result += new SmartPayment.Communication(Result2);
 
                 SmartPayment.ShowDialog();
+            }
+            else
+            {
+                this.cmbEmployee.Focus();
+
+                this.Alert("Seleccione un empleado");
             }
         }
 

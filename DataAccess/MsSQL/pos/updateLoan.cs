@@ -18,11 +18,11 @@ namespace DataAccess.MsSqlCommands.Pos
         /// Obtiene una lista del tipo de objectos indicado con el merge entre las propiedades del objeto y el resulset obtenido de la ejecucion.
         /// </summary>
         /// <returns></returns>
-        public List<T> ExeList<T>(int? id = null, int? idEmployee = null, Decimal? amount = null, DateTime? date = null) where T : new()
+        public List<T> ExeList<T>(int? id = null, int? idEmployee = null, Decimal? amount = null, DateTime? date = null, String detail = null) where T : new()
         {
         	List<SqlParameter> parameters = new List<SqlParameter>();
 
-        	parameters.Add("@id", SqlDbType.Int, id, null).Add("@idEmployee", SqlDbType.Int, idEmployee, null).Add("@amount", SqlDbType.Money, amount, null).Add("@date", SqlDbType.Date, date, null);
+        	parameters.Add("@id", SqlDbType.Int, id, null).Add("@idEmployee", SqlDbType.Int, idEmployee, null).Add("@amount", SqlDbType.Money, amount, null).Add("@date", SqlDbType.Date, date, null).Add("@detail", SqlDbType.VarChar, detail, 5000);
 
         	return this.GetListBase<T>("pos", "updateLoan",parameters.ToArray());
         }
@@ -31,11 +31,11 @@ namespace DataAccess.MsSqlCommands.Pos
         /// Obtiene el scalar resultante de la ejecucion.
         /// </summary>
         /// <returns></returns>
-        public T ExeScalar<T>(int? id = null, int? idEmployee = null, Decimal? amount = null, DateTime? date = null)
+        public T ExeScalar<T>(int? id = null, int? idEmployee = null, Decimal? amount = null, DateTime? date = null, String detail = null)
         {
         	List<SqlParameter> parameters = new List<SqlParameter>();
 
-        	parameters.Add("@id", SqlDbType.Int, id, null).Add("@idEmployee", SqlDbType.Int, idEmployee, null).Add("@amount", SqlDbType.Money, amount, null).Add("@date", SqlDbType.Date, date, null);
+        	parameters.Add("@id", SqlDbType.Int, id, null).Add("@idEmployee", SqlDbType.Int, idEmployee, null).Add("@amount", SqlDbType.Money, amount, null).Add("@date", SqlDbType.Date, date, null).Add("@detail", SqlDbType.VarChar, detail, 5000);
 
         	return this.ExecuteScalar<T>("pos", "updateLoan",parameters.ToArray());
         }
@@ -44,11 +44,11 @@ namespace DataAccess.MsSqlCommands.Pos
         /// Ejecuta el procedimiento almacenado.
         /// </summary>
         /// <returns></returns>
-        public int ExeNonQuery(int? id = null, int? idEmployee = null, Decimal? amount = null, DateTime? date = null)
+        public int ExeNonQuery(int? id = null, int? idEmployee = null, Decimal? amount = null, DateTime? date = null, String detail = null)
         {
         	List<SqlParameter> parameters = new List<SqlParameter>();
 
-        	parameters.Add("@id", SqlDbType.Int, id, null).Add("@idEmployee", SqlDbType.Int, idEmployee, null).Add("@amount", SqlDbType.Money, amount, null).Add("@date", SqlDbType.Date, date, null);
+        	parameters.Add("@id", SqlDbType.Int, id, null).Add("@idEmployee", SqlDbType.Int, idEmployee, null).Add("@amount", SqlDbType.Money, amount, null).Add("@date", SqlDbType.Date, date, null).Add("@detail", SqlDbType.VarChar, detail, 5000);
 
         	return this.ExecuteNonQuery("pos", "updateLoan",parameters.ToArray());
         }
@@ -57,11 +57,11 @@ namespace DataAccess.MsSqlCommands.Pos
         /// Obtiene un objeto IDataReader resultante de la ejecucion.
         /// </summary>
         /// <returns></returns>
-        public IDataReader ExeReader(int? id = null, int? idEmployee = null, Decimal? amount = null, DateTime? date = null)
+        public IDataReader ExeReader(int? id = null, int? idEmployee = null, Decimal? amount = null, DateTime? date = null, String detail = null)
         {
         	List<SqlParameter> parameters = new List<SqlParameter>();
 
-        	parameters.Add("@id", SqlDbType.Int, id, null).Add("@idEmployee", SqlDbType.Int, idEmployee, null).Add("@amount", SqlDbType.Money, amount, null).Add("@date", SqlDbType.Date, date, null);
+        	parameters.Add("@id", SqlDbType.Int, id, null).Add("@idEmployee", SqlDbType.Int, idEmployee, null).Add("@amount", SqlDbType.Money, amount, null).Add("@date", SqlDbType.Date, date, null).Add("@detail", SqlDbType.VarChar, detail, 5000);
 
         	return this.GetReader("pos", "updateLoan",parameters.ToArray());
         }
