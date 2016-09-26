@@ -155,6 +155,11 @@ namespace PosBusiness
             }
         }
 
+        public List<PM> ListByCode()
+        {
+            return this.AccessMsSql.Pos.Listpmbycode.ExeList<PM>(this.Name);
+        }
+
         /// <summary>
         /// 
         /// </summary>

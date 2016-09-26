@@ -390,7 +390,7 @@ namespace WindowsFormsApplication1
 
                 int id = 0;
 
-                this.Entity.Name = txtFind.Text;
+                this.Entity.Name = this.txtFind.Text;
 
                 if (int.TryParse(this.Entity.Name, out id))
                 {
@@ -452,7 +452,19 @@ namespace WindowsFormsApplication1
                     this.Entity.TypeLike = 0;
                 }
 
-                this.gvList.DataSource = this.Entity.List();
+                if (this.Entity.Name.Length.Equals(13))
+                {
+                    double barCode = 0;
+
+                    if (double.TryParse(this.Entity.Name, out barCode))
+                    {
+                        this.gvList.DataSource = this.Entity.ListByCode();
+                    }
+                    else
+                        this.gvList.DataSource = this.Entity.List();
+                }
+                else
+                    this.gvList.DataSource = this.Entity.List();
 
                 lblTotal.Text = this.gvList.RowCount.ToString();
 

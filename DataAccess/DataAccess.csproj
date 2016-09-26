@@ -168,6 +168,7 @@
     <Compile Include="MsSQL\pos\listMeasure.cs" />
     <Compile Include="MsSQL\pos\listPayment.cs" />
     <Compile Include="MsSQL\pos\listPM.cs" />
+    <Compile Include="MsSQL\pos\listPMByCode.cs" />
     <Compile Include="MsSQL\pos\listPMCombo.cs" />
     <Compile Include="MsSQL\pos\listPMStock.cs" />
     <Compile Include="MsSQL\pos\listPMVentas.cs" />

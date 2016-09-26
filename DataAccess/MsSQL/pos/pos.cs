@@ -559,6 +559,11 @@ namespace DataAccess.MSSQL.Pos
 		public DataAccess.MsSqlCommands.Pos.Listpm Listpm = new DataAccess.MsSqlCommands.Pos.Listpm();
 
 		/// <summary>
+		/// Controla la ejecucion del procedimiento almacenado Listpmbycode.
+		///</summary>
+		public DataAccess.MsSqlCommands.Pos.Listpmbycode Listpmbycode = new DataAccess.MsSqlCommands.Pos.Listpmbycode();
+
+		/// <summary>
 		/// Controla la ejecucion del procedimiento almacenado Listpmcombo.
 		///</summary>
 		public DataAccess.MsSqlCommands.Pos.Listpmcombo Listpmcombo = new DataAccess.MsSqlCommands.Pos.Listpmcombo();
@@ -1066,6 +1071,9 @@ namespace DataAccess.MSSQL.Pos
 
 			if (this.Listpm != null)
 				this.Listpm.Dispose();
+
+			if (this.Listpmbycode != null)
+				this.Listpmbycode.Dispose();
 
 			if (this.Listpmcombo != null)
 				this.Listpmcombo.Dispose();
