@@ -110,7 +110,7 @@ namespace WindowsFormsApplication1
 
                 queryAddress.Append("https://www.google.com.mx/maps/dir/19.3726766,-98.9416265/");
 
-                if (client.Street != string.Empty)
+                if (!string.IsNullOrEmpty(client.Street))
                 {
                     street = client.Street.Trim() + "+" + client.Number1.Trim();
 
@@ -118,7 +118,7 @@ namespace WindowsFormsApplication1
                     queryAddress.Append(street + ',' + '+');
                 }
 
-                if (client.Colony != string.Empty)
+                if (!string.IsNullOrEmpty(client.Colony))
                 {
                     city = client.Colony.Trim() + "+" + client.Municipality.Trim();
 
@@ -127,7 +127,7 @@ namespace WindowsFormsApplication1
                 }
 
 
-                if (client.State != string.Empty)
+                if (!string.IsNullOrEmpty(client.State))
                 {
                     state = client.State.Trim();
 
@@ -135,7 +135,7 @@ namespace WindowsFormsApplication1
                     queryAddress.Append(state + ',' + '+');
                 }
 
-                if (client.Zip != string.Empty)
+                if (!string.IsNullOrEmpty(client.Zip))
                 {
                     zip = client.Zip.Trim();
                     queryAddress.Append(zip);
@@ -161,19 +161,6 @@ namespace WindowsFormsApplication1
             this.GetPrice();
 
             this.Getaddress();
-
-
-            //using (posb.Brand Entity = new posb.Brand
-            //{
-            //    Id = this.Id
-            //})
-            //{
-            //    Entity.Get();
-
-            //    this.txtPrice.Text = Entity.Name;
-            //    this.Name = Entity.Name;
-
-            //}
         }
 
         private void Save(bool Exist = true)
@@ -203,8 +190,6 @@ namespace WindowsFormsApplication1
 
                 this.cmbClient.SelectedValue = Id;
             }
-
-            //this.cmbClient.SelectedIndex = 0;
         }
 
         #endregion
@@ -307,7 +292,6 @@ namespace WindowsFormsApplication1
         public void VerificarRegistroWebBrowser()
         {
             string subclave = "Software\\Microsoft\\Internet Explorer\\Main\\FeatureControl\\FEATURE_BROWSER_EMULATION\\";
-
 
             //intentamos abrir la subclave
             RegistryKey clave = RegistryKey.OpenBaseKey(RegistryHive.CurrentUser, RegistryView.Default).OpenSubKey(subclave, true);
