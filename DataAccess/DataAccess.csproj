@@ -92,6 +92,7 @@
     <Compile Include="MsSQL\pos\BackupGetProcedureText.cs" />
     <Compile Include="MsSQL\pos\BackUpGetTables.cs" />
     <Compile Include="MsSQL\pos\BackUpGetTableText.cs" />
+    <Compile Include="MsSQL\pos\CancelSale.cs" />
     <Compile Include="MsSQL\pos\CheckBox.cs" />
     <Compile Include="MsSQL\pos\CheckPmInDetailPurchase.cs" />
     <Compile Include="MsSQL\pos\CloseBox.cs" />
@@ -142,6 +143,7 @@
     <Compile Include="MsSQL\pos\GetNumberHoursPurchase.cs" />
     <Compile Include="MsSQL\pos\GetPricePMFreight.cs" />
     <Compile Include="MsSQL\pos\GetPurchase.cs" />
+    <Compile Include="MsSQL\pos\GetPurchaseCost.cs" />
     <Compile Include="MsSQL\pos\GetPurchaseCostForSale.cs" />
     <Compile Include="MsSQL\pos\GetSale.cs" />
     <Compile Include="MsSQL\pos\GetTicketCompany.cs" />

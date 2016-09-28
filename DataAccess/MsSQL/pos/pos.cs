@@ -184,6 +184,11 @@ namespace DataAccess.MSSQL.Pos
 		public DataAccess.MsSqlCommands.Pos.Backupgettabletext Backupgettabletext = new DataAccess.MsSqlCommands.Pos.Backupgettabletext();
 
 		/// <summary>
+		/// Controla la ejecucion del procedimiento almacenado Cancelsale.
+		///</summary>
+		public DataAccess.MsSqlCommands.Pos.Cancelsale Cancelsale = new DataAccess.MsSqlCommands.Pos.Cancelsale();
+
+		/// <summary>
 		/// Controla la ejecucion del procedimiento almacenado Checkbox.
 		///</summary>
 		public DataAccess.MsSqlCommands.Pos.Checkbox Checkbox = new DataAccess.MsSqlCommands.Pos.Checkbox();
@@ -427,6 +432,11 @@ namespace DataAccess.MSSQL.Pos
 		/// Controla la ejecucion del procedimiento almacenado Getpurchase.
 		///</summary>
 		public DataAccess.MsSqlCommands.Pos.Getpurchase Getpurchase = new DataAccess.MsSqlCommands.Pos.Getpurchase();
+
+		/// <summary>
+		/// Controla la ejecucion del procedimiento almacenado Getpurchasecost.
+		///</summary>
+		public DataAccess.MsSqlCommands.Pos.Getpurchasecost Getpurchasecost = new DataAccess.MsSqlCommands.Pos.Getpurchasecost();
 
 		/// <summary>
 		/// Controla la ejecucion del procedimiento almacenado Getpurchasecostforsale.
@@ -847,6 +857,9 @@ namespace DataAccess.MSSQL.Pos
 			if (this.Backupgettabletext != null)
 				this.Backupgettabletext.Dispose();
 
+			if (this.Cancelsale != null)
+				this.Cancelsale.Dispose();
+
 			if (this.Checkbox != null)
 				this.Checkbox.Dispose();
 
@@ -993,6 +1006,9 @@ namespace DataAccess.MSSQL.Pos
 
 			if (this.Getpurchase != null)
 				this.Getpurchase.Dispose();
+
+			if (this.Getpurchasecost != null)
+				this.Getpurchasecost.Dispose();
 
 			if (this.Getpurchasecostforsale != null)
 				this.Getpurchasecostforsale.Dispose();

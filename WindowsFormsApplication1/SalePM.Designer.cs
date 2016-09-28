@@ -44,6 +44,7 @@
             this.Material = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Prefijo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cancelar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.bntFind = new System.Windows.Forms.Button();
             this.txtFind = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -142,7 +143,8 @@
             this.Nombre,
             this.Material,
             this.Prefijo,
-            this.Marca});
+            this.Marca,
+            this.Cancelar});
             this.gvList.Location = new System.Drawing.Point(12, 38);
             this.gvList.MultiSelect = false;
             this.gvList.Name = "gvList";
@@ -153,6 +155,7 @@
             this.gvList.ShowRowErrors = false;
             this.gvList.Size = new System.Drawing.Size(1098, 380);
             this.gvList.TabIndex = 40;
+            this.gvList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvList_CellClick);
             this.gvList.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gvList_CellMouseDoubleClick);
             this.gvList.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvList_CellMouseLeave);
             this.gvList.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gvList_CellMouseMove);
@@ -181,7 +184,7 @@
             this.Nombre.MaxInputLength = 100;
             this.Nombre.Name = "Nombre";
             this.Nombre.ReadOnly = true;
-            this.Nombre.Width = 280;
+            this.Nombre.Width = 210;
             // 
             // Material
             // 
@@ -206,6 +209,15 @@
             this.Marca.Name = "Marca";
             this.Marca.ReadOnly = true;
             this.Marca.Width = 210;
+            // 
+            // Cancelar
+            // 
+            this.Cancelar.HeaderText = "Cancelar";
+            this.Cancelar.Name = "Cancelar";
+            this.Cancelar.ReadOnly = true;
+            this.Cancelar.Text = "Cancelar";
+            this.Cancelar.UseColumnTextForButtonValue = true;
+            this.Cancelar.Width = 85;
             // 
             // bntFind
             // 
@@ -330,6 +342,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Material;
         private System.Windows.Forms.DataGridViewTextBoxColumn Prefijo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
+        private System.Windows.Forms.DataGridViewButtonColumn Cancelar;
 
     }
 }

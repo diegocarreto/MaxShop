@@ -421,6 +421,19 @@ namespace WindowsFormsApplication1
             this.gvList.AutoGenerateColumns = false;
 
             this.gvList.AllowUserToResizeColumns = false;
+
+            //DataGridViewButtonColumn btnCancel = new DataGridViewButtonColumn();
+            //btnCancel.Name = "cancelar";
+            //btnCancel.Text = "Cancelar";
+
+            //btnCancel.HeaderText = "Cancelar";
+
+            //int columnIndex = 6;
+
+            //if (this.gvList.Columns["cancelar"] == null)
+            //{
+            //    this.gvList.Columns.Insert(columnIndex, btnCancel);
+            //}
         }
 
         private void FillGridView()
@@ -500,6 +513,20 @@ namespace WindowsFormsApplication1
         private void dtpDate2_ValueChanged_1(object sender, EventArgs e)
         {
             this.FillGridView();
+        }
+
+        private void gvList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == this.gvList.Columns["Cancelar"].Index)
+            {
+                if (this.Confirm("¿Realmente deseas cancelar la venta?"))
+                {
+                    using (posb.Sale Entity = new posb.Sale())
+                    {
+                        Entity.Cancel(this.EntityId);
+                    }
+                }
+            }
         }
     }
 }

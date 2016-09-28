@@ -75,6 +75,20 @@ namespace PosBusiness
             return true;
         }
 
+        public bool Cancel(int? Id)
+        {
+            this.AccessMsSql.Pos.Cancelsale.ExeNonQuery(Id);
+
+            var products = this.AccessMsSql.Pos.Listdetailsale.ExeList<ProductForAction>(Id);
+
+            foreach (var product in products)
+            {
+                var cost = double.Parse(this.AccessMsSql.Pos.Getpurchasecost.ExeScalar<int>(int.Parse(product.Code)).ToString());
+            }
+
+            return true;
+        }
+
         public List<Sale> List(DateTime StartDate, DateTime FinishDate)
         {
             this.Sales = new List<Sale>();
