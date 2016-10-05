@@ -46,6 +46,8 @@ namespace PosBusiness
 
         public List<ProductForAction> Products { get; set; }
 
+        public DateTime? CancelDate { get; set; }
+
         #endregion
 
         #region Builder
@@ -80,13 +82,28 @@ namespace PosBusiness
             this.AccessMsSql.Pos.Cancelsale.ExeNonQuery(Id);
 
             var products = this.AccessMsSql.Pos.Listdetailsale.ExeList<ProductForAction>(Id);
+            var name = this.AccessMsSql.Pos.Getnameforrefillcancelsale.ExeScalar<string>(Id);
 
             foreach (var product in products)
             {
-                var cost = double.Parse(this.AccessMsSql.Pos.Getpurchasecost.ExeScalar<int>(int.Parse(product.Code)).ToString());
+                var cost = this.AccessMsSql.Pos.Getpurchasecost.ExeScalar<decimal>(int.Parse(product.Code));
+
+                if (cost.Equals(0))
+                    cost = 1;
+
+                product.Unitary = cost;
+
+                product.Price = (decimal)(product.Unitary * (decimal)product.Amount);
             }
 
-            return true;
+            using (Purchase purchase = new Purchase())
+            {
+                purchase.Name = name;
+                purchase.CreatedDate = DateTime.Now;
+                purchase.Id = null;
+
+                return purchase.Charge(products);
+            }
         }
 
         public List<Sale> List(DateTime StartDate, DateTime FinishDate)

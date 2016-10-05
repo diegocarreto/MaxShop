@@ -77,6 +77,8 @@ namespace WindowsFormsApplication1
 
         private int? IdSale { get; set; }
 
+        public bool Cancellation { get; set; }
+
         private posb.PM Entity { get; set; }
 
         private List<posb.ProductForAction> Products { get; set; }
@@ -89,9 +91,10 @@ namespace WindowsFormsApplication1
 
         #region Builder
 
-        public Sale(int? IdSale = null)
+        public Sale(int? IdSale = null, bool Cancellation = false)
         {
             this.IdSale = IdSale;
+            this.Cancellation = Cancellation;
 
             InitializeComponent();
 
@@ -674,6 +677,8 @@ namespace WindowsFormsApplication1
             this.button3.Visible = Enabled;
             this.button2.Visible = Enabled;
             this.btnBorra.Visible = Enabled;
+
+            this.btnUser.Enabled = Enabled;
         }
 
         private void Add()
@@ -1370,22 +1375,10 @@ namespace WindowsFormsApplication1
             {
                 Entity.Get(Id);
 
-                this.Disable();
                 this.txtCantidad.Clear();
-
-                this.btnCancelar.Text = "Cerrar";
-                this.btnCancelar.Location = new Point(855, 557);
-
-                this.ActiveControl = btnCancelar;
-
-                this.btnCobrar.Text = "Ticket (F12)";
-                this.btnCobrar.Width = 150;
-                this.btnCobrar.Location = new Point(1005, 557);
 
                 this.cmbClient.SelectedValue = Entity.IdClient;
                 this.txtTotal.Text = String.Format("{0:0.00}", Entity.Total);
-                this.txtPago.Text = String.Format("{0:0.00}", Entity.Payment);
-                this.txtCambio.Text = String.Format("{0:0.00}", (Entity.Payment - Entity.Total));
 
                 this.toolStripComboBoxClient.SelectedText = Entity.PaymentType.Trim();
 
@@ -1432,6 +1425,35 @@ namespace WindowsFormsApplication1
                 }
 
                 this.Products = Entity.Products;
+
+                this.txtPago.Text = String.Format("{0:0.00}", Entity.Payment);
+                this.txtCambio.Text = String.Format("{0:0.00}", (Entity.Payment - Entity.Total));
+
+                if (!this.Cancellation)
+                {
+                    this.Disable();
+
+                    this.btnCancelar.Text = "Cerrar";
+                    this.btnCancelar.Location = new Point(855, 557);
+
+                    this.ActiveControl = this.btnCancelar;
+
+                    this.btnCobrar.Text = "Ticket (F12)";
+                    this.btnCobrar.Width = 150;
+                    this.btnCobrar.Location = new Point(1005, 557);
+
+                   
+                }
+                else
+                {
+                    this.IdSale = null;
+
+                    //this.txtPago.Text = "0.00";
+                    //this.txtCambio.Text = "0.00";
+                    this.txtCantidad.Text = "1";
+
+                    this.ActiveControl = this.txtBuscar;
+                }
 
                 this.SetGrid(false);
             }

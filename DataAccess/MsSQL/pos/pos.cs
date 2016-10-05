@@ -419,6 +419,11 @@ namespace DataAccess.MSSQL.Pos
 		public DataAccess.MsSqlCommands.Pos.Getlocationbynamepm Getlocationbynamepm = new DataAccess.MsSqlCommands.Pos.Getlocationbynamepm();
 
 		/// <summary>
+		/// Controla la ejecucion del procedimiento almacenado Getnameforrefillcancelsale.
+		///</summary>
+		public DataAccess.MsSqlCommands.Pos.Getnameforrefillcancelsale Getnameforrefillcancelsale = new DataAccess.MsSqlCommands.Pos.Getnameforrefillcancelsale();
+
+		/// <summary>
 		/// Controla la ejecucion del procedimiento almacenado Getnumberhourspurchase.
 		///</summary>
 		public DataAccess.MsSqlCommands.Pos.Getnumberhourspurchase Getnumberhourspurchase = new DataAccess.MsSqlCommands.Pos.Getnumberhourspurchase();
@@ -997,6 +1002,9 @@ namespace DataAccess.MSSQL.Pos
 
 			if (this.Getlocationbynamepm != null)
 				this.Getlocationbynamepm.Dispose();
+
+			if (this.Getnameforrefillcancelsale != null)
+				this.Getnameforrefillcancelsale.Dispose();
 
 			if (this.Getnumberhourspurchase != null)
 				this.Getnumberhourspurchase.Dispose();

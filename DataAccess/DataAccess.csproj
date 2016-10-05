@@ -140,6 +140,7 @@
     <Compile Include="MsSQL\pos\GetImagePM.cs" />
     <Compile Include="MsSQL\pos\GetIncome.cs" />
     <Compile Include="MsSQL\pos\GetLocationByNamePM.cs" />
+    <Compile Include="MsSQL\pos\GetNameForRefillCancelSale.cs" />
     <Compile Include="MsSQL\pos\GetNumberHoursPurchase.cs" />
     <Compile Include="MsSQL\pos\GetPricePMFreight.cs" />
     <Compile Include="MsSQL\pos\GetPurchase.cs" />

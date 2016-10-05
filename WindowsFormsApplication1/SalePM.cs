@@ -71,9 +71,30 @@ namespace WindowsFormsApplication1
 
         private void gvList_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.ColumnIndex > 0)
+            if (e.ColumnIndex == 1)
             {
                 this.OpenEdit(this.EntityId);
+            }
+            else if (e.ColumnIndex == 6)
+            {
+                var cancelTitle= gvList[6, this.SelectRowIndex].Value.ToString();
+
+                if (cancelTitle.Equals("No", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    var client = gvList[2, this.SelectRowIndex].Value.ToString();
+
+                    if (this.Confirm("¿Realmente deseas cancelar la venta [" + this.EntityId + "] del cliente: " + client + "?"))
+                    {
+                        using (posb.Sale entity = new posb.Sale())
+                        {
+                            //entity.Cancel(this.EntityId);
+
+                            this.OpenEdit(this.EntityId, true);
+
+                            this.FillGridView();
+                        }
+                    }
+                }
             }
         }
 
@@ -151,7 +172,7 @@ namespace WindowsFormsApplication1
             if (total.Equals(0))
             {
                 this.Alert("Debe seleccionar al menos una venta");
-               
+
                 return;
             }
 
@@ -314,9 +335,9 @@ namespace WindowsFormsApplication1
                     //borders[XlBordersIndex.xlEdgeBottom].LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
                     //borders[XlBordersIndex.xlEdgeRight].LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
 
-                    _range.BorderAround(Type.Missing, 
-                                        XlBorderWeight.xlThin, 
-                                        Microsoft.Office.Interop.Excel.XlColorIndex.xlColorIndexAutomatic, 
+                    _range.BorderAround(Type.Missing,
+                                        XlBorderWeight.xlThin,
+                                        Microsoft.Office.Interop.Excel.XlColorIndex.xlColorIndexAutomatic,
                                         System.Drawing.ColorTranslator.ToOle((Color)cc.ConvertFromString("#00B050")));
 
                     //_range.Borders.Color = ColorTranslator.ToOle((Color)cc.ConvertFromString("#00B050"));
@@ -496,9 +517,9 @@ namespace WindowsFormsApplication1
             this.gvList.EndEdit();
         }
 
-        private void OpenEdit(int? Id = null)
+        private void OpenEdit(int? Id = null,bool Cancellation = false)
         {
-            Sale sale = new Sale(Id);
+            Sale sale = new Sale(Id, Cancellation);
 
             sale.ShowDialog();
         }
@@ -517,16 +538,16 @@ namespace WindowsFormsApplication1
 
         private void gvList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == this.gvList.Columns["Cancelar"].Index)
-            {
-                if (this.Confirm("¿Realmente deseas cancelar la venta?"))
-                {
-                    using (posb.Sale Entity = new posb.Sale())
-                    {
-                        Entity.Cancel(this.EntityId);
-                    }
-                }
-            }
+            //if (e.ColumnIndex == this.gvList.Columns["Cancelar"].Index)
+            //{
+            //    if (this.Confirm("¿Realmente deseas cancelar la venta?"))
+            //    {
+            //        using (posb.Sale Entity = new posb.Sale())
+            //        {
+            //            Entity.Cancel(this.EntityId);
+            //        }
+            //    }
+            //}
         }
     }
 }
