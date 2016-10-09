@@ -80,6 +80,16 @@ namespace PosBusiness
 
         #region Methods
 
+        public double GetPriceForBarCode()
+        {
+            return this.AccessMsSql.Pos.Getpricebarcode.ExeScalar<double>(this.Id);
+        }
+
+        public string GetNameForBarCode()
+        {
+            return this.AccessMsSql.Pos.Getnamebarcode.ExeScalar<string>(this.Id);
+        }
+
         public decimal GetPricePMFreight(int IdDestination, double Amount)
         {
             return this.AccessMsSql.Pos.Getpricepmfreight.ExeScalar<decimal>(this.Id, IdDestination, Amount);

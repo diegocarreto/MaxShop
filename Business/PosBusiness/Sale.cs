@@ -102,7 +102,11 @@ namespace PosBusiness
                 purchase.CreatedDate = DateTime.Now;
                 purchase.Id = null;
 
-                return purchase.Charge(products);
+                var result = purchase.Charge(products);
+
+                this.AccessMsSql.Pos.Addsalefather.ExeNonQuery(Id, purchase.Id);
+
+                return result;
             }
         }
 

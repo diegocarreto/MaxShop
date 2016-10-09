@@ -87,6 +87,8 @@ namespace WindowsFormsApplication1
 
         private bool ItsFirst = false;
 
+        public int? IdSaleFather { get; set; }
+
         #endregion
 
         #region Builder
@@ -1441,8 +1443,6 @@ namespace WindowsFormsApplication1
                     this.btnCobrar.Text = "Ticket (F12)";
                     this.btnCobrar.Width = 150;
                     this.btnCobrar.Location = new Point(1005, 557);
-
-                   
                 }
                 else
                 {

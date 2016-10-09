@@ -84,6 +84,7 @@
     <Compile Include="MsSQL\pos\addProduct.cs" />
     <Compile Include="MsSQL\pos\AddPurchase.cs" />
     <Compile Include="MsSQL\pos\AddSale.cs" />
+    <Compile Include="MsSQL\pos\AddSaleFather.cs" />
     <Compile Include="MsSQL\pos\addTelephoneRecharge.cs" />
     <Compile Include="MsSQL\pos\AddUnionCostAndSale.cs" />
     <Compile Include="MsSQL\pos\backupdb.cs" />
@@ -140,8 +141,10 @@
     <Compile Include="MsSQL\pos\GetImagePM.cs" />
     <Compile Include="MsSQL\pos\GetIncome.cs" />
     <Compile Include="MsSQL\pos\GetLocationByNamePM.cs" />
+    <Compile Include="MsSQL\pos\GetNameBarCode.cs" />
     <Compile Include="MsSQL\pos\GetNameForRefillCancelSale.cs" />
     <Compile Include="MsSQL\pos\GetNumberHoursPurchase.cs" />
+    <Compile Include="MsSQL\pos\GetPriceBarCode.cs" />
     <Compile Include="MsSQL\pos\GetPricePMFreight.cs" />
     <Compile Include="MsSQL\pos\GetPurchase.cs" />
     <Compile Include="MsSQL\pos\GetPurchaseCost.cs" />

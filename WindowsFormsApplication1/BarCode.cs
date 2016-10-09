@@ -59,7 +59,19 @@ namespace WindowsFormsApplication1
         {
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                Bitmap prevImage = this.DrawFilledRectangle(pbPrint.Width + 2, pbPrint.Height + 20);
+                var height = 20;
+
+                if (this.cbName.Checked)
+                {
+                    height += 30;
+                }
+
+                if (!this.cbName.Checked && this.cbPrice.Checked)
+                {
+                    height += 10;
+                }
+
+                Bitmap prevImage = this.DrawFilledRectangle(pbPrint.Width + 2, pbPrint.Height + height);
                 Bitmap prevImage2 = new Bitmap(pbPrint.Image, pbPrint.Width, pbPrint.Height);
 
                 using (Bitmap customImage = this.OverlayImages(prevImage, prevImage2, 1, 5))
@@ -67,11 +79,48 @@ namespace WindowsFormsApplication1
                     using (Graphics g = Graphics.FromImage(customImage))
                     {
                         Font fontTime = new Font("Arial", 10, FontStyle.Bold, GraphicsUnit.Pixel);
+                        Font fontName = new Font("Arial", 8, FontStyle.Bold, GraphicsUnit.Pixel);
 
                         System.Drawing.Color colTime = System.Drawing.ColorTranslator.FromHtml("#000");
                         SolidBrush brushTime = new SolidBrush(colTime);
 
-                        g.DrawString("Código:" + this.Id.ToString().PadLeft(5, '0'), fontTime, brushTime, 25, 0);
+                        if (this.cbName.Checked)
+                        {
+                            var name = (this.txtName.Text.Length <= 37) ? this.txtName.Text : this.txtName.Text.Substring(0, 36) + "...";
+
+                            int space = 37 - name.Length;
+
+                            if (space > 0)
+                            {
+                                space = space / 2;
+
+                                for (var i = 0; i <= (space + 6); i++)
+                                {
+                                    name = " " + name;
+                                }
+                            }
+                            g.DrawString(name, fontName, brushTime, 2, 3);
+
+                            g.DrawString("Código: " + this.Id.ToString().PadLeft(5, '0'), fontTime, brushTime, 25, 16);
+
+                            if (this.cbPrice.Checked)
+                            {
+                                var price = new posb.PM { Id = this.Id }.GetPriceForBarCode();
+
+                                g.DrawString("Precio: " + String.Format("{0:0.00}", price), fontTime, brushTime, 25, 69);
+                            }
+                        }
+                        else if (this.cbPrice.Checked)
+                        {
+                            var price = new posb.PM { Id = this.Id }.GetPriceForBarCode();
+
+                            g.DrawString("Código:" + this.Id.ToString().PadLeft(5, '0'), fontTime, brushTime, 25, 4);
+                            g.DrawString("Precio: " + String.Format("{0:0.00}", price), fontTime, brushTime, 25, 57);
+                        }
+                        else
+                        {
+                            g.DrawString("Código:" + this.Id.ToString().PadLeft(5, '0'), fontTime, brushTime, 25, 0);
+                        }
 
                         g.DrawRectangle(new Pen(Brushes.Black, 1), new Rectangle(0, 0, customImage.Width - 1, customImage.Height - 1));
 
@@ -79,7 +128,7 @@ namespace WindowsFormsApplication1
 
                         this.SetBarCode();
 
-                        this.Result(true, "", this.txtCode.Text);
+                        //this.Result(true, "", this.txtCode.Text);
 
                         if (this.Confirm("¿Deseas abrir la imagen?"))
                             Process.Start(saveFileDialog1.FileName);
@@ -94,10 +143,10 @@ namespace WindowsFormsApplication1
 
         private void SetBarCode()
         {
-            new posb.PM 
-            { 
+            new posb.PM
+            {
                 Id = this.Id,
-                BarCode= this.txtCode.Text
+                BarCode = this.txtCode.Text
             }.SetBarCode();
         }
 
@@ -115,21 +164,17 @@ namespace WindowsFormsApplication1
 
         public Bitmap OverlayImages(Image backImage, Image topImage, int topPosX = 0, int topPosY = 0)
         {
-
             if (backImage == null)
             {
                 throw new ArgumentNullException(paramName: "backImage");
-
             }
             else if (topImage == null)
             {
                 throw new ArgumentNullException(paramName: "topImage");
-
             }
             else if ((topImage.Width > backImage.Width) || (topImage.Height > backImage.Height))
             {
                 throw new ArgumentException("Image bounds are greater than background image.", "topImage");
-
             }
             else
             {
@@ -154,9 +199,16 @@ namespace WindowsFormsApplication1
         {
             this.GetCodeBardCode();
 
+            this.GetName();
+
             this.GetBardCode();
 
             this.ConfigureDialog();
+        }
+
+        private void GetName()
+        {
+            this.txtName.Text = new posb.PM { Id = this.Id }.GetNameForBarCode();
         }
 
         private void ConfigureDialog()
@@ -257,6 +309,6 @@ namespace WindowsFormsApplication1
 
         #endregion
 
- 
+
     }
 }

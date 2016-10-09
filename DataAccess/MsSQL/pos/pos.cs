@@ -144,6 +144,11 @@ namespace DataAccess.MSSQL.Pos
 		public DataAccess.MsSqlCommands.Pos.Addsale Addsale = new DataAccess.MsSqlCommands.Pos.Addsale();
 
 		/// <summary>
+		/// Controla la ejecucion del procedimiento almacenado Addsalefather.
+		///</summary>
+		public DataAccess.MsSqlCommands.Pos.Addsalefather Addsalefather = new DataAccess.MsSqlCommands.Pos.Addsalefather();
+
+		/// <summary>
 		/// Controla la ejecucion del procedimiento almacenado Addtelephonerecharge.
 		///</summary>
 		public DataAccess.MsSqlCommands.Pos.Addtelephonerecharge Addtelephonerecharge = new DataAccess.MsSqlCommands.Pos.Addtelephonerecharge();
@@ -419,6 +424,11 @@ namespace DataAccess.MSSQL.Pos
 		public DataAccess.MsSqlCommands.Pos.Getlocationbynamepm Getlocationbynamepm = new DataAccess.MsSqlCommands.Pos.Getlocationbynamepm();
 
 		/// <summary>
+		/// Controla la ejecucion del procedimiento almacenado Getnamebarcode.
+		///</summary>
+		public DataAccess.MsSqlCommands.Pos.Getnamebarcode Getnamebarcode = new DataAccess.MsSqlCommands.Pos.Getnamebarcode();
+
+		/// <summary>
 		/// Controla la ejecucion del procedimiento almacenado Getnameforrefillcancelsale.
 		///</summary>
 		public DataAccess.MsSqlCommands.Pos.Getnameforrefillcancelsale Getnameforrefillcancelsale = new DataAccess.MsSqlCommands.Pos.Getnameforrefillcancelsale();
@@ -427,6 +437,11 @@ namespace DataAccess.MSSQL.Pos
 		/// Controla la ejecucion del procedimiento almacenado Getnumberhourspurchase.
 		///</summary>
 		public DataAccess.MsSqlCommands.Pos.Getnumberhourspurchase Getnumberhourspurchase = new DataAccess.MsSqlCommands.Pos.Getnumberhourspurchase();
+
+		/// <summary>
+		/// Controla la ejecucion del procedimiento almacenado Getpricebarcode.
+		///</summary>
+		public DataAccess.MsSqlCommands.Pos.Getpricebarcode Getpricebarcode = new DataAccess.MsSqlCommands.Pos.Getpricebarcode();
 
 		/// <summary>
 		/// Controla la ejecucion del procedimiento almacenado Getpricepmfreight.
@@ -838,6 +853,9 @@ namespace DataAccess.MSSQL.Pos
 			if (this.Addsale != null)
 				this.Addsale.Dispose();
 
+			if (this.Addsalefather != null)
+				this.Addsalefather.Dispose();
+
 			if (this.Addtelephonerecharge != null)
 				this.Addtelephonerecharge.Dispose();
 
@@ -1003,11 +1021,17 @@ namespace DataAccess.MSSQL.Pos
 			if (this.Getlocationbynamepm != null)
 				this.Getlocationbynamepm.Dispose();
 
+			if (this.Getnamebarcode != null)
+				this.Getnamebarcode.Dispose();
+
 			if (this.Getnameforrefillcancelsale != null)
 				this.Getnameforrefillcancelsale.Dispose();
 
 			if (this.Getnumberhourspurchase != null)
 				this.Getnumberhourspurchase.Dispose();
+
+			if (this.Getpricebarcode != null)
+				this.Getpricebarcode.Dispose();
 
 			if (this.Getpricepmfreight != null)
 				this.Getpricepmfreight.Dispose();

@@ -87,7 +87,7 @@ namespace WindowsFormsApplication1
                     {
                         using (posb.Sale entity = new posb.Sale())
                         {
-                            //entity.Cancel(this.EntityId);
+                            entity.Cancel(this.EntityId);
 
                             this.OpenEdit(this.EntityId, true);
 
