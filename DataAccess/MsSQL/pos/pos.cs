@@ -139,6 +139,11 @@ namespace DataAccess.MSSQL.Pos
 		public DataAccess.MsSqlCommands.Pos.Addpurchase Addpurchase = new DataAccess.MsSqlCommands.Pos.Addpurchase();
 
 		/// <summary>
+		/// Controla la ejecucion del procedimiento almacenado Addpurchasefather.
+		///</summary>
+		public DataAccess.MsSqlCommands.Pos.Addpurchasefather Addpurchasefather = new DataAccess.MsSqlCommands.Pos.Addpurchasefather();
+
+		/// <summary>
 		/// Controla la ejecucion del procedimiento almacenado Addsale.
 		///</summary>
 		public DataAccess.MsSqlCommands.Pos.Addsale Addsale = new DataAccess.MsSqlCommands.Pos.Addsale();
@@ -849,6 +854,9 @@ namespace DataAccess.MSSQL.Pos
 
 			if (this.Addpurchase != null)
 				this.Addpurchase.Dispose();
+
+			if (this.Addpurchasefather != null)
+				this.Addpurchasefather.Dispose();
 
 			if (this.Addsale != null)
 				this.Addsale.Dispose();

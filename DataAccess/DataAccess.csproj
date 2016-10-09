@@ -83,6 +83,7 @@
     <Compile Include="MsSQL\pos\addPrice.cs" />
     <Compile Include="MsSQL\pos\addProduct.cs" />
     <Compile Include="MsSQL\pos\AddPurchase.cs" />
+    <Compile Include="MsSQL\pos\AddPurchaseFather.cs" />
     <Compile Include="MsSQL\pos\AddSale.cs" />
     <Compile Include="MsSQL\pos\AddSaleFather.cs" />
     <Compile Include="MsSQL\pos\addTelephoneRecharge.cs" />

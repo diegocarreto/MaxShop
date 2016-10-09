@@ -180,7 +180,6 @@
             this.txtName.Location = new System.Drawing.Point(94, 266);
             this.txtName.MaxLength = 0;
             this.txtName.Name = "txtName";
-            this.txtName.ReadOnly = true;
             this.txtName.Size = new System.Drawing.Size(417, 24);
             this.txtName.TabIndex = 53;
             this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;

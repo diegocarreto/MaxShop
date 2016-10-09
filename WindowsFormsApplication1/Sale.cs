@@ -93,10 +93,11 @@ namespace WindowsFormsApplication1
 
         #region Builder
 
-        public Sale(int? IdSale = null, bool Cancellation = false)
+        public Sale(int? IdSale = null, bool Cancellation = false, int? IdFhater = null)
         {
             this.IdSale = IdSale;
             this.Cancellation = Cancellation;
+            this.IdSaleFather = IdFhater;
 
             InitializeComponent();
 
@@ -717,58 +718,58 @@ namespace WindowsFormsApplication1
                 {
                     //if (double.Parse(this.txtPago.Text) - double.Parse(txtTotal.Text) >= 0)
                     //{
-                        if (this.Confirm("¿Deseas realizar la venta?"))
+                    if (this.Confirm("¿Deseas realizar la venta?"))
+                    {
+                        using (posb.Sale sale = new posb.Sale())
                         {
-                            using (posb.Sale sale = new posb.Sale())
+                            bool oneTicket = this.AppSet<bool>("OneTicket");
+                            bool printTicket = this.Confirm("¿Deseas imprimir el ticket?");
+
+                            var ids = this.Products.Select(x => x.IdCompany).Distinct().ToList();
+                            var idSale = 0;
+
+                            decimal pagoParcial = decimal.Parse(txtPago.Text);
+                            var print = (!oneTicket && printTicket);
+
+                            for (var i = 0; i < ids.Count; i++)
                             {
-                                bool oneTicket = this.AppSet<bool>("OneTicket");
-                                bool printTicket = this.Confirm("¿Deseas imprimir el ticket?");
+                                var id = ids[i];
 
-                                var ids = this.Products.Select(x => x.IdCompany).Distinct().ToList();
-                                var idSale = 0;
+                                var products = this.Products.FindAll(p => p.IdCompany.Equals(id));
+                                decimal precioProductosPorNegocio = products.Sum(p => p.Price);
 
-                                decimal pagoParcial = decimal.Parse(txtPago.Text);
-                                var print = (!oneTicket && printTicket);
+                                pagoParcial -= precioProductosPorNegocio;
 
-                                for (var i = 0; i < ids.Count; i++)
+                                double pago = (double)precioProductosPorNegocio;
+
+                                if (i.Equals(ids.Count - 1))
                                 {
-                                    var id = ids[i];
-
-                                    var products = this.Products.FindAll(p => p.IdCompany.Equals(id));
-                                    decimal precioProductosPorNegocio = products.Sum(p => p.Price);
-
-                                    pagoParcial -= precioProductosPorNegocio;
-
-                                    double pago = (double)precioProductosPorNegocio;
-
-                                    if (i.Equals(ids.Count - 1))
-                                    {
-                                        pago = (double)(pagoParcial + precioProductosPorNegocio);
-                                    }
-
-                                    idSale = this.Charge2(products,
-                                                          int.Parse(this.cmbClient.SelectedValue.ToString()),
-                                                          this.toolStripComboBoxClient.Text,
-                                                          pago,
-                                                          false,
-                                                          id,
-                                                          Print: (!oneTicket && printTicket));
+                                    pago = (double)(pagoParcial + precioProductosPorNegocio);
                                 }
 
-                                if (oneTicket)
-                                {
-                                    this.Print(idSale,
-                                               this.Products,
-                                               double.Parse(txtPago.Text),
-                                               lblTotalLetter.Text,
-                                               this.cmbClient.Text,
-                                               this.toolStripComboBoxClient.Text,
-                                               IdCompany: null,
-                                               Principal: true,
-                                               ExtraSale: this.Products.Count - 1);
-                                }
+                                idSale = this.Charge2(products,
+                                                      int.Parse(this.cmbClient.SelectedValue.ToString()),
+                                                      this.toolStripComboBoxClient.Text,
+                                                      pago,
+                                                      false,
+                                                      id,
+                                                      Print: (!oneTicket && printTicket));
+                            }
+
+                            if (oneTicket)
+                            {
+                                this.Print(idSale,
+                                           this.Products,
+                                           double.Parse(txtPago.Text),
+                                           lblTotalLetter.Text,
+                                           this.cmbClient.Text,
+                                           this.toolStripComboBoxClient.Text,
+                                           IdCompany: null,
+                                           Principal: true,
+                                           ExtraSale: this.Products.Count - 1);
                             }
                         }
+                    }
                     //}
                     //else                                                                                           
                     //{
@@ -824,6 +825,11 @@ namespace WindowsFormsApplication1
                     this.Alert("Ocurrió un error al guardar la venta.\r\nDescripción: " + sale.ErrorMessage, eForm.TypeError.Error);
 
                     this.CleanControls();
+                }
+
+                if (this.Cancellation)
+                {
+                    sale.AddFather(sale.Id.Value, this.IdSaleFather.Value);
                 }
 
                 return sale.Id.Value;
@@ -1522,7 +1528,7 @@ namespace WindowsFormsApplication1
         {
             _listBox = new ListBox();
 
-           
+
 
             KeyDown += this_KeyDown;
             KeyUp += this_KeyUp;
@@ -1595,7 +1601,7 @@ namespace WindowsFormsApplication1
 
         private void UpdateListBox()
         {
-            if (Text == _formerValue) 
+            if (Text == _formerValue)
                 return;
 
             _formerValue = Text;

@@ -89,11 +89,16 @@ namespace PosBusiness
                 var cost = this.AccessMsSql.Pos.Getpurchasecost.ExeScalar<decimal>(int.Parse(product.Code));
 
                 if (cost.Equals(0))
-                    cost = 1;
+                    cost = (decimal).1;
+
+                if (cost > (decimal)product.Unitary)
+                    cost = (decimal).1;
 
                 product.Unitary = cost;
 
                 product.Price = (decimal)(product.Unitary * (decimal)product.Amount);
+
+                product.Id = int.Parse(product.Code);
             }
 
             using (Purchase purchase = new Purchase())
@@ -104,10 +109,15 @@ namespace PosBusiness
 
                 var result = purchase.Charge(products);
 
-                this.AccessMsSql.Pos.Addsalefather.ExeNonQuery(Id, purchase.Id);
+                this.AccessMsSql.Pos.Addpurchasefather.ExeNonQuery(purchase.Id, Id);
 
                 return result;
             }
+        }
+
+        public void AddFather(int IdSale,int IdFather)
+        {
+            this.AccessMsSql.Pos.Addsalefather.ExeNonQuery(IdSale, IdFather);
         }
 
         public List<Sale> List(DateTime StartDate, DateTime FinishDate)

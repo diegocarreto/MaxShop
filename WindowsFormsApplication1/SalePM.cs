@@ -89,7 +89,10 @@ namespace WindowsFormsApplication1
                         {
                             entity.Cancel(this.EntityId);
 
-                            this.OpenEdit(this.EntityId, true);
+                            if (this.Confirm("¿Deseas abrir la venta?"))
+                            {
+                                this.OpenEdit(this.EntityId, true);
+                            }
 
                             this.FillGridView();
                         }

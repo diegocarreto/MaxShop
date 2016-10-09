@@ -128,7 +128,7 @@ namespace WindowsFormsApplication1
 
                         this.SetBarCode();
 
-                        //this.Result(true, "", this.txtCode.Text);
+                        this.Result(true, "", this.txtCode.Text);
 
                         if (this.Confirm("¿Deseas abrir la imagen?"))
                             Process.Start(saveFileDialog1.FileName);
