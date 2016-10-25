@@ -20,6 +20,10 @@ namespace PosBusiness
 
         public double Total { get; set; }
 
+        public double Cash { get; set; }
+
+        public double Change { get; set; }
+
         public double Payment { get; set; }
 
         public int IdPm { get; set; }
@@ -35,6 +39,8 @@ namespace PosBusiness
         public double Unitary { get; set; }
 
         public double Price { get; set; }
+
+        public double Paid { get; set; }
 
         public double Gain { get; set; }
 
@@ -71,6 +77,10 @@ namespace PosBusiness
             this.CreatedDate = sale.CreatedDate;
             this.IdClient = sale.IdClient;
             this.Freight = sale.Freight;
+
+            this.Amount = sale.Amount;
+            this.Change = sale.Change;
+            this.Cash = sale.Cash;
 
             this.Products = this.AccessMsSql.Pos.Listdetailsale.ExeList<ProductForAction>(Id);
 
@@ -115,7 +125,7 @@ namespace PosBusiness
             }
         }
 
-        public void AddFather(int IdSale,int IdFather)
+        public void AddFather(int IdSale, int IdFather)
         {
             this.AccessMsSql.Pos.Addsalefather.ExeNonQuery(IdSale, IdFather);
         }
@@ -144,7 +154,12 @@ namespace PosBusiness
             this.Sales = this.AccessMsSql.Pos.Listdetailsale.ExeList<Sale>(this.Id);
         }
 
-        public bool Charge(List<ProductForAction> Products, int IdClient, string PaymentType, double Payment, bool Freight = false)
+        public void Pay(int IdSale, string Type, decimal Amount, decimal Cash, decimal Change, DateTime Date)
+        {
+            this.AccessMsSql.Pos.Addpaymentsale.ExeNonQuery(IdSale, Type, Amount, Cash, Change, Date);
+        }
+
+        public bool Charge(List<ProductForAction> Products, int IdClient, string PaymentType, double Payment,double OnAccount,double Change,bool Freight = false)
         {
             try
             {
@@ -152,7 +167,7 @@ namespace PosBusiness
 
                 if (!total.Equals(0))
                 {
-                    this.Id = this.AccessMsSql.Pos.Addsale.ExeScalar<int>(total, IdClient, PaymentType, Payment, Freight);
+                    this.Id = this.AccessMsSql.Pos.Addsale.ExeScalar<int>(total, IdClient, PaymentType, Payment, Freight, OnAccount, Change);
 
                     foreach (ProductForAction p in Products)
                     {

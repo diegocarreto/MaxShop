@@ -47,8 +47,8 @@
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Material = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Prefijo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Material = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cancelada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaCancelacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -176,8 +176,8 @@
             this.Column1,
             this.id,
             this.Nombre,
-            this.Material,
             this.Prefijo,
+            this.Material,
             this.Marca,
             this.Cancelada,
             this.FechaCancelacion});
@@ -189,7 +189,7 @@
             this.gvList.ShowCellToolTips = false;
             this.gvList.ShowEditingIcon = false;
             this.gvList.ShowRowErrors = false;
-            this.gvList.Size = new System.Drawing.Size(1098, 380);
+            this.gvList.Size = new System.Drawing.Size(1098, 374);
             this.gvList.TabIndex = 40;
             this.gvList.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gvList_CellMouseDoubleClick);
             this.gvList.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvList_CellMouseLeave);
@@ -253,14 +253,6 @@
             this.Nombre.ReadOnly = true;
             this.Nombre.Width = 230;
             // 
-            // Material
-            // 
-            this.Material.DataPropertyName = "paymentType";
-            this.Material.HeaderText = "Tipo de pago";
-            this.Material.Name = "Material";
-            this.Material.ReadOnly = true;
-            this.Material.Width = 155;
-            // 
             // Prefijo
             // 
             this.Prefijo.DataPropertyName = "total";
@@ -268,6 +260,14 @@
             this.Prefijo.Name = "Prefijo";
             this.Prefijo.ReadOnly = true;
             this.Prefijo.Width = 130;
+            // 
+            // Material
+            // 
+            this.Material.DataPropertyName = "paid";
+            this.Material.HeaderText = "Pagado";
+            this.Material.Name = "Material";
+            this.Material.ReadOnly = true;
+            this.Material.Width = 155;
             // 
             // Marca
             // 
@@ -347,8 +347,8 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Material;
         private System.Windows.Forms.DataGridViewTextBoxColumn Prefijo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Material;
         private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cancelada;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaCancelacion;

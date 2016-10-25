@@ -160,6 +160,12 @@
     <Compile Include="ClientEdit.Designer.cs">
       <DependentUpon>ClientEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="PaymentSale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaymentSale.Designer.cs">
+      <DependentUpon>PaymentSale.cs</DependentUpon>
+    </Compile>
     <Compile Include="RefillList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -490,6 +496,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ClientEdit.resx">
       <DependentUpon>ClientEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaymentSale.resx">
+      <DependentUpon>PaymentSale.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RefillList.resx">
       <DependentUpon>RefillList.cs</DependentUpon>

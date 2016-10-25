@@ -160,15 +160,15 @@ namespace WindowsFormsApplication1
             }
             else if (e.KeyCode == Keys.F12)
             {
-                if (!string.IsNullOrEmpty(txtPago.Text) && double.Parse(txtPago.Text) > 0)
+                if (!string.IsNullOrEmpty(this.txtPago.Text) && double.Parse(this.txtPago.Text) > 0)
                 {
-                    if (double.Parse(this.txtPago.Text) - double.Parse(txtTotal.Text) >= 0)
+                    if (double.Parse(this.txtPago.Text) - double.Parse(this.txtACuenta.Text) >= 0)
                     {
                         this.Charge();
                     }
                     else
                     {
-                        this.Alert("El monto pagado no puede ser menor al monto total.");
+                        this.Alert("El monto pagado no puede ser menor al monto que se deja a cuenta");
 
                         this.txtPago.Clear();
                         this.txtCambio.Text = "0.00";
@@ -320,7 +320,7 @@ namespace WindowsFormsApplication1
                         this.CleanControls(true);
                 }
                 else
-                    this.CleanControls();
+                    this.CleanControls(true);
 
                 this.SetAutoCompleteProducts();
                 this.SetAutoCompleteClient();
@@ -379,7 +379,7 @@ namespace WindowsFormsApplication1
 
             decimal.TryParse(this.txtPago.Text, out pago);
 
-            txtCambio.Text = (pago - decimal.Parse(txtTotal.Text)).ToString();
+            this.txtCambio.Text = (pago - decimal.Parse(this.txtACuenta.Text)).ToString();
         }
 
         private void txt_KeyPress(object sender, KeyPressEventArgs e)
@@ -670,6 +670,7 @@ namespace WindowsFormsApplication1
             this.btnOk.Enabled = Enabled;
             this.cmbClient.Enabled = Enabled;
             this.txtTotal.Enabled = Enabled;
+            this.txtACuenta.Enabled = Enabled;
             this.txtPago.Enabled = Enabled;
             this.txtCambio.Enabled = Enabled;
             this.toolStripComboBoxClient.Enabled = Enabled;
@@ -694,11 +695,17 @@ namespace WindowsFormsApplication1
 
         private void Charge()
         {
+            //this.CreatedDate = DateTime.Now;
+
+            //this.Print(0, this.Products, double.Parse(txtPago.Text), lblTotalLetter.Text, this.cmbClient.Text, this.toolStripComboBoxClient.Text, double.Parse(this.txtACuenta.Text), this.CreatedDate.Value.ToString("dd/MM/yyyy hh:mm:ss"));
+
+            //return;
+
             if (btnCobrar.Text.Equals("Ticket (F12)"))
             {
                 if (this.Confirm("¿Deseas imprimir el ticket?"))
                 {
-                    this.Print(this.IdSale.Value, this.Products, double.Parse(txtPago.Text), lblTotalLetter.Text, this.cmbClient.Text, this.toolStripComboBoxClient.Text, this.CreatedDate.Value.ToString("dd/MM/yyyy hh:mm:ss"));
+                    this.Print(this.IdSale.Value, this.Products, double.Parse(txtPago.Text), lblTotalLetter.Text, this.cmbClient.Text, this.toolStripComboBoxClient.Text,double.Parse(this.txtACuenta.Text), this.CreatedDate.Value.ToString("dd/MM/yyyy hh:mm:ss"));
                 }
 
                 return;
@@ -711,84 +718,94 @@ namespace WindowsFormsApplication1
 
                 return;
             }
-
-            if (this.Products.Count > 0)
+            else if (this.Products.Count > 0)
             {
-                if (!string.IsNullOrEmpty(txtPago.Text) && double.Parse(txtPago.Text) > 0)
+                if (double.Parse(this.txtTotal.Text) >= double.Parse(this.txtACuenta.Text))
                 {
-                    //if (double.Parse(this.txtPago.Text) - double.Parse(txtTotal.Text) >= 0)
-                    //{
-                    if (this.Confirm("¿Deseas realizar la venta?"))
+                    if (!string.IsNullOrEmpty(txtPago.Text) && double.Parse(txtPago.Text) > 0)
                     {
-                        using (posb.Sale sale = new posb.Sale())
+                        if (double.Parse(this.txtPago.Text) - double.Parse(this.txtACuenta.Text) >= 0)
                         {
-                            bool oneTicket = this.AppSet<bool>("OneTicket");
-                            bool printTicket = this.Confirm("¿Deseas imprimir el ticket?");
-
-                            var ids = this.Products.Select(x => x.IdCompany).Distinct().ToList();
-                            var idSale = 0;
-
-                            decimal pagoParcial = decimal.Parse(txtPago.Text);
-                            var print = (!oneTicket && printTicket);
-
-                            for (var i = 0; i < ids.Count; i++)
+                            if (this.Confirm("¿Deseas realizar la venta?"))
                             {
-                                var id = ids[i];
-
-                                var products = this.Products.FindAll(p => p.IdCompany.Equals(id));
-                                decimal precioProductosPorNegocio = products.Sum(p => p.Price);
-
-                                pagoParcial -= precioProductosPorNegocio;
-
-                                double pago = (double)precioProductosPorNegocio;
-
-                                if (i.Equals(ids.Count - 1))
+                                using (posb.Sale sale = new posb.Sale())
                                 {
-                                    pago = (double)(pagoParcial + precioProductosPorNegocio);
+                                    bool oneTicket = this.AppSet<bool>("OneTicket");
+                                    bool printTicket = this.Confirm("¿Deseas imprimir el ticket?");
+
+                                    var ids = this.Products.Select(x => x.IdCompany).Distinct().ToList();
+                                    var idSale = 0;
+
+                                    decimal pagoParcial = decimal.Parse(txtPago.Text);
+                                    var print = (!oneTicket && printTicket);
+
+                                    for (var i = 0; i < ids.Count; i++)
+                                    {
+                                        var id = ids[i];
+
+                                        var products = this.Products.FindAll(p => p.IdCompany.Equals(id));
+                                        decimal precioProductosPorNegocio = products.Sum(p => p.Price);
+
+                                        pagoParcial -= precioProductosPorNegocio;
+
+                                        double pago = (double)precioProductosPorNegocio;
+
+                                        if (i.Equals(ids.Count - 1))
+                                        {
+                                            pago = (double)(pagoParcial + precioProductosPorNegocio);
+                                        }
+
+                                        idSale = this.Charge2(products,
+                                                              int.Parse(this.cmbClient.SelectedValue.ToString()),
+                                                              this.toolStripComboBoxClient.Text,
+                                                              pago,
+                                                              false,
+                                                              id,
+                                                              Print: (!oneTicket && printTicket));
+                                    }
+
+                                    if (oneTicket)
+                                    {
+                                        this.Print(idSale,
+                                                   this.Products,
+                                                   double.Parse(txtPago.Text),
+                                                   lblTotalLetter.Text,
+                                                   this.cmbClient.Text,
+                                                   this.toolStripComboBoxClient.Text,
+                                                   double.Parse(this.txtACuenta.Text),
+                                                   IdCompany: null,
+                                                   Principal: true,
+                                                   ExtraSale: this.Products.Count - 1);
+                                    }
                                 }
-
-                                idSale = this.Charge2(products,
-                                                      int.Parse(this.cmbClient.SelectedValue.ToString()),
-                                                      this.toolStripComboBoxClient.Text,
-                                                      pago,
-                                                      false,
-                                                      id,
-                                                      Print: (!oneTicket && printTicket));
-                            }
-
-                            if (oneTicket)
-                            {
-                                this.Print(idSale,
-                                           this.Products,
-                                           double.Parse(txtPago.Text),
-                                           lblTotalLetter.Text,
-                                           this.cmbClient.Text,
-                                           this.toolStripComboBoxClient.Text,
-                                           IdCompany: null,
-                                           Principal: true,
-                                           ExtraSale: this.Products.Count - 1);
                             }
                         }
+                        else
+                        {
+                            this.Alert("El monto pagado no puede ser menor al monto que se deja a cuenta.");
+
+                            this.txtPago.Text = "0.00";
+                            this.txtCambio.Text = "0.00";
+
+                            this.txtPago.Focus();
+                        }
                     }
-                    //}
-                    //else                                                                                           
-                    //{
-                    //    this.Alert("El monto pagado no puede ser menor al monto total.");
+                    else
+                    {
+                        this.Alert("Debe indicar el pago.");
 
-                    //    this.txtPago.Text = "0.00";
-                    //    this.txtCambio.Text = "0.00";
+                        this.txtPago.Text = "0.00";
+                        this.txtCambio.Text = "0.00";
 
-                    //    this.txtPago.Focus();
-                    //}
+                        this.txtPago.Focus();
+                    }
                 }
                 else
                 {
-                    this.Alert("Debe indicar el pago.");
+                    this.Alert("El monto del campo a cuenta no puede ser mayor al total de la venta.");
 
-                    this.txtPago.Text = "0.00";
-                    this.txtCambio.Text = "0.00";
-
-                    this.txtPago.Focus();
+                    this.txtACuenta.Text = this.txtTotal.Text;
+                    this.txtACuenta.Focus();
                 }
             }
             else
@@ -806,7 +823,7 @@ namespace WindowsFormsApplication1
         {
             using (posb.Sale sale = new posb.Sale())
             {
-                if (sale.Charge(Products, IdClient, PaymentType, Payment, Freight))
+                if (sale.Charge(Products, IdClient, PaymentType, Payment, double.Parse(this.txtACuenta.Text), double.Parse(this.txtCambio.Text), Freight))
                 {
                     if (Print)
                     {
@@ -814,7 +831,7 @@ namespace WindowsFormsApplication1
 
                         string ltr = new Numalet().Convert(total.ToString());
 
-                        this.Print(sale.Id.Value, Products, Payment, ltr, this.cmbClient.Text, PaymentType, IdCompany: IdCompany, Principal: null);
+                        this.Print(sale.Id.Value, Products, Payment, ltr, this.cmbClient.Text, PaymentType, double.Parse(this.txtACuenta.Text), IdCompany: IdCompany, Principal: null);
                     }
 
                     this.Disable();
@@ -916,6 +933,7 @@ namespace WindowsFormsApplication1
                 this.lblTotalLetter.Text = "Cero Pesos 00/100 M.N.";
                 this.txtPago.Text = "0.00";
                 this.txtCambio.Text = "0.00";
+                this.txtACuenta.Text = "0.00";
                 this.GetClients();
 
                 this.toolStripComboBoxClient.SelectedIndex = 1;
@@ -1189,7 +1207,9 @@ namespace WindowsFormsApplication1
 
         private void GetTotalSales()
         {
-            txtTotal.Text = String.Format("{0:0.00}", this.Products.Sum(item => item.Price));
+            this.txtTotal.Text = String.Format("{0:0.00}", this.Products.Sum(item => item.Price));
+
+            this.txtACuenta.Text = this.txtTotal.Text;
 
             lblTotalLetter.Text = new Numalet().Convert(txtTotal.Text);
         }
@@ -1199,7 +1219,8 @@ namespace WindowsFormsApplication1
         /// </summary>
         /// <param name="Id">Identificadot de la venta.</param>
         /// <param name="List">Productos vendidos.</param>
-        private void Print(int Id, List<posb.ProductForAction> List, double Cash, string ChashLetter, string Client, string PaymentType, string Date = "", int? IdCompany = null, bool? Principal = null, int ExtraSale = 0)
+        private void Print(int Id, List<posb.ProductForAction> List, double Cash, string CashLetter, string Client, 
+                           string PaymentType, double OnAccount, string Date = "", int? IdCompany = null, bool? Principal = null, int ExtraSale = 0)
         {
             PrintDocument p = new PrintDocument();
 
@@ -1215,13 +1236,21 @@ namespace WindowsFormsApplication1
                      f08 = new Font(font, 08),
                      f04 = new Font(font, 04);
 
+                var vex = false;
                 string tipoPago = "Pago hecho en una sola exhibición";
 
                 double total = (double)List.Sum(item => item.Price),
-                       cambio = Cash - total,
+                       cambio = Cash - OnAccount,
                        porPagar = 0,
                        iva = total * 0.16,
                        subTotal = total - iva;
+
+                if (total != OnAccount)
+                {
+                    tipoPago = "Pago realizado en parcialidades";
+                    CashLetter = new Numalet().Convert(this.txtACuenta.Text);
+                    vex = true;
+                }
 
                 int numberOfProducts = List.Count;
                 //double numberOfProducts = (double)List.Sum(item => item.Amount);
@@ -1294,42 +1323,51 @@ namespace WindowsFormsApplication1
 
                 e1.Graphics.DrawString("==================================", f10, brush, 10, newX);
 
-                e1.Graphics.DrawString("Total:", new Font("Times New Roman", 10), brush, 150, newX + 20);
-                e1.Graphics.DrawString("Efectivo:", new Font("Times New Roman", 10), brush, 150, newX + 40);
-                e1.Graphics.DrawString("Cambio:", new Font("Times New Roman", 10), brush, 150, newX + 60);
-
-                if (cambio < 0)
+                if (vex)
                 {
-                    e1.Graphics.DrawString("Por pagar:", new Font("Times New Roman", 10), brush, 150, newX + 80);
+                    e1.Graphics.DrawString("Total:", new Font("Times New Roman", 10), brush, 10, newX + 20);
+                    e1.Graphics.DrawString("A cuenta:", new Font("Times New Roman", 10), brush, 147, newX + 20);
+                    e1.Graphics.DrawString("Por pagar:", new Font("Times New Roman", 10), brush, 143, newX + 80);
                 }
+                else
+                {
+                    e1.Graphics.DrawString("Total:", new Font("Times New Roman", 10), brush, 150, newX + 20);
+                }
+               
+                e1.Graphics.DrawString("Efectivo:", new Font("Times New Roman", 10), brush, 150, newX + 40);
+                e1.Graphics.DrawString("Cambio:", new Font("Times New Roman", 10), brush, 152, newX + 60);
 
-                e1.Graphics.DrawString("IVA:", new Font("Times New Roman", 10), brush, 150, newX + 105);
+                e1.Graphics.DrawString("IVA:", new Font("Times New Roman", 10), brush, 173, newX + 103);
 
-                var valueXTotal = this.StartXPosition(total, 260);
-                e1.Graphics.DrawString(String.Format("{0:0.00}", total), f10, brush, valueXTotal, newX + 20);
+                if (vex)
+                {
+                    var valueXTotal = this.StartXPosition(total, 88);
+                    e1.Graphics.DrawString(String.Format("{0:0.00}", total), f10, brush, valueXTotal, newX + 20);
+
+                    var valueACuenta = this.StartXPosition(OnAccount, 260);
+                    e1.Graphics.DrawString(String.Format("{0:0.00}", OnAccount), f10, brush, valueACuenta, newX + 20);
+
+                    porPagar = total - OnAccount;
+
+                    var valueXPorPagar = this.StartXPosition(porPagar, 260);
+                    e1.Graphics.DrawString(String.Format("{0:0.00}", porPagar), f10, brush, valueXPorPagar, newX + 80);
+                }
+                else
+                {
+                    var valueXTotal = this.StartXPosition(total, 260);
+                    e1.Graphics.DrawString(String.Format("{0:0.00}", total), f10, brush, valueXTotal, newX + 20);
+                }
 
                 var valueXCash = this.StartXPosition(Cash, 260);
                 e1.Graphics.DrawString(String.Format("{0:0.00}", Cash), f10, brush, valueXCash, newX + 40);
 
-                if (cambio < 0)
-                {
-                    porPagar = cambio * -1;
-
-                    var valueXPorPagar = this.StartXPosition(porPagar, 260);
-                    e1.Graphics.DrawString(String.Format("{0:0.00}", porPagar), f10, brush, valueXPorPagar, newX + 80);
-
-                    cambio = 0;
-
-                    tipoPago = "Pago realizado en parcialidades";
-                }
-
-                var valueXCambio = this.StartXPosition(cambio, 260);
+                var valueXCambio = this.StartXPosition(cambio, 262);
                 e1.Graphics.DrawString(String.Format("{0:0.00}", cambio), f10, brush, valueXCambio, newX + 60);
 
                 var valueXIva = this.StartXPosition(iva, 260);
-                e1.Graphics.DrawString(String.Format("{0:0.00}", iva), f10, brush, valueXIva, newX + 105);
+                e1.Graphics.DrawString(String.Format("{0:0.00}", iva), f10, brush, valueXIva, newX + 103);
 
-                e1.Graphics.DrawString(ChashLetter, f08, brush, 10, newX + 120);
+                e1.Graphics.DrawString(CashLetter, f08, brush, 10, newX + 120);
                 e1.Graphics.DrawString("# Arts. vendidos " + numberOfProducts.ToString(), f08, brush, 10, newX + 135);
 
                 if (!string.IsNullOrEmpty(Date))
@@ -1434,9 +1472,6 @@ namespace WindowsFormsApplication1
 
                 this.Products = Entity.Products;
 
-                this.txtPago.Text = String.Format("{0:0.00}", Entity.Payment);
-                this.txtCambio.Text = String.Format("{0:0.00}", (Entity.Payment - Entity.Total));
-
                 if (!this.Cancellation)
                 {
                     this.Disable();
@@ -1459,9 +1494,18 @@ namespace WindowsFormsApplication1
                     this.txtCantidad.Text = "1";
 
                     this.ActiveControl = this.txtBuscar;
+
+                    foreach (var product in this.Products)
+                    {
+                        product.Id = int.Parse(product.Code);
+                    }
                 }
 
                 this.SetGrid(false);
+
+                this.txtACuenta.Text = String.Format("{0:0.00}", Entity.Amount);
+                this.txtPago.Text = String.Format("{0:0.00}", Entity.Cash);
+                this.txtCambio.Text = String.Format("{0:0.00}", Entity.Change);
             }
         }
 
@@ -1480,8 +1524,6 @@ namespace WindowsFormsApplication1
 
                 this.cmbClient.SelectedValue = this.AppSet<int>("DefaultClientId");
             }
-
-            //this.cmbClient.SelectedIndex = 0;
         }
 
         private void btnUser_Click(object sender, EventArgs e)
@@ -1503,11 +1545,6 @@ namespace WindowsFormsApplication1
             this.GetClients();
 
             this.cmbClient.SelectedValue = Id;
-        }
-
-        private void txtBuscar_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 

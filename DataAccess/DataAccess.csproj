@@ -79,6 +79,7 @@
     <Compile Include="MsSQL\pos\addMaterial.cs" />
     <Compile Include="MsSQL\pos\addMeasure.cs" />
     <Compile Include="MsSQL\pos\addPayment.cs" />
+    <Compile Include="MsSQL\pos\addPaymentSale.cs" />
     <Compile Include="MsSQL\pos\addPM.cs" />
     <Compile Include="MsSQL\pos\addPrice.cs" />
     <Compile Include="MsSQL\pos\addProduct.cs" />
@@ -113,6 +114,7 @@
     <Compile Include="MsSQL\pos\deleteMaterial.cs" />
     <Compile Include="MsSQL\pos\deleteMeasure.cs" />
     <Compile Include="MsSQL\pos\deletePayment.cs" />
+    <Compile Include="MsSQL\pos\deletePaymentSale.cs" />
     <Compile Include="MsSQL\pos\deletePM.cs" />
     <Compile Include="MsSQL\pos\deleteProduct.cs" />
     <Compile Include="MsSQL\pos\deleteSale.cs" />
@@ -174,6 +176,7 @@
     <Compile Include="MsSQL\pos\listMaterial.cs" />
     <Compile Include="MsSQL\pos\listMeasure.cs" />
     <Compile Include="MsSQL\pos\listPayment.cs" />
+    <Compile Include="MsSQL\pos\listPaymentSale.cs" />
     <Compile Include="MsSQL\pos\listPM.cs" />
     <Compile Include="MsSQL\pos\listPMByCode.cs" />
     <Compile Include="MsSQL\pos\listPMCombo.cs" />

@@ -256,6 +256,7 @@ namespace WindowsFormsApplication1
                 }
                 catch (Exception ex)
                 {
+                    this.Alert("Error: " + ex.Message);
                 }
                 finally
                 {

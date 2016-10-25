@@ -75,9 +75,15 @@ namespace WindowsFormsApplication1
             {
                 this.OpenEdit(this.EntityId);
             }
+            else if (e.ColumnIndex == 4)
+            {
+                PaymentSale payment = new PaymentSale(this.EntityId);
+
+                payment.ShowDialog();
+            }
             else if (e.ColumnIndex == 6)
             {
-                var cancelTitle= gvList[6, this.SelectRowIndex].Value.ToString();
+                var cancelTitle = gvList[6, this.SelectRowIndex].Value.ToString();
 
                 if (cancelTitle.Equals("No", StringComparison.InvariantCultureIgnoreCase))
                 {
@@ -91,7 +97,7 @@ namespace WindowsFormsApplication1
 
                             if (this.Confirm("¿Deseas abrir la venta?"))
                             {
-                                this.OpenEdit(this.EntityId, true);
+                                this.OpenEdit(this.EntityId, true, this.EntityId);
                             }
 
                             this.FillGridView();
@@ -103,7 +109,7 @@ namespace WindowsFormsApplication1
 
         private void gvList_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.ColumnIndex > 0)
+            if (e.ColumnIndex.Equals(1) || e.ColumnIndex.Equals(4) || e.ColumnIndex.Equals(6))
                 gvList.Cursor = Cursors.Hand;
             else
                 gvList.Cursor = Cursors.Default;
@@ -466,7 +472,7 @@ namespace WindowsFormsApplication1
             {
                 this.Entity.Name = txtFind.Text;
 
-                List<posb.Sale> lSale = this.Entity.List(this.dtpDate1.Value, this.dtpDate2.Value);
+                var lSale = this.Entity.List(this.dtpDate1.Value, this.dtpDate2.Value);
 
                 this.gvList.DataSource = lSale;
 
@@ -520,9 +526,9 @@ namespace WindowsFormsApplication1
             this.gvList.EndEdit();
         }
 
-        private void OpenEdit(int? Id = null,bool Cancellation = false)
+        private void OpenEdit(int? Id = null,bool Cancellation = false, int? IdFhater = null)
         {
-            Sale sale = new Sale(Id, Cancellation);
+            Sale sale = new Sale(Id, Cancellation, IdFhater);
 
             sale.ShowDialog();
         }

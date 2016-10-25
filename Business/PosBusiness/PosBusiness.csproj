@@ -49,6 +49,7 @@
     <Compile Include="Client.cs" />
     <Compile Include="Company.cs" />
     <Compile Include="Configuration.cs" />
+    <Compile Include="PaymentSale.cs" />
     <Compile Include="Provider.cs" />
     <Compile Include="Location.cs" />
     <Compile Include="Payment.cs" />

@@ -106,10 +106,13 @@ namespace WindowsFormsApplication1
 
                     foreach (PosBusiness.PM pm in lPm)
                     {
-                       
-
                         (xlWorkSheetItems.Cells[index, 1] as Microsoft.Office.Interop.Excel.Range).NumberFormat = "@";
-                        xlWorkSheetItems.Cells[index, 1] = pm.Name + " " + pm.Material + " " + pm.Measure + " " + pm.Brand + " ";
+
+                        var name = pm.Name + " " + pm.Material + " " + pm.Measure + " " + pm.Brand + " ";
+
+                        name = name.Replace("N/A", string.Empty);
+
+                        xlWorkSheetItems.Cells[index, 1] = name;
 
                         (xlWorkSheetItems.Cells[index, 2] as Microsoft.Office.Interop.Excel.Range).NumberFormat = "@";
                         xlWorkSheetItems.Cells[index, 2] = pm.CodeVendor;
@@ -155,6 +158,7 @@ namespace WindowsFormsApplication1
                 }
                 catch (Exception ex)
                 {
+                    this.Alert("Ocurrió un error al intentar generar el reporte. Descripción:" + ex.Message);
                 }
                 finally
                 {
@@ -262,6 +266,7 @@ namespace WindowsFormsApplication1
                 }
                 catch (Exception ex)
                 {
+                    this.Alert("Ocurrió un error al intentar generar el reporte. Descripción:" + ex.Message);
                 }
                 finally
                 {

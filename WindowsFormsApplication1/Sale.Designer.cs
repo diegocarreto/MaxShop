@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Sale));
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -77,6 +77,9 @@
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnCobrar = new System.Windows.Forms.Button();
+            this.txtACuenta = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             ((System.ComponentModel.ISupportInitialize)(this.gvList)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).BeginInit();
@@ -123,7 +126,7 @@
             // 
             this.lblTotalLetter.AutoSize = true;
             this.lblTotalLetter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalLetter.Location = new System.Drawing.Point(8, 494);
+            this.lblTotalLetter.Location = new System.Drawing.Point(13, 453);
             this.lblTotalLetter.Name = "lblTotalLetter";
             this.lblTotalLetter.Size = new System.Drawing.Size(202, 20);
             this.lblTotalLetter.TabIndex = 58;
@@ -161,7 +164,6 @@
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(847, 29);
             this.txtBuscar.TabIndex = 0;
-            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             this.txtBuscar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBuscar_KeyUp);
             this.txtBuscar.Leave += new System.EventHandler(this.txtBuscar_Leave);
             // 
@@ -207,6 +209,7 @@
             this.txtCambio.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtCambio.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCambio.Location = new System.Drawing.Point(1043, 520);
+            this.txtCambio.MaxLength = 9;
             this.txtCambio.Name = "txtCambio";
             this.txtCambio.ReadOnly = true;
             this.txtCambio.Size = new System.Drawing.Size(111, 29);
@@ -232,7 +235,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTotal.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(1043, 488);
+            this.txtTotal.Location = new System.Drawing.Point(1043, 450);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(111, 29);
@@ -245,7 +248,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(704, 491);
+            this.label2.Location = new System.Drawing.Point(737, 523);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 24);
             this.label2.TabIndex = 4;
@@ -257,10 +260,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPago.Location = new System.Drawing.Point(769, 485);
+            this.txtPago.Location = new System.Drawing.Point(810, 520);
             this.txtPago.MaxLength = 9;
             this.txtPago.Name = "txtPago";
-            this.txtPago.Size = new System.Drawing.Size(165, 29);
+            this.txtPago.Size = new System.Drawing.Size(129, 29);
             this.txtPago.TabIndex = 4;
             this.txtPago.Text = "0.00";
             this.txtPago.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -270,7 +273,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(981, 491);
+            this.label1.Location = new System.Drawing.Point(981, 453);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 24);
             this.label1.TabIndex = 1;
@@ -297,7 +300,7 @@
             this.gvList.Location = new System.Drawing.Point(12, 131);
             this.gvList.Name = "gvList";
             this.gvList.ReadOnly = true;
-            this.gvList.Size = new System.Drawing.Size(1142, 351);
+            this.gvList.Size = new System.Drawing.Size(1142, 313);
             this.gvList.TabIndex = 10;
             this.gvList.TabStop = false;
             this.gvList.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gvList_CellMouseDoubleClick);
@@ -314,8 +317,8 @@
             // Ubicacion
             // 
             this.Ubicacion.DataPropertyName = "Location";
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Ubicacion.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Ubicacion.DefaultCellStyle = dataGridViewCellStyle8;
             this.Ubicacion.HeaderText = "Ubicacion";
             this.Ubicacion.Name = "Ubicacion";
             this.Ubicacion.ReadOnly = true;
@@ -324,8 +327,8 @@
             // Producto
             // 
             this.Producto.DataPropertyName = "Code";
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Producto.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Producto.DefaultCellStyle = dataGridViewCellStyle9;
             this.Producto.HeaderText = "Código";
             this.Producto.Name = "Producto";
             this.Producto.ReadOnly = true;
@@ -333,8 +336,8 @@
             // Column1
             // 
             this.Column1.DataPropertyName = "Name";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle10;
             this.Column1.HeaderText = "Nombre";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
@@ -343,11 +346,11 @@
             // Column2
             // 
             this.Column2.DataPropertyName = "Amount";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.Format = "N2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.Format = "N2";
+            dataGridViewCellStyle11.NullValue = null;
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle11;
             this.Column2.HeaderText = "Cantidad";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
@@ -356,11 +359,11 @@
             // PrecioUnitario
             // 
             this.PrecioUnitario.DataPropertyName = "Unitary";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.Format = "N2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.PrecioUnitario.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.Format = "N2";
+            dataGridViewCellStyle12.NullValue = null;
+            this.PrecioUnitario.DefaultCellStyle = dataGridViewCellStyle12;
             this.PrecioUnitario.HeaderText = "Unitario";
             this.PrecioUnitario.Name = "PrecioUnitario";
             this.PrecioUnitario.ReadOnly = true;
@@ -369,9 +372,9 @@
             // flete
             // 
             this.flete.DataPropertyName = "Freight";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.flete.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.flete.DefaultCellStyle = dataGridViewCellStyle13;
             this.flete.HeaderText = "F";
             this.flete.Name = "flete";
             this.flete.ReadOnly = true;
@@ -380,11 +383,11 @@
             // Cantidad
             // 
             this.Cantidad.DataPropertyName = "Price";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.Format = "N2";
-            dataGridViewCellStyle7.NullValue = null;
-            this.Cantidad.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.Format = "N2";
+            dataGridViewCellStyle14.NullValue = null;
+            this.Cantidad.DefaultCellStyle = dataGridViewCellStyle14;
             this.Cantidad.HeaderText = "Precio";
             this.Cantidad.Name = "Cantidad";
             this.Cantidad.ReadOnly = true;
@@ -602,12 +605,40 @@
             this.btnCobrar.UseVisualStyleBackColor = false;
             this.btnCobrar.Click += new System.EventHandler(this.btnCobrar_Click);
             // 
+            // txtACuenta
+            // 
+            this.txtACuenta.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtACuenta.BackColor = System.Drawing.Color.White;
+            this.txtACuenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtACuenta.Location = new System.Drawing.Point(1043, 485);
+            this.txtACuenta.MaxLength = 9;
+            this.txtACuenta.Name = "txtACuenta";
+            this.txtACuenta.Size = new System.Drawing.Size(111, 29);
+            this.txtACuenta.TabIndex = 3;
+            this.txtACuenta.Text = "0.00";
+            this.txtACuenta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtACuenta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(947, 488);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(90, 24);
+            this.label8.TabIndex = 72;
+            this.label8.Text = "A cuenta:";
+            // 
             // Sale
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.CancelButton = this.button4;
-            this.ClientSize = new System.Drawing.Size(1166, 600);
+            this.ClientSize = new System.Drawing.Size(1166, 605);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.txtACuenta);
             this.Controls.Add(this.btnUser);
             this.Controls.Add(this.cmbClient);
             this.Controls.Add(this.btnBorra);
@@ -701,5 +732,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.ComboBox cmbClient;
         private System.Windows.Forms.Button btnUser;
+        private System.Windows.Forms.TextBox txtACuenta;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
     }
 }

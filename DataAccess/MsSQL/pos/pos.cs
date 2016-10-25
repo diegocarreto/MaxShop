@@ -119,6 +119,11 @@ namespace DataAccess.MSSQL.Pos
 		public DataAccess.MsSqlCommands.Pos.Addpayment Addpayment = new DataAccess.MsSqlCommands.Pos.Addpayment();
 
 		/// <summary>
+		/// Controla la ejecucion del procedimiento almacenado Addpaymentsale.
+		///</summary>
+		public DataAccess.MsSqlCommands.Pos.Addpaymentsale Addpaymentsale = new DataAccess.MsSqlCommands.Pos.Addpaymentsale();
+
+		/// <summary>
 		/// Controla la ejecucion del procedimiento almacenado Addpm.
 		///</summary>
 		public DataAccess.MsSqlCommands.Pos.Addpm Addpm = new DataAccess.MsSqlCommands.Pos.Addpm();
@@ -287,6 +292,11 @@ namespace DataAccess.MSSQL.Pos
 		/// Controla la ejecucion del procedimiento almacenado Deletepayment.
 		///</summary>
 		public DataAccess.MsSqlCommands.Pos.Deletepayment Deletepayment = new DataAccess.MsSqlCommands.Pos.Deletepayment();
+
+		/// <summary>
+		/// Controla la ejecucion del procedimiento almacenado Deletepaymentsale.
+		///</summary>
+		public DataAccess.MsSqlCommands.Pos.Deletepaymentsale Deletepaymentsale = new DataAccess.MsSqlCommands.Pos.Deletepaymentsale();
 
 		/// <summary>
 		/// Controla la ejecucion del procedimiento almacenado Deletepm.
@@ -589,6 +599,11 @@ namespace DataAccess.MSSQL.Pos
 		public DataAccess.MsSqlCommands.Pos.Listpayment Listpayment = new DataAccess.MsSqlCommands.Pos.Listpayment();
 
 		/// <summary>
+		/// Controla la ejecucion del procedimiento almacenado Listpaymentsale.
+		///</summary>
+		public DataAccess.MsSqlCommands.Pos.Listpaymentsale Listpaymentsale = new DataAccess.MsSqlCommands.Pos.Listpaymentsale();
+
+		/// <summary>
 		/// Controla la ejecucion del procedimiento almacenado Listpm.
 		///</summary>
 		public DataAccess.MsSqlCommands.Pos.Listpm Listpm = new DataAccess.MsSqlCommands.Pos.Listpm();
@@ -843,6 +858,9 @@ namespace DataAccess.MSSQL.Pos
 			if (this.Addpayment != null)
 				this.Addpayment.Dispose();
 
+			if (this.Addpaymentsale != null)
+				this.Addpaymentsale.Dispose();
+
 			if (this.Addpm != null)
 				this.Addpm.Dispose();
 
@@ -944,6 +962,9 @@ namespace DataAccess.MSSQL.Pos
 
 			if (this.Deletepayment != null)
 				this.Deletepayment.Dispose();
+
+			if (this.Deletepaymentsale != null)
+				this.Deletepaymentsale.Dispose();
 
 			if (this.Deletepm != null)
 				this.Deletepm.Dispose();
@@ -1124,6 +1145,9 @@ namespace DataAccess.MSSQL.Pos
 
 			if (this.Listpayment != null)
 				this.Listpayment.Dispose();
+
+			if (this.Listpaymentsale != null)
+				this.Listpaymentsale.Dispose();
 
 			if (this.Listpm != null)
 				this.Listpm.Dispose();
