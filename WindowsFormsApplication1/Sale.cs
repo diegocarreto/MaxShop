@@ -760,11 +760,11 @@ namespace WindowsFormsApplication1
                                                               this.toolStripComboBoxClient.Text,
                                                               pago,
                                                               false,
-                                                              id,
+                                                              //id,
                                                               Print: (!oneTicket && printTicket));
                                     }
 
-                                    if (oneTicket)
+                                    if (oneTicket && printTicket)
                                     {
                                         this.Print(idSale,
                                                    this.Products,

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SalePM));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.svdReportStock = new System.Windows.Forms.SaveFileDialog();
             this.btnExit = new System.Windows.Forms.Button();
             this.lblTotalExpenses = new System.Windows.Forms.Label();
@@ -256,6 +258,8 @@
             // Prefijo
             // 
             this.Prefijo.DataPropertyName = "total";
+            dataGridViewCellStyle1.Format = "N2";
+            this.Prefijo.DefaultCellStyle = dataGridViewCellStyle1;
             this.Prefijo.HeaderText = "Total";
             this.Prefijo.Name = "Prefijo";
             this.Prefijo.ReadOnly = true;
@@ -264,6 +268,8 @@
             // Material
             // 
             this.Material.DataPropertyName = "paid";
+            dataGridViewCellStyle2.Format = "N2";
+            this.Material.DefaultCellStyle = dataGridViewCellStyle2;
             this.Material.HeaderText = "Pagado";
             this.Material.Name = "Material";
             this.Material.ReadOnly = true;
