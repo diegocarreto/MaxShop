@@ -695,17 +695,18 @@ namespace WindowsFormsApplication1
 
         private void Charge()
         {
-            //this.CreatedDate = DateTime.Now;
-
-            //this.Print(0, this.Products, double.Parse(txtPago.Text), lblTotalLetter.Text, this.cmbClient.Text, this.toolStripComboBoxClient.Text, double.Parse(this.txtACuenta.Text), this.CreatedDate.Value.ToString("dd/MM/yyyy hh:mm:ss"));
-
-            //return;
-
             if (btnCobrar.Text.Equals("Ticket (F12)"))
             {
                 if (this.Confirm("¿Deseas imprimir el ticket?"))
                 {
-                    this.Print(this.IdSale.Value, this.Products, double.Parse(txtPago.Text), lblTotalLetter.Text, this.cmbClient.Text, this.toolStripComboBoxClient.Text,double.Parse(this.txtACuenta.Text), this.CreatedDate.Value.ToString("dd/MM/yyyy hh:mm:ss"));
+                    new Ticket().Print(this.IdSale.Value, 
+                                       this.Products,
+                                       double.Parse(txtPago.Text), 
+                                       lblTotalLetter.Text, 
+                                       this.cmbClient.Text, 
+                                       this.toolStripComboBoxClient.Text,
+                                       double.Parse(this.txtACuenta.Text), 
+                                       this.CreatedDate.Value.ToString("dd/MM/yyyy hh:mm:ss"));
                 }
 
                 return;
@@ -760,22 +761,22 @@ namespace WindowsFormsApplication1
                                                               this.toolStripComboBoxClient.Text,
                                                               pago,
                                                               false,
-                                                              //id,
+                                                              id,
                                                               Print: (!oneTicket && printTicket));
                                     }
 
                                     if (oneTicket && printTicket)
                                     {
-                                        this.Print(idSale,
-                                                   this.Products,
-                                                   double.Parse(txtPago.Text),
-                                                   lblTotalLetter.Text,
-                                                   this.cmbClient.Text,
-                                                   this.toolStripComboBoxClient.Text,
-                                                   double.Parse(this.txtACuenta.Text),
-                                                   IdCompany: null,
-                                                   Principal: true,
-                                                   ExtraSale: this.Products.Count - 1);
+                                        new Ticket().Print(idSale,
+                                                           this.Products,
+                                                           double.Parse(txtPago.Text),
+                                                           lblTotalLetter.Text,
+                                                           this.cmbClient.Text,
+                                                           this.toolStripComboBoxClient.Text,
+                                                           double.Parse(this.txtACuenta.Text),
+                                                           IdCompany: null,
+                                                           Principal: true,
+                                                           ExtraSale: this.Products.Count - 1);
                                     }
                                 }
                             }
@@ -823,7 +824,7 @@ namespace WindowsFormsApplication1
         {
             using (posb.Sale sale = new posb.Sale())
             {
-                if (sale.Charge(Products, IdClient, PaymentType, Payment, double.Parse(this.txtACuenta.Text), double.Parse(this.txtCambio.Text), Freight))
+                if (sale.Charge(Products, IdClient, PaymentType, Payment, double.Parse(this.txtACuenta.Text), double.Parse(this.txtCambio.Text), Freight, IdCompany))
                 {
                     if (Print)
                     {
@@ -831,7 +832,15 @@ namespace WindowsFormsApplication1
 
                         string ltr = new Numalet().Convert(total.ToString());
 
-                        this.Print(sale.Id.Value, Products, Payment, ltr, this.cmbClient.Text, PaymentType, double.Parse(this.txtACuenta.Text), IdCompany: IdCompany, Principal: null);
+                        new Ticket().Print(sale.Id.Value, 
+                                           Products, 
+                                           Payment, 
+                                           ltr, 
+                                           this.cmbClient.Text, 
+                                           PaymentType, 
+                                           double.Parse(this.txtACuenta.Text), 
+                                           IdCompany: IdCompany, 
+                                           Principal: null);
                     }
 
                     this.Disable();
@@ -1212,207 +1221,6 @@ namespace WindowsFormsApplication1
             this.txtACuenta.Text = this.txtTotal.Text;
 
             lblTotalLetter.Text = new Numalet().Convert(txtTotal.Text);
-        }
-
-        /// <summary>
-        /// Imprime el ticket de venta.
-        /// </summary>
-        /// <param name="Id">Identificadot de la venta.</param>
-        /// <param name="List">Productos vendidos.</param>
-        private void Print(int Id, List<posb.ProductForAction> List, double Cash, string CashLetter, string Client, 
-                           string PaymentType, double OnAccount, string Date = "", int? IdCompany = null, bool? Principal = null, int ExtraSale = 0)
-        {
-            PrintDocument p = new PrintDocument();
-
-            p.PrintPage += delegate(object sender1, PrintPageEventArgs e1)
-            {
-                string font = "Times New Roman";
-                SolidBrush brush = new SolidBrush(Color.Black);
-
-                Font f14 = new Font(font, 14, FontStyle.Bold),
-                     f11 = new Font(font, 11),
-                     f10 = new Font(font, 10),
-                     f09 = new Font(font, 09),
-                     f08 = new Font(font, 08),
-                     f04 = new Font(font, 04);
-
-                var vex = false;
-                string tipoPago = "Pago hecho en una sola exhibición";
-
-                double total = (double)List.Sum(item => item.Price),
-                       cambio = Cash - OnAccount,
-                       porPagar = 0,
-                       iva = total * 0.16,
-                       subTotal = total - iva;
-
-                if (total != OnAccount)
-                {
-                    tipoPago = "Pago realizado en parcialidades";
-                    CashLetter = new Numalet().Convert(this.txtACuenta.Text);
-                    vex = true;
-                }
-
-                int numberOfProducts = List.Count;
-                //double numberOfProducts = (double)List.Sum(item => item.Amount);
-
-                using (posb.Company company = new Company
-                {
-                    Id = IdCompany
-                })
-                {
-                    var ticket = company.GetTicket(Principal).First();
-
-                    e1.Graphics.DrawString(ticket.ShopName.Replace("°", " "), f14, brush, 10, 20);
-                    e1.Graphics.DrawString(ticket.TicketAddress1, f09, brush, 10, 45);
-                    e1.Graphics.DrawString(ticket.TicketAddress2, f09, brush, 10, 60);
-                    e1.Graphics.DrawString("Tel. " + ticket.TicketPhoneNumber, f09, brush, 10, 75);
-                }
-
-                var extra = "  ";
-
-                if (ExtraSale > 0)
-                    extra = "+" + ExtraSale.ToString();
-
-                e1.Graphics.DrawString("Folio: " + Id.ToString().PadLeft(8, '0') + extra + "          " + (string.IsNullOrEmpty(Date) ? DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss") : Date), f10, new SolidBrush(Color.Black), 10, 95);
-
-                e1.Graphics.DrawString("==================================", f10, brush, 10, 105);
-
-                e1.Graphics.DrawString("Nombre - Propiedades - Marca", f09, brush, 10, 115);
-                e1.Graphics.DrawString("Código", f09, brush, 10, 125);
-                e1.Graphics.DrawString("Cantidad", f09, brush, 80, 125);
-                e1.Graphics.DrawString("Unitario", f09, brush, 150, 125);
-                e1.Graphics.DrawString("Precio", f09, brush, 230, 125);
-
-                e1.Graphics.DrawString("==================================", f10, brush, 10, 133);
-
-                int i = 0;
-
-                List<posb.ProductForAction> lPreProduct = new List<posb.ProductForAction>();
-
-                for (int j = List.Count - 1; j >= 0; j--)
-                {
-                    lPreProduct.Add(List[j]);
-                }
-
-                foreach (posb.ProductForAction pfa in lPreProduct)
-                {
-                    string pp = pfa.Name.Replace(" / Marca:", "-");
-
-                    if (pp.Length > 48)
-                    {
-                        pp = pp.Substring(0, 45) + "...";
-                    }
-
-                    e1.Graphics.DrawString(pp, f09, brush, 9, 145 + (i * 32));
-
-                    e1.Graphics.DrawString(pfa.Code, f09, brush, 10, 157 + (i * 32));
-
-                    var valueXAmount = this.StartXPosition(pfa.Amount, 120);
-                    e1.Graphics.DrawString(String.Format("{0:0.00}", pfa.Amount), f09, brush, valueXAmount, 157 + (i * 32));
-
-                    var valueXUnitary = this.StartXPosition(pfa.Unitary, 190);
-                    e1.Graphics.DrawString(String.Format("{0:0.00}", pfa.Unitary), f09, brush, valueXUnitary, 157 + (i * 32));
-
-                    var valueXPrice = this.StartXPosition(pfa.Price, 260);
-                    e1.Graphics.DrawString(String.Format("{0:0.00}", pfa.Price), f10, brush, valueXPrice, 157 + (i * 32));
-
-                    i++;
-                }
-
-                int newX = (i * 32) + 145;
-
-                e1.Graphics.DrawString("==================================", f10, brush, 10, newX);
-
-                if (vex)
-                {
-                    e1.Graphics.DrawString("Total:", new Font("Times New Roman", 10), brush, 10, newX + 20);
-                    e1.Graphics.DrawString("A cuenta:", new Font("Times New Roman", 10), brush, 147, newX + 20);
-                    e1.Graphics.DrawString("Por pagar:", new Font("Times New Roman", 10), brush, 143, newX + 80);
-                }
-                else
-                {
-                    e1.Graphics.DrawString("Total:", new Font("Times New Roman", 10), brush, 150, newX + 20);
-                }
-               
-                e1.Graphics.DrawString("Efectivo:", new Font("Times New Roman", 10), brush, 150, newX + 40);
-                e1.Graphics.DrawString("Cambio:", new Font("Times New Roman", 10), brush, 152, newX + 60);
-
-                e1.Graphics.DrawString("IVA:", new Font("Times New Roman", 10), brush, 173, newX + 103);
-
-                if (vex)
-                {
-                    var valueXTotal = this.StartXPosition(total, 88);
-                    e1.Graphics.DrawString(String.Format("{0:0.00}", total), f10, brush, valueXTotal, newX + 20);
-
-                    var valueACuenta = this.StartXPosition(OnAccount, 260);
-                    e1.Graphics.DrawString(String.Format("{0:0.00}", OnAccount), f10, brush, valueACuenta, newX + 20);
-
-                    porPagar = total - OnAccount;
-
-                    var valueXPorPagar = this.StartXPosition(porPagar, 260);
-                    e1.Graphics.DrawString(String.Format("{0:0.00}", porPagar), f10, brush, valueXPorPagar, newX + 80);
-                }
-                else
-                {
-                    var valueXTotal = this.StartXPosition(total, 260);
-                    e1.Graphics.DrawString(String.Format("{0:0.00}", total), f10, brush, valueXTotal, newX + 20);
-                }
-
-                var valueXCash = this.StartXPosition(Cash, 260);
-                e1.Graphics.DrawString(String.Format("{0:0.00}", Cash), f10, brush, valueXCash, newX + 40);
-
-                var valueXCambio = this.StartXPosition(cambio, 262);
-                e1.Graphics.DrawString(String.Format("{0:0.00}", cambio), f10, brush, valueXCambio, newX + 60);
-
-                var valueXIva = this.StartXPosition(iva, 260);
-                e1.Graphics.DrawString(String.Format("{0:0.00}", iva), f10, brush, valueXIva, newX + 103);
-
-                e1.Graphics.DrawString(CashLetter, f08, brush, 10, newX + 120);
-                e1.Graphics.DrawString("# Arts. vendidos " + numberOfProducts.ToString(), f08, brush, 10, newX + 135);
-
-                if (!string.IsNullOrEmpty(Date))
-                {
-                    e1.Graphics.DrawString("Reimpresión", f08, brush, 150, newX + 135);
-                }
-
-                e1.Graphics.DrawString("==================================", f10, brush, 10, newX + 150);
-                e1.Graphics.DrawString(tipoPago, f10, brush, 10, newX + 170);
-                e1.Graphics.DrawString("Tipo de pago: " + PaymentType, f10, brush, 10, newX + 185);
-                e1.Graphics.DrawString("Sucursal: " + this.AppSet<string>("branchOffice"), f10, brush, 10, newX + 200);
-                e1.Graphics.DrawString("Caja: " + this.AppSet<string>("CashRegister"), f10, brush, 170, newX + 200);
-
-                if (!string.IsNullOrEmpty(Client))
-                {
-                    e1.Graphics.DrawString("Cliente: " + Client, f10, brush, 10, newX + 215);
-
-                    e1.Graphics.DrawString("¡Gracias por su preferencia!", f11, brush, 50, newX + 235);
-                    e1.Graphics.DrawString("MaxShop V1.0.0 - Punto de venta", f04, brush, 95, newX + 255);
-                }
-                else
-                {
-                    e1.Graphics.DrawString("¡Gracias por su preferencia!", f11, brush, 50, newX + 220);
-                    e1.Graphics.DrawString("MaxShop V1.0.0 - Punto de venta", f04, brush, 95, newX + 240);
-                }
-            };
-
-            try
-            {
-                p.PrinterSettings.PrinterName = this.AppSet<string>("Printer");
-
-                p.Print();
-            }
-            catch (Exception ex)
-            {
-                this.Alert("Ocurrió un error al intentar imprimir el ticket. Descripcion: " + ex.Message, eForm.TypeError.Error);
-            }
-        }
-
-        private int StartXPosition(object Amount, int StartPosition, int Step = 6)
-        {
-            int len = String.Format("{0:0.00}", Amount).Length;
-            int valueXAmount = StartPosition - (len * Step);
-
-            return valueXAmount;
         }
 
         private void LoadData(int? Id)

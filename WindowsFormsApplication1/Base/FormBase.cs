@@ -29,5 +29,35 @@ namespace WindowsFormsApplication1
 
             base.OnLoad(e);
         }
+
+        protected void txt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+
+            if (txt.Text.Contains('.'))
+            {
+                if (!char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+
+                if (e.KeyChar == '\b')
+                {
+                    e.Handled = false;
+                }
+            }
+            else
+            {
+                if (!char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+
+                if (e.KeyChar == '.' || e.KeyChar == '\b')
+                {
+                    e.Handled = false;
+                }
+            }
+        }
     }
 }

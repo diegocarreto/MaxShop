@@ -75,19 +75,19 @@ namespace WindowsFormsApplication1
             {
                 this.OpenEdit(this.EntityId);
             }
-            else if (e.ColumnIndex == 4)
+            else if (e.ColumnIndex == 5)
             {
-                PaymentSale payment = new PaymentSale(this.EntityId);
+                //PaymentSale payment = new PaymentSale(this.EntityId);
 
-                payment.ShowDialog();
+                //payment.ShowDialog();
             }
-            else if (e.ColumnIndex == 6)
+            else if (e.ColumnIndex == 7)
             {
-                var cancelTitle = gvList[6, this.SelectRowIndex].Value.ToString();
+                var cancelTitle = gvList[7, this.SelectRowIndex].Value.ToString();
 
                 if (cancelTitle.Equals("No", StringComparison.InvariantCultureIgnoreCase))
                 {
-                    var client = gvList[2, this.SelectRowIndex].Value.ToString();
+                    var client = gvList[3, this.SelectRowIndex].Value.ToString();
 
                     if (this.Confirm("¿Realmente deseas cancelar la venta [" + this.EntityId + "] del cliente: " + client + "?"))
                     {
@@ -109,7 +109,7 @@ namespace WindowsFormsApplication1
 
         private void gvList_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.ColumnIndex.Equals(1) || e.ColumnIndex.Equals(4) || e.ColumnIndex.Equals(6))
+            if (e.ColumnIndex.Equals(1) || e.ColumnIndex.Equals(5) || e.ColumnIndex.Equals(7))
                 gvList.Cursor = Cursors.Hand;
             else
                 gvList.Cursor = Cursors.Default;
@@ -129,6 +129,8 @@ namespace WindowsFormsApplication1
             this.ConfigureDialogs();
 
             this.ConfigureDateTimePicker();
+
+            this.GetCompanies();
 
             this.LoadComplete = true;
 
@@ -424,6 +426,14 @@ namespace WindowsFormsApplication1
 
         #region Methods
 
+        private void GetCompanies()
+        {
+            using (posb.Company company = new posb.Company())
+            {
+                this.cmbCompany.Fill(company.List());
+            }
+        }
+
         public void SetAutoCompleteProducts()
         {
             this.txtFind.AutoCompleteMode = AutoCompleteMode.None;
@@ -471,6 +481,15 @@ namespace WindowsFormsApplication1
             if (this.LoadComplete)
             {
                 this.Entity.Name = txtFind.Text;
+
+                if (this.cmbCompany.SelectedIndex > 0)
+                {
+                    this.Entity.IdCompany = int.Parse(this.cmbCompany.SelectedValue.ToString());
+                }
+                else
+                {
+                    this.Entity.IdCompany = null;
+                }
 
                 var lSale = this.Entity.List(this.dtpDate1.Value, this.dtpDate2.Value);
 
@@ -558,7 +577,22 @@ namespace WindowsFormsApplication1
             //    }
             //}
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Sale mySale = new Sale();
+
+            mySale.MdiParent = this.MdiParent;
+            mySale.Show();
+        }
+
+        private void cmbCompany_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.FillGridView();
+        }
     }
 }
+
+
 
 

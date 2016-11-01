@@ -54,6 +54,10 @@ namespace PosBusiness
 
         public DateTime? CancelDate { get; set; }
 
+        public int? IdCompany { get; set; }
+
+        public string CompanyName { get; set; }
+
         #endregion
 
         #region Builder
@@ -137,9 +141,9 @@ namespace PosBusiness
             List<Sale> ls1;
 
             if (string.IsNullOrEmpty(this.Name))
-                ls1 = this.AccessMsSql.Pos.Listsale.ExeList<Sale>(StartDate, FinishDate);
+                ls1 = this.AccessMsSql.Pos.Listsale.ExeList<Sale>(StartDate, FinishDate, this.IdCompany);
             else
-                ls1 = this.AccessMsSql.Pos.Listsale2.ExeList<Sale>(StartDate, FinishDate, this.Name);
+                ls1 = this.AccessMsSql.Pos.Listsale2.ExeList<Sale>(StartDate, FinishDate, this.Name, this.IdCompany);
 
             //foreach (Sale sale in ls1)
             //{
@@ -159,7 +163,7 @@ namespace PosBusiness
             this.AccessMsSql.Pos.Addpaymentsale.ExeNonQuery(IdSale, Type, Amount, Cash, Change, Date);
         }
 
-        public bool Charge(List<ProductForAction> Products, int IdClient, string PaymentType, double Payment,double OnAccount,double Change,bool Freight = false)
+        public bool Charge(List<ProductForAction> Products, int IdClient, string PaymentType, double Payment, double OnAccount, double Change, bool Freight = false, int? IdCompany = null)
         {
             try
             {
@@ -167,7 +171,7 @@ namespace PosBusiness
 
                 if (!total.Equals(0))
                 {
-                    this.Id = this.AccessMsSql.Pos.Addsale.ExeScalar<int>(total, IdClient, PaymentType, Payment, Freight, OnAccount, Change);
+                    this.Id = this.AccessMsSql.Pos.Addsale.ExeScalar<int>(total, IdClient, PaymentType, Payment, Freight, OnAccount, Change, IdCompany);
 
                     foreach (ProductForAction p in Products)
                     {

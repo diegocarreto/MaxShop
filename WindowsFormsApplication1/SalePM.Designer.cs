@@ -33,6 +33,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.svdReportStock = new System.Windows.Forms.SaveFileDialog();
             this.btnExit = new System.Windows.Forms.Button();
+            this.cmbCompany = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.lblTotalExpenses = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -48,6 +51,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Negocio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Prefijo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Material = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,13 +71,48 @@
             this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExit.Location = new System.Drawing.Point(1035, 424);
+            this.btnExit.Location = new System.Drawing.Point(1052, 424);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
             this.btnExit.TabIndex = 44;
             this.btnExit.Text = "Salir";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // cmbCompany
+            // 
+            this.cmbCompany.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbCompany.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbCompany.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCompany.FormattingEnabled = true;
+            this.cmbCompany.Location = new System.Drawing.Point(90, 37);
+            this.cmbCompany.Name = "cmbCompany";
+            this.cmbCompany.Size = new System.Drawing.Size(183, 21);
+            this.cmbCompany.TabIndex = 79;
+            this.cmbCompany.SelectedIndexChanged += new System.EventHandler(this.cmbCompany_SelectedIndexChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(12, 37);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(72, 17);
+            this.label5.TabIndex = 78;
+            this.label5.Text = "Negocio:";
+            // 
+            // button2
+            // 
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(971, 424);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 77;
+            this.button2.Text = "   Nueva";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // lblTotalExpenses
             // 
@@ -99,7 +138,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(955, 12);
+            this.label3.Location = new System.Drawing.Point(972, 12);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 17);
             this.label3.TabIndex = 63;
@@ -109,7 +148,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(778, 12);
+            this.label2.Location = new System.Drawing.Point(795, 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 17);
             this.label2.TabIndex = 62;
@@ -118,7 +157,7 @@
             // dtpDate2
             // 
             this.dtpDate2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dtpDate2.Location = new System.Drawing.Point(996, 11);
+            this.dtpDate2.Location = new System.Drawing.Point(1013, 11);
             this.dtpDate2.Name = "dtpDate2";
             this.dtpDate2.Size = new System.Drawing.Size(114, 20);
             this.dtpDate2.TabIndex = 61;
@@ -127,7 +166,7 @@
             // dtpDate1
             // 
             this.dtpDate1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dtpDate1.Location = new System.Drawing.Point(835, 12);
+            this.dtpDate1.Location = new System.Drawing.Point(852, 12);
             this.dtpDate1.Name = "dtpDate1";
             this.dtpDate1.Size = new System.Drawing.Size(114, 20);
             this.dtpDate1.TabIndex = 60;
@@ -138,12 +177,11 @@
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(954, 424);
+            this.button1.Location = new System.Drawing.Point(891, 424);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 58;
-            this.button1.Text = "Excel";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.Text = "   Excel";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -177,13 +215,14 @@
             this.gvList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.id,
+            this.Negocio,
             this.Nombre,
             this.Prefijo,
             this.Material,
             this.Marca,
             this.Cancelada,
             this.FechaCancelacion});
-            this.gvList.Location = new System.Drawing.Point(15, 44);
+            this.gvList.Location = new System.Drawing.Point(15, 65);
             this.gvList.MultiSelect = false;
             this.gvList.Name = "gvList";
             this.gvList.ReadOnly = true;
@@ -191,7 +230,7 @@
             this.gvList.ShowCellToolTips = false;
             this.gvList.ShowEditingIcon = false;
             this.gvList.ShowRowErrors = false;
-            this.gvList.Size = new System.Drawing.Size(1098, 374);
+            this.gvList.Size = new System.Drawing.Size(1112, 353);
             this.gvList.TabIndex = 40;
             this.gvList.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gvList_CellMouseDoubleClick);
             this.gvList.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvList_CellMouseLeave);
@@ -202,7 +241,7 @@
             this.bntFind.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bntFind.Image = ((System.Drawing.Image)(resources.GetObject("bntFind.Image")));
             this.bntFind.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bntFind.Location = new System.Drawing.Point(1127, 13);
+            this.bntFind.Location = new System.Drawing.Point(1159, 13);
             this.bntFind.Name = "bntFind";
             this.bntFind.Size = new System.Drawing.Size(77, 23);
             this.bntFind.TabIndex = 47;
@@ -212,10 +251,10 @@
             // 
             // txtFind
             // 
-            this.txtFind.Location = new System.Drawing.Point(81, 11);
+            this.txtFind.Location = new System.Drawing.Point(90, 11);
             this.txtFind.MaxLength = 100;
             this.txtFind.Name = "txtFind";
-            this.txtFind.Size = new System.Drawing.Size(691, 20);
+            this.txtFind.Size = new System.Drawing.Size(699, 20);
             this.txtFind.TabIndex = 46;
             this.txtFind.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtFind_KeyUp);
             // 
@@ -223,7 +262,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 12);
+            this.label1.Location = new System.Drawing.Point(21, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 17);
             this.label1.TabIndex = 45;
@@ -246,6 +285,14 @@
             this.id.ReadOnly = true;
             this.id.Width = 70;
             // 
+            // Negocio
+            // 
+            this.Negocio.DataPropertyName = "CompanyName";
+            this.Negocio.HeaderText = "Negocio";
+            this.Negocio.Name = "Negocio";
+            this.Negocio.ReadOnly = true;
+            this.Negocio.Width = 140;
+            // 
             // Nombre
             // 
             this.Nombre.DataPropertyName = "name";
@@ -253,7 +300,7 @@
             this.Nombre.MaxInputLength = 100;
             this.Nombre.Name = "Nombre";
             this.Nombre.ReadOnly = true;
-            this.Nombre.Width = 230;
+            this.Nombre.Width = 200;
             // 
             // Prefijo
             // 
@@ -263,7 +310,6 @@
             this.Prefijo.HeaderText = "Total";
             this.Prefijo.Name = "Prefijo";
             this.Prefijo.ReadOnly = true;
-            this.Prefijo.Width = 130;
             // 
             // Material
             // 
@@ -273,7 +319,6 @@
             this.Material.HeaderText = "Pagado";
             this.Material.Name = "Material";
             this.Material.ReadOnly = true;
-            this.Material.Width = 155;
             // 
             // Marca
             // 
@@ -281,7 +326,7 @@
             this.Marca.HeaderText = "Fecha";
             this.Marca.Name = "Marca";
             this.Marca.ReadOnly = true;
-            this.Marca.Width = 170;
+            this.Marca.Width = 150;
             // 
             // Cancelada
             // 
@@ -304,7 +349,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
-            this.ClientSize = new System.Drawing.Size(1117, 453);
+            this.ClientSize = new System.Drawing.Size(1137, 453);
+            this.Controls.Add(this.cmbCompany);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.lblTotalExpenses);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label3);
@@ -350,8 +398,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblTotalExpenses;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox cmbCompany;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Negocio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Prefijo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Material;
