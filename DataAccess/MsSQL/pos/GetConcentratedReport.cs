@@ -18,11 +18,11 @@ namespace DataAccess.MsSqlCommands.Pos
         /// Obtiene una lista del tipo de objectos indicado con el merge entre las propiedades del objeto y el resulset obtenido de la ejecucion.
         /// </summary>
         /// <returns></returns>
-        public List<T> ExeList<T>(String type = null, DateTime? startDate = null, DateTime? endDate = null) where T : new()
+        public List<T> ExeList<T>(String type = null, DateTime? startDate = null, DateTime? endDate = null, int? IdCompany = null) where T : new()
         {
         	List<SqlParameter> parameters = new List<SqlParameter>();
 
-        	parameters.Add("@type", SqlDbType.VarChar, type, 8).Add("@startDate", SqlDbType.Date, startDate, null).Add("@endDate", SqlDbType.Date, endDate, null);
+        	parameters.Add("@type", SqlDbType.VarChar, type, 8).Add("@startDate", SqlDbType.Date, startDate, null).Add("@endDate", SqlDbType.Date, endDate, null).Add("@IdCompany", SqlDbType.Int, IdCompany, null);
 
         	return this.GetListBase<T>("pos", "GetConcentratedReport",parameters.ToArray());
         }
@@ -31,11 +31,11 @@ namespace DataAccess.MsSqlCommands.Pos
         /// Obtiene el scalar resultante de la ejecucion.
         /// </summary>
         /// <returns></returns>
-        public T ExeScalar<T>(String type = null, DateTime? startDate = null, DateTime? endDate = null)
+        public T ExeScalar<T>(String type = null, DateTime? startDate = null, DateTime? endDate = null, int? IdCompany = null)
         {
         	List<SqlParameter> parameters = new List<SqlParameter>();
 
-        	parameters.Add("@type", SqlDbType.VarChar, type, 8).Add("@startDate", SqlDbType.Date, startDate, null).Add("@endDate", SqlDbType.Date, endDate, null);
+        	parameters.Add("@type", SqlDbType.VarChar, type, 8).Add("@startDate", SqlDbType.Date, startDate, null).Add("@endDate", SqlDbType.Date, endDate, null).Add("@IdCompany", SqlDbType.Int, IdCompany, null);
 
         	return this.ExecuteScalar<T>("pos", "GetConcentratedReport",parameters.ToArray());
         }
@@ -44,11 +44,11 @@ namespace DataAccess.MsSqlCommands.Pos
         /// Ejecuta el procedimiento almacenado.
         /// </summary>
         /// <returns></returns>
-        public int ExeNonQuery(String type = null, DateTime? startDate = null, DateTime? endDate = null)
+        public int ExeNonQuery(String type = null, DateTime? startDate = null, DateTime? endDate = null, int? IdCompany = null)
         {
         	List<SqlParameter> parameters = new List<SqlParameter>();
 
-        	parameters.Add("@type", SqlDbType.VarChar, type, 8).Add("@startDate", SqlDbType.Date, startDate, null).Add("@endDate", SqlDbType.Date, endDate, null);
+        	parameters.Add("@type", SqlDbType.VarChar, type, 8).Add("@startDate", SqlDbType.Date, startDate, null).Add("@endDate", SqlDbType.Date, endDate, null).Add("@IdCompany", SqlDbType.Int, IdCompany, null);
 
         	return this.ExecuteNonQuery("pos", "GetConcentratedReport",parameters.ToArray());
         }
@@ -57,11 +57,11 @@ namespace DataAccess.MsSqlCommands.Pos
         /// Obtiene un objeto IDataReader resultante de la ejecucion.
         /// </summary>
         /// <returns></returns>
-        public IDataReader ExeReader(String type = null, DateTime? startDate = null, DateTime? endDate = null)
+        public IDataReader ExeReader(String type = null, DateTime? startDate = null, DateTime? endDate = null, int? IdCompany = null)
         {
         	List<SqlParameter> parameters = new List<SqlParameter>();
 
-        	parameters.Add("@type", SqlDbType.VarChar, type, 8).Add("@startDate", SqlDbType.Date, startDate, null).Add("@endDate", SqlDbType.Date, endDate, null);
+        	parameters.Add("@type", SqlDbType.VarChar, type, 8).Add("@startDate", SqlDbType.Date, startDate, null).Add("@endDate", SqlDbType.Date, endDate, null).Add("@IdCompany", SqlDbType.Int, IdCompany, null);
 
         	return this.GetReader("pos", "GetConcentratedReport",parameters.ToArray());
         }

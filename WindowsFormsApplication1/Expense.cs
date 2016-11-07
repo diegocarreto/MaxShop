@@ -48,6 +48,8 @@ namespace WindowsFormsApplication1
             }
         }
 
+        private bool LoadComplete = false;
+
         #endregion
 
         #region Builder
@@ -87,6 +89,10 @@ namespace WindowsFormsApplication1
             this.ConfigureDateTimePicker();
 
             this.ConfigureDialogs();
+
+            this.GetCompanies();
+
+            this.LoadComplete = true;
 
             this.FillGridView();
         }
@@ -287,6 +293,36 @@ namespace WindowsFormsApplication1
             Cursor.Current = Cursors.Default;
         }
 
+        private void cmbCategory_SelectedValueChanged(object sender, EventArgs e)
+        {
+            this.FillGridView();
+        }
+
+        private void gvList_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex.Equals(1))
+            {
+                this.OpenEdit(this.EntityId);
+            }
+            else if (e.ColumnIndex.Equals(8))
+            {
+                this.OpenExpenseEdit(this.EntityId);
+            }
+        }
+
+        private void gvList_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            gvList.Cursor = Cursors.Default;
+        }
+
+        private void gvList_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex.Equals(1) || e.ColumnIndex.Equals(8))
+                gvList.Cursor = Cursors.Hand;
+            else
+                gvList.Cursor = Cursors.Default;
+        }
+
         #endregion
 
         #region Methods
@@ -298,6 +334,15 @@ namespace WindowsFormsApplication1
             ExpenseEdit.Result += new ExpenseEdit.Communication(Result);
 
             ExpenseEdit.ShowDialog();
+        }
+
+
+        private void GetCompanies()
+        {
+            using (posb.Company company = new posb.Company())
+            {
+                this.cmbCompany.Fill(company.List());
+            }
         }
 
 
@@ -319,44 +364,57 @@ namespace WindowsFormsApplication1
 
         private void FillGridView()
         {
-            this.Entity.Name = txtFind.Text;
-
-            this.Entity.StartDate = this.dtpDate1.Value;
-
-            this.Entity.EndDate = this.dtpDate2.Value;
-
-            int idCategory = 0;
-
-            if (int.TryParse(this.cmbCategory.SelectedValue.ToString(), out idCategory))
+            if (this.LoadComplete)
             {
-                if (idCategory.Equals(0))
-                    this.Entity.IdCategory = null;
-                else
-                    this.Entity.IdCategory = idCategory;
+                this.Entity.Name = txtFind.Text;
+
+                this.Entity.StartDate = this.dtpDate1.Value;
+
+                this.Entity.EndDate = this.dtpDate2.Value;
+
+                int idCategory = 0;
+
+                if (int.TryParse(this.cmbCategory.SelectedValue.ToString(), out idCategory))
+                {
+                    if (idCategory.Equals(0))
+                        this.Entity.IdCategory = null;
+                    else
+                        this.Entity.IdCategory = idCategory;
+                }
+
+                int idCompany = 0;
+
+                if (int.TryParse(this.cmbCompany.SelectedValue.ToString(), out idCompany))
+                {
+                    if (idCompany.Equals(0))
+                        this.Entity.IdCompany = null;
+                    else
+                        this.Entity.IdCompany = idCompany;
+                }
+
+                List<posb.Expense> lExpenses = this.Entity.List();
+
+                this.gvList.DataSource = lExpenses;
+
+                lblTotal.Text = this.gvList.RowCount.ToString();
+
+                this.gvList.ReadOnly = false;
+
+                System.Drawing.Rectangle rect = this.gvList.GetCellDisplayRectangle(0, -1, true);
+                rect.X = rect.Location.X + (rect.Width / 4) + 2;
+                rect.Y = 4;
+
+                this.CheckBoxHeader.Name = "checkboxHeader";
+                this.CheckBoxHeader.Checked = false;
+                this.CheckBoxHeader.Size = new Size(18, 18);
+                this.CheckBoxHeader.Location = rect.Location;
+                this.CheckBoxHeader.BackColor = System.Drawing.Color.White;
+                this.CheckBoxHeader.CheckedChanged += new EventHandler(ckBox_CheckedChanged);
+
+                this.gvList.Controls.Add(this.CheckBoxHeader);
+
+                this.lblTotalExpenses.Text = String.Format("{0:0.00}", lExpenses.Sum(item => item.Amount));
             }
-
-            List<posb.Expense> lExpenses = this.Entity.List();
-
-            this.gvList.DataSource = lExpenses;
-
-            lblTotal.Text = this.gvList.RowCount.ToString();
-
-            this.gvList.ReadOnly = false;
-
-            System.Drawing.Rectangle rect = this.gvList.GetCellDisplayRectangle(0, -1, true);
-            rect.X = rect.Location.X + (rect.Width / 4) + 2;
-            rect.Y = 4;
-
-            this.CheckBoxHeader.Name = "checkboxHeader";
-            this.CheckBoxHeader.Checked = false;
-            this.CheckBoxHeader.Size = new Size(18, 18);
-            this.CheckBoxHeader.Location = rect.Location;
-            this.CheckBoxHeader.BackColor = System.Drawing.Color.White;
-            this.CheckBoxHeader.CheckedChanged += new EventHandler(ckBox_CheckedChanged);
-
-            this.gvList.Controls.Add(this.CheckBoxHeader);
-
-            this.lblTotalExpenses.Text = String.Format("{0:0.00}", lExpenses.Sum(item => item.Amount));
         }
 
         private void CheckGridView()
@@ -398,34 +456,14 @@ namespace WindowsFormsApplication1
 
         #endregion
 
-        private void cmbCategory_SelectedValueChanged(object sender, EventArgs e)
+        private void cmbCompany_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.FillGridView();
         }
 
-        private void gvList_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (e.ColumnIndex.Equals(2))
-            {
-                this.OpenEdit(this.EntityId);
-            }
-            else if (e.ColumnIndex.Equals(7))
-            {
-                this.OpenExpenseEdit(this.EntityId);
-            }
-        }
-
-        private void gvList_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
-        {
-            gvList.Cursor = Cursors.Default;
-        }
-
-        private void gvList_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (e.ColumnIndex.Equals(1) || e.ColumnIndex.Equals(7))
-                gvList.Cursor = Cursors.Hand;
-            else
-                gvList.Cursor = Cursors.Default;
+            this.FillGridView();
         }
     }
 }

@@ -34,7 +34,11 @@ namespace WindowsFormsApplication1
         {
             this.ActiveControl = this.txtName;
 
+            this.txtAmount.KeyPress += new KeyPressEventHandler(this.txt_KeyPress);
+
             this.GetExpensesCategory();
+
+            this.GetCompanies();
 
             if (this.Id.HasValue)
             {
@@ -49,51 +53,58 @@ namespace WindowsFormsApplication1
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(this.txtName.Text))
+            if (this.cmbCompany.SelectedIndex > 0)
             {
-                if (this.cmbCategory.SelectedIndex > 0)
+                if (!string.IsNullOrEmpty(this.txtName.Text))
                 {
-                    if (!string.IsNullOrEmpty(this.txtAmount.Text))
+                    if (this.cmbCategory.SelectedIndex > 0)
                     {
-                        decimal amount;
-
-                        if (decimal.TryParse(this.txtAmount.Text, out amount))
+                        if (!string.IsNullOrEmpty(this.txtAmount.Text))
                         {
+                            decimal amount;
 
-                            if (!string.IsNullOrEmpty(this.txtDescription.Text))
+                            if (decimal.TryParse(this.txtAmount.Text, out amount))
                             {
-                                this.Save();
+                                if (!string.IsNullOrEmpty(this.txtDescription.Text))
+                                {
+                                    this.Save();
+                                }
+                                else
+                                {
+                                    this.Alert("Debe indicar la descripción");
+                                    this.txtDescription.Focus();
+                                }
                             }
                             else
                             {
-                                this.Alert("Debe indicar la descripción");
-                                this.txtDescription.Focus();
+                                this.Alert("Debe indicar un valor numérico para el monto");
+
+                                this.txtAmount.Text = string.Empty;
+                                this.txtAmount.Focus();
                             }
                         }
                         else
                         {
-                            this.Alert("Debe indicar un valor numérico para el monto");
-
-                            this.txtAmount.Text = string.Empty;
+                            this.Alert("Debe indicar el monto");
                             this.txtAmount.Focus();
                         }
                     }
                     else
                     {
-                        this.Alert("Debe indicar el monto");
-                        this.txtAmount.Focus();
+                        this.Alert("Debe indicar la categoría");
+                        this.cmbCategory.Focus();
                     }
                 }
                 else
                 {
-                    this.Alert("Debe indicar la categoría");
-                    this.cmbCategory.Focus();
+                    this.Alert("Debe indicar el nombre");
+                    this.txtName.Focus();
                 }
             }
             else
             {
-                this.Alert("Debe indicar el nombre");
-                this.txtName.Focus();
+                this.Alert("Debe indicar el negocio");
+                this.cmbCompany.Focus();
             }
         }
 
@@ -127,8 +138,18 @@ namespace WindowsFormsApplication1
                 this.txtAmount.Text = Entity.Amount.ToString();
 
                 int? idCategory = Entity.IdCategory == null ? 0 : Entity.IdCategory;
-
                 this.cmbCategory.SelectedValue = idCategory;
+
+                int? idCompany = Entity.IdCompany == null ? 0 : Entity.IdCompany;
+                this.cmbCompany.SelectedValue = idCompany;
+            }
+        }
+
+        private void GetCompanies()
+        {
+            using (posb.Company company = new posb.Company())
+            {
+                this.cmbCompany.Fill(company.List());
             }
         }
 
@@ -140,7 +161,8 @@ namespace WindowsFormsApplication1
                 Amount = decimal.Parse(this.txtAmount.Text),
                 Description = txtDescription.Text,
                 IdCategory = int.Parse(this.cmbCategory.SelectedValue.ToString()),
-                Id = this.Id
+                Id = this.Id,
+                IdCompany = int.Parse(this.cmbCompany.SelectedValue.ToString())
             })
             {
                 Entity.Save();

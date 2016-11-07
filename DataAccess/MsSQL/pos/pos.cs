@@ -774,6 +774,11 @@ namespace DataAccess.MSSQL.Pos
 		public DataAccess.MsSqlCommands.Pos.Updatepayment Updatepayment = new DataAccess.MsSqlCommands.Pos.Updatepayment();
 
 		/// <summary>
+		/// Controla la ejecucion del procedimiento almacenado Updatepaymentsale.
+		///</summary>
+		public DataAccess.MsSqlCommands.Pos.Updatepaymentsale Updatepaymentsale = new DataAccess.MsSqlCommands.Pos.Updatepaymentsale();
+
+		/// <summary>
 		/// Controla la ejecucion del procedimiento almacenado Updatepm.
 		///</summary>
 		public DataAccess.MsSqlCommands.Pos.Updatepm Updatepm = new DataAccess.MsSqlCommands.Pos.Updatepm();
@@ -1250,6 +1255,9 @@ namespace DataAccess.MSSQL.Pos
 
 			if (this.Updatepayment != null)
 				this.Updatepayment.Dispose();
+
+			if (this.Updatepaymentsale != null)
+				this.Updatepaymentsale.Dispose();
 
 			if (this.Updatepm != null)
 				this.Updatepm.Dispose();

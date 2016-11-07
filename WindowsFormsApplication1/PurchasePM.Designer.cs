@@ -40,6 +40,7 @@
             this.gvList = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Negocio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Prefijo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +51,8 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.lblTotalExpenses = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.cmbCompany = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gvList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -140,6 +143,7 @@
             this.gvList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.id,
+            this.Negocio,
             this.Column3,
             this.Prefijo,
             this.Marca,
@@ -175,13 +179,21 @@
             this.id.ReadOnly = true;
             this.id.Width = 75;
             // 
+            // Negocio
+            // 
+            this.Negocio.DataPropertyName = "CompanyName";
+            this.Negocio.HeaderText = "Negocio";
+            this.Negocio.Name = "Negocio";
+            this.Negocio.ReadOnly = true;
+            this.Negocio.Width = 160;
+            // 
             // Column3
             // 
             this.Column3.DataPropertyName = "Name";
             this.Column3.HeaderText = "Nombre";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            this.Column3.Width = 275;
+            this.Column3.Width = 250;
             // 
             // Prefijo
             // 
@@ -189,7 +201,6 @@
             this.Prefijo.HeaderText = "Total";
             this.Prefijo.Name = "Prefijo";
             this.Prefijo.ReadOnly = true;
-            this.Prefijo.Width = 200;
             // 
             // Marca
             // 
@@ -197,7 +208,7 @@
             this.Marca.HeaderText = "Fecha Compra";
             this.Marca.Name = "Marca";
             this.Marca.ReadOnly = true;
-            this.Marca.Width = 250;
+            this.Marca.Width = 230;
             // 
             // Column2
             // 
@@ -205,7 +216,7 @@
             this.Column2.HeaderText = "Fecha Registro";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
-            this.Column2.Width = 250;
+            this.Column2.Width = 230;
             // 
             // bntFind
             // 
@@ -226,7 +237,7 @@
             this.txtFind.Location = new System.Drawing.Point(81, 11);
             this.txtFind.MaxLength = 100;
             this.txtFind.Name = "txtFind";
-            this.txtFind.Size = new System.Drawing.Size(748, 20);
+            this.txtFind.Size = new System.Drawing.Size(481, 20);
             this.txtFind.TabIndex = 46;
             this.txtFind.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtFind_KeyUp);
             // 
@@ -274,12 +285,36 @@
             this.label6.TabIndex = 75;
             this.label6.Text = "Total:";
             // 
+            // cmbCompany
+            // 
+            this.cmbCompany.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbCompany.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbCompany.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCompany.FormattingEnabled = true;
+            this.cmbCompany.Location = new System.Drawing.Point(646, 8);
+            this.cmbCompany.Name = "cmbCompany";
+            this.cmbCompany.Size = new System.Drawing.Size(183, 21);
+            this.cmbCompany.TabIndex = 82;
+            this.cmbCompany.SelectedIndexChanged += new System.EventHandler(this.cmbCompany_SelectedIndexChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(568, 12);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(72, 17);
+            this.label5.TabIndex = 83;
+            this.label5.Text = "Negocio:";
+            // 
             // PurchasePM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(1174, 453);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.cmbCompany);
             this.Controls.Add(this.lblTotalExpenses);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label3);
@@ -326,10 +361,13 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Negocio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Prefijo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.ComboBox cmbCompany;
+        private System.Windows.Forms.Label label5;
 
     }
 }

@@ -188,6 +188,8 @@ namespace WindowsFormsApplication1
 
             this.ConfigureDateTimePicker();
 
+            this.GetCompanies();
+
             if (this.IdPurchase.HasValue)
             {
                 this.LoadData(this.IdPurchase);
@@ -236,69 +238,77 @@ namespace WindowsFormsApplication1
 
         private void btnCobrar_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtName.Text))
+            if (this.cmbCompany.SelectedIndex > 0)
             {
-                if (this.Products.Count > 0)
+                if (!string.IsNullOrEmpty(txtName.Text))
                 {
-                    if (this.Confirm("¿Realmente deseas guardar la compra?"))
+                    if (this.Products.Count > 0)
                     {
-                        using (posb.Purchase purchase = new posb.Purchase())
+                        if (this.Confirm("¿Realmente deseas guardar la compra?"))
                         {
-                            purchase.Name = txtName.Text;
-                            purchase.CreatedDate = dtpDate.Value;
-                            purchase.Id = this.IdPurchase;
-
-                            if (purchase.Charge(this.Products))
+                            using (posb.Purchase purchase = new posb.Purchase())
                             {
-                                if (!string.IsNullOrEmpty(txtPath.Text))
+                                purchase.Name = txtName.Text;
+                                purchase.CreatedDate = dtpDate.Value;
+                                purchase.Id = this.IdPurchase;
+                                purchase.IdCompany = int.Parse(this.cmbCompany.SelectedValue.ToString());
+
+                                if (purchase.Charge(this.Products))
                                 {
-                                    string path = this.CopyFile(purchase.Id.Value);
-
-                                    if (!string.IsNullOrEmpty(path))
+                                    if (!string.IsNullOrEmpty(txtPath.Text))
                                     {
-                                        purchase.Path = path;
+                                        string path = this.CopyFile(purchase.Id.Value);
 
-                                        if (!purchase.SaveFile())
-                                            this.Alert("Ocurrió un error al intentar guardar el comprobante indicado.");
+                                        if (!string.IsNullOrEmpty(path))
+                                        {
+                                            purchase.Path = path;
+
+                                            if (!purchase.SaveFile())
+                                                this.Alert("Ocurrió un error al intentar guardar el comprobante indicado.");
+                                        }
+                                        else
+                                        {
+                                            this.Alert("Ocurrió un error al intentar copiar el comprobante indicado.");
+                                        }
+
+                                        this.CleanControls(true);
                                     }
                                     else
                                     {
-                                        this.Alert("Ocurrió un error al intentar copiar el comprobante indicado.");
+                                        this.CleanControls(true);
                                     }
 
-                                    this.CleanControls(true);
+                                    if (purchase.Id.HasValue)
+                                        this.Close();
                                 }
                                 else
                                 {
-                                    this.CleanControls(true);
+                                    this.Alert(purchase.ErrorMessage);
                                 }
+                            }
 
-                                if (purchase.Id.HasValue)
-                                    this.Close();
-                            }
-                            else
-                            {
-                                this.Alert(purchase.ErrorMessage);
-                            }
                         }
+                    }
+                    else
+                    {
+                        this.Alert("No tiene productos seleccionados.");
 
+                        this.CleanControls();
                     }
                 }
                 else
                 {
-                    this.Alert("No tiene productos seleccionados.");
+                    this.Alert("Debe indicar un nombre para la compra.");
 
                     this.CleanControls();
                 }
+
+                this.SetAutoCompleteProducts();
             }
             else
             {
-                this.Alert("Debe indicar un nombre para la compra.");
-
-                this.CleanControls();
+                this.Alert("Debe indicar el negocio.");
             }
-
-            this.SetAutoCompleteProducts();
         }
 
         private void Result(bool IsCorrect, int Id, Double Amount, String ErrorMessage)
@@ -330,7 +340,6 @@ namespace WindowsFormsApplication1
             this.SetGrid(false);
         }
 
-
         private void button2_Click_1(object sender, EventArgs e)
         {
             if (this.Products.Count > 0)
@@ -345,9 +354,69 @@ namespace WindowsFormsApplication1
             }
         }
 
+        private void gvList_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            gvList.Cursor = Cursors.Default;
+        }
+
+        private void gvList_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex.Equals(2) || e.ColumnIndex.Equals(3))
+                gvList.Cursor = Cursors.Hand;
+            else
+                gvList.Cursor = Cursors.Default;
+        }
+
+        private void gvList_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex.Equals(2))
+            {
+                this.QuantityEdit();
+            }
+            else if (e.ColumnIndex.Equals(3))
+            {
+                this.PriceEdit();
+            }
+        }
+
+        private void btnPrecio_Click(object sender, EventArgs e)
+        {
+            if (this.Products.Count > 0)
+            {
+                this.PriceEdit();
+            }
+            else
+            {
+                this.Alert("No tiene productos seleccionados.");
+
+                this.CleanControls();
+            }
+        }
+
+        private void wizardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Wizard Wizard = new Wizard();
+
+            Wizard.TxtFocus = this.txtCantidad;
+
+            Wizard.IsActive = false;
+
+            Wizard.Result += new Wizard.Communication(ResultWizard);
+
+            Wizard.ShowDialog();
+        }
+
         #endregion
 
         #region Methods
+
+        private void GetCompanies()
+        {
+            using (posb.Company company = new posb.Company())
+            {
+                this.cmbCompany.Fill(company.List());
+            }
+        }
 
         private void ConfigureDateTimePicker()
         {
@@ -621,6 +690,9 @@ namespace WindowsFormsApplication1
                 this.txtTotal.Text = Entity.Total.ToString();
                 this.dtpDate.Value = Entity.Date.Value;
 
+                int? idCompany = Entity.IdCompany == null ? 0 : Entity.IdCompany;
+                this.cmbCompany.SelectedValue = idCompany;
+
                 foreach (var ele in Entity.Products)
                 {
                     ele.Code = ele.Code.PadLeft(5, '0');
@@ -708,36 +780,6 @@ namespace WindowsFormsApplication1
             }
         }
 
-
-
-        #endregion
-
-        private void gvList_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
-        {
-            gvList.Cursor = Cursors.Default;
-        }
-
-        private void gvList_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (e.ColumnIndex.Equals(2) || e.ColumnIndex.Equals(3))
-                gvList.Cursor = Cursors.Hand;
-            else
-                gvList.Cursor = Cursors.Default;
-        }
-
-        private void gvList_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (e.ColumnIndex.Equals(2))
-            {
-                this.QuantityEdit();
-            }
-            else if (e.ColumnIndex.Equals(3))
-            {
-                this.PriceEdit();
-            }
-        }
-
-
         private void QuantityEdit()
         {
             ChangeProductQuantity QuantityEdit = new ChangeProductQuantity(this.EntityId, this.EntityAmount, this.EntityName);
@@ -760,33 +802,6 @@ namespace WindowsFormsApplication1
             this.CleanControls();
         }
 
-        private void btnPrecio_Click(object sender, EventArgs e)
-        {
-            if (this.Products.Count > 0)
-            {
-                this.PriceEdit();
-            }
-            else
-            {
-                this.Alert("No tiene productos seleccionados.");
-
-                this.CleanControls();
-            }
-        }
-
-        private void wizardToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Wizard Wizard = new Wizard();
-
-            Wizard.TxtFocus = this.txtCantidad;
-
-            Wizard.IsActive = false;
-
-            Wizard.Result += new Wizard.Communication(ResultWizard);
-
-            Wizard.ShowDialog();
-        }
-
         private void ResultWizard(bool IsCorrect, String ErrorMessage, int IdPm, TextBox TxtFocus)
         {
             using (posb.PM pm = new posb.PM())
@@ -794,5 +809,7 @@ namespace WindowsFormsApplication1
                 this.txtBuscar.Text = pm.List(IdPm, true).First().Aux;
             }
         }
+
+        #endregion
     }
 }

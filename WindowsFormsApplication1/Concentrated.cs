@@ -52,6 +52,8 @@ namespace WindowsFormsApplication1
             }
         }
 
+        private bool LoadComplete = false;
+
         #endregion
 
         #region Builder
@@ -69,18 +71,18 @@ namespace WindowsFormsApplication1
 
         private void gvList_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.ColumnIndex > 0)
-            {
-                this.OpenEdit(this.EntityId);
-            }
+            //if (e.ColumnIndex > 0)
+            //{
+            //    this.OpenEdit(this.EntityId);
+            //}
         }
 
         private void gvList_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.ColumnIndex > 0)
-                gvList.Cursor = Cursors.Hand;
-            else
-                gvList.Cursor = Cursors.Default;
+            //if (e.ColumnIndex > 0)
+            //    gvList.Cursor = Cursors.Hand;
+            //else
+            //    gvList.Cursor = Cursors.Default;
         }
 
         private void gvList_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
@@ -95,6 +97,10 @@ namespace WindowsFormsApplication1
             this.ConfigureDialogs();
 
             this.ConfigureDateTimePicker();
+
+            this.GetCompanies();
+
+            this.LoadComplete = true;
 
             this.FillGridView();
         }
@@ -291,6 +297,14 @@ namespace WindowsFormsApplication1
 
         #region Methods
 
+        private void GetCompanies()
+        {
+            using (posb.Company company = new posb.Company())
+            {
+                this.cmbCompany.Fill(company.List());
+            }
+        }
+
         private void ConfigureGridView()
         {
             this.gvList.AutoGenerateColumns = false;
@@ -300,37 +314,50 @@ namespace WindowsFormsApplication1
 
         private void FillGridView()
         {
-            this.Entity.Name = txtFind.Text;
+            if (this.LoadComplete)
+            {
+                this.Entity.Name = txtFind.Text;
 
-            List<posb.Concentrated> lConcentrated = this.Entity.List(this.dtpDate1.Value, this.dtpDate2.Value);
+                int idCompany = 0;
 
-            this.gvList.DataSource = lConcentrated;
+                if (int.TryParse(this.cmbCompany.SelectedValue.ToString(), out idCompany))
+                {
+                    if (idCompany.Equals(0))
+                        this.Entity.IdCompany = null;
+                    else
+                        this.Entity.IdCompany = idCompany;
+                }
 
-            lblTotal.Text = this.gvList.RowCount.ToString();
+                List<posb.Concentrated> lConcentrated = this.Entity.List(this.dtpDate1.Value, this.dtpDate2.Value);
 
-            this.gvList.ReadOnly = false;
+                this.gvList.DataSource = lConcentrated;
 
-            System.Drawing.Rectangle rect = this.gvList.GetCellDisplayRectangle(0, -1, true);
-            rect.X = rect.Location.X + (rect.Width / 4) + 2;
-            rect.Y = 4;
+                lblTotal.Text = this.gvList.RowCount.ToString();
 
-            this.CheckBoxHeader.Name = "checkboxHeader";
-            this.CheckBoxHeader.Checked = false;
-            this.CheckBoxHeader.Size = new Size(18, 18);
-            this.CheckBoxHeader.Location = rect.Location;
-            this.CheckBoxHeader.BackColor = System.Drawing.Color.Transparent;
-            this.CheckBoxHeader.CheckedChanged += new EventHandler(ckBox_CheckedChanged);
+                this.gvList.ReadOnly = false;
 
-            gvList.Controls.Add(this.CheckBoxHeader);
+                System.Drawing.Rectangle rect = this.gvList.GetCellDisplayRectangle(0, -1, true);
+                rect.X = rect.Location.X + (rect.Width / 4) + 2;
+                rect.Y = 4;
 
-            this.lblTotalExpenses.Text = String.Format("{0:0.00}", lConcentrated.Sum(item => item.Amount));
+                this.CheckBoxHeader.Name = "checkboxHeader";
+                this.CheckBoxHeader.Checked = false;
+                this.CheckBoxHeader.Size = new Size(18, 18);
+                this.CheckBoxHeader.Location = rect.Location;
+                this.CheckBoxHeader.BackColor = System.Drawing.Color.Transparent;
+                this.CheckBoxHeader.CheckedChanged += new EventHandler(ckBox_CheckedChanged);
+
+                gvList.Controls.Add(this.CheckBoxHeader);
+
+                this.lblTotalExpenses.Text = String.Format("{0:0.00}", lConcentrated.Sum(item => item.Amount));
+            }
         }
 
         private void ConfigureDateTimePicker()
         {
             dtpDate1.Format = DateTimePickerFormat.Custom;
             dtpDate1.CustomFormat = "dd/MM/yyyy";
-            dtpDate1.Value = DateTime.Now.AddDays(-7);
+            dtpDate1.Value = DateTime.Now.AddDays(-5);
 
             dtpDate2.Format = DateTimePickerFormat.Custom;
             dtpDate2.CustomFormat = "dd/MM/yyyy";
@@ -365,6 +392,11 @@ namespace WindowsFormsApplication1
         #endregion
 
         public IEnumerable<posb.Concentrated> lConcentrated { get; set; }
+
+        private void cmbCompany_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.FillGridView();
+        }
     }
 }
 

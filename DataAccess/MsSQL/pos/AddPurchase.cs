@@ -18,11 +18,11 @@ namespace DataAccess.MsSqlCommands.Pos
         /// Obtiene una lista del tipo de objectos indicado con el merge entre las propiedades del objeto y el resulset obtenido de la ejecucion.
         /// </summary>
         /// <returns></returns>
-        public List<T> ExeList<T>(String name = null, DateTime? date = null, Double? total = null) where T : new()
+        public List<T> ExeList<T>(String name = null, DateTime? date = null, Double? total = null, int? idCompany = null) where T : new()
         {
         	List<SqlParameter> parameters = new List<SqlParameter>();
 
-        	parameters.Add("@name", SqlDbType.VarChar, name, 50).Add("@date", SqlDbType.Date, date, null).Add("@total", SqlDbType.Float, total, null);
+        	parameters.Add("@name", SqlDbType.VarChar, name, 50).Add("@date", SqlDbType.Date, date, null).Add("@total", SqlDbType.Float, total, null).Add("@idCompany", SqlDbType.Int, idCompany, null);
 
         	return this.GetListBase<T>("pos", "AddPurchase",parameters.ToArray());
         }
@@ -31,11 +31,11 @@ namespace DataAccess.MsSqlCommands.Pos
         /// Obtiene el scalar resultante de la ejecucion.
         /// </summary>
         /// <returns></returns>
-        public T ExeScalar<T>(String name = null, DateTime? date = null, Double? total = null)
+        public T ExeScalar<T>(String name = null, DateTime? date = null, Double? total = null, int? idCompany = null)
         {
         	List<SqlParameter> parameters = new List<SqlParameter>();
 
-        	parameters.Add("@name", SqlDbType.VarChar, name, 50).Add("@date", SqlDbType.Date, date, null).Add("@total", SqlDbType.Float, total, null);
+        	parameters.Add("@name", SqlDbType.VarChar, name, 50).Add("@date", SqlDbType.Date, date, null).Add("@total", SqlDbType.Float, total, null).Add("@idCompany", SqlDbType.Int, idCompany, null);
 
         	return this.ExecuteScalar<T>("pos", "AddPurchase",parameters.ToArray());
         }
@@ -44,11 +44,11 @@ namespace DataAccess.MsSqlCommands.Pos
         /// Ejecuta el procedimiento almacenado.
         /// </summary>
         /// <returns></returns>
-        public int ExeNonQuery(String name = null, DateTime? date = null, Double? total = null)
+        public int ExeNonQuery(String name = null, DateTime? date = null, Double? total = null, int? idCompany = null)
         {
         	List<SqlParameter> parameters = new List<SqlParameter>();
 
-        	parameters.Add("@name", SqlDbType.VarChar, name, 50).Add("@date", SqlDbType.Date, date, null).Add("@total", SqlDbType.Float, total, null);
+        	parameters.Add("@name", SqlDbType.VarChar, name, 50).Add("@date", SqlDbType.Date, date, null).Add("@total", SqlDbType.Float, total, null).Add("@idCompany", SqlDbType.Int, idCompany, null);
 
         	return this.ExecuteNonQuery("pos", "AddPurchase",parameters.ToArray());
         }
@@ -57,11 +57,11 @@ namespace DataAccess.MsSqlCommands.Pos
         /// Obtiene un objeto IDataReader resultante de la ejecucion.
         /// </summary>
         /// <returns></returns>
-        public IDataReader ExeReader(String name = null, DateTime? date = null, Double? total = null)
+        public IDataReader ExeReader(String name = null, DateTime? date = null, Double? total = null, int? idCompany = null)
         {
         	List<SqlParameter> parameters = new List<SqlParameter>();
 
-        	parameters.Add("@name", SqlDbType.VarChar, name, 50).Add("@date", SqlDbType.Date, date, null).Add("@total", SqlDbType.Float, total, null);
+        	parameters.Add("@name", SqlDbType.VarChar, name, 50).Add("@date", SqlDbType.Date, date, null).Add("@total", SqlDbType.Float, total, null).Add("@idCompany", SqlDbType.Int, idCompany, null);
 
         	return this.GetReader("pos", "AddPurchase",parameters.ToArray());
         }

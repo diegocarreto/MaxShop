@@ -58,6 +58,8 @@ namespace PosBusiness
 
         public string CompanyName { get; set; }
 
+        public string Reference { get; set; }
+
         #endregion
 
         #region Builder
@@ -81,7 +83,8 @@ namespace PosBusiness
             this.CreatedDate = sale.CreatedDate;
             this.IdClient = sale.IdClient;
             this.Freight = sale.Freight;
-
+            this.Reference = sale.Reference;
+            this.Paid = sale.Paid;
             this.Amount = sale.Amount;
             this.Change = sale.Change;
             this.Cash = sale.Cash;
@@ -163,7 +166,7 @@ namespace PosBusiness
             this.AccessMsSql.Pos.Addpaymentsale.ExeNonQuery(IdSale, Type, Amount, Cash, Change, Date);
         }
 
-        public bool Charge(List<ProductForAction> Products, int IdClient, string PaymentType, double Payment, double OnAccount, double Change, bool Freight = false, int? IdCompany = null)
+        public bool Charge(List<ProductForAction> Products, int IdClient, string PaymentType, double Payment, double OnAccount, double Change, bool Freight = false, int? IdCompany = null, string Reference = "")
         {
             try
             {
@@ -171,7 +174,7 @@ namespace PosBusiness
 
                 if (!total.Equals(0))
                 {
-                    this.Id = this.AccessMsSql.Pos.Addsale.ExeScalar<int>(total, IdClient, PaymentType, Payment, Freight, OnAccount, Change, IdCompany);
+                    this.Id = this.AccessMsSql.Pos.Addsale.ExeScalar<int>(total, IdClient, PaymentType, Payment, Freight, OnAccount, Change, IdCompany, Reference);
 
                     foreach (ProductForAction p in Products)
                     {

@@ -22,11 +22,15 @@ namespace PosBusiness
 
         public int? IdCategory { get; set; }
 
+        public int? IdCompany { get; set; }
+
         public string Category { get; set; }
 
         public string Description { get; set; }
 
         public decimal? Amount { get; set; }
+
+        public string CompanyName { get; set; }
 
         /// <summary>
         /// 
@@ -55,6 +59,7 @@ namespace PosBusiness
                 this.Description = expense.Description;
                 this.Amount = expense.Amount;
                 this.IdCategory = expense.IdCategory;
+                this.IdCompany = expense.IdCompany;
                 this.Aux2 = expense.Aux2.Replace("$", string.Empty);
 
                 return true;
@@ -106,7 +111,7 @@ namespace PosBusiness
         /// <returns></returns>
         public List<Expense> List()
         {
-            return this.AccessMsSql.Pos.Listexpense.ExeList<Expense>(this.IdCategory, this.StartDate, this.EndDate, this.Name);
+            return this.AccessMsSql.Pos.Listexpense.ExeList<Expense>(this.IdCategory, this.StartDate, this.EndDate, this.Name, this.IdCompany);
         }
 
         /// <summary>
@@ -163,11 +168,11 @@ namespace PosBusiness
             {
                 if (this.Id.HasValue)
                 {
-                    this.AccessMsSql.Pos.Updateexpense.ExeScalar<int>(this.Id, this.IdCategory, this.Name, this.Description, this.Amount);
+                    this.AccessMsSql.Pos.Updateexpense.ExeScalar<int>(this.Id, this.IdCategory, this.Name, this.Description, this.Amount, this.IdCompany);
                 }
                 else
                 {
-                    this.Id = this.AccessMsSql.Pos.Addexpense.ExeScalar<int>(this.IdCategory, this.Name, this.Description, this.Amount);
+                    this.Id = this.AccessMsSql.Pos.Addexpense.ExeScalar<int>(this.IdCategory, this.Name, this.Description, this.Amount, this.IdCompany);
                 }
 
                 return true;

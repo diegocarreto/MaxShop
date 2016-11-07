@@ -23,6 +23,10 @@ namespace PosBusiness
 
         public List<ProductForAction> Products { get; set; }
 
+        public int? IdCompany { get; set; }
+
+        public string CompanyName { get; set; }
+
         #endregion
 
         #region Builder
@@ -42,9 +46,9 @@ namespace PosBusiness
             List<Purchase> ls1;
 
             if (string.IsNullOrEmpty(this.Name))
-                ls1 = this.AccessMsSql.Pos.Listpurchase.ExeList<Purchase>(StartDate, FinishDate);
+                ls1 = this.AccessMsSql.Pos.Listpurchase.ExeList<Purchase>(StartDate, FinishDate, this.IdCompany);
             else
-                ls1 = this.AccessMsSql.Pos.Listpurchase2.ExeList<Purchase>(StartDate, FinishDate, this.Name);
+                ls1 = this.AccessMsSql.Pos.Listpurchase2.ExeList<Purchase>(StartDate, FinishDate, this.Name, this.IdCompany);
 
             //foreach (Sale sale in ls1)
             //{
@@ -78,7 +82,7 @@ namespace PosBusiness
                 {
                     if (!this.Id.HasValue)
                     {
-                        this.Id = this.AccessMsSql.Pos.Addpurchase.ExeScalar<int>(this.Name, this.CreatedDate, total);
+                        this.Id = this.AccessMsSql.Pos.Addpurchase.ExeScalar<int>(this.Name, this.CreatedDate, total, this.IdCompany);
 
                         foreach (ProductForAction p in Products)
                         {
@@ -140,6 +144,7 @@ namespace PosBusiness
             this.Date = purchase.Date;
             this.CreatedDate = purchase.CreatedDate;
             this.Name = purchase.Name;
+            this.IdCompany = purchase.IdCompany;
 
             this.Products = this.AccessMsSql.Pos.Listdetailpurchase.ExeList<ProductForAction>(Id);
 

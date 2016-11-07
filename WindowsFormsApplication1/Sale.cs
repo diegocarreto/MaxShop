@@ -664,7 +664,7 @@ namespace WindowsFormsApplication1
         private void Disable(bool Enabled = false)
         {
             this.txtBuscar.Enabled = Enabled;
-
+            this.txtRef.Enabled = Enabled;
             this.txtCantidad.Enabled = Enabled;
 
             this.btnOk.Enabled = Enabled;
@@ -762,7 +762,8 @@ namespace WindowsFormsApplication1
                                                               pago,
                                                               false,
                                                               id,
-                                                              Print: (!oneTicket && printTicket));
+                                                              Print: (!oneTicket && printTicket), 
+                                                              Reference: this.txtRef.Text);
                                     }
 
                                     if (oneTicket && printTicket)
@@ -820,11 +821,11 @@ namespace WindowsFormsApplication1
             this.SetAutoCompleteClient();
         }
 
-        private int Charge2(List<ProductForAction> Products, int IdClient, string PaymentType, double Payment, bool Freight = false, int? IdCompany = null, bool Print = true)
+        private int Charge2(List<ProductForAction> Products, int IdClient, string PaymentType, double Payment, bool Freight = false, int? IdCompany = null, bool Print = true, string Reference = "")
         {
             using (posb.Sale sale = new posb.Sale())
             {
-                if (sale.Charge(Products, IdClient, PaymentType, Payment, double.Parse(this.txtACuenta.Text), double.Parse(this.txtCambio.Text), Freight, IdCompany))
+                if (sale.Charge(Products, IdClient, PaymentType, Payment, double.Parse(this.txtACuenta.Text), double.Parse(this.txtCambio.Text), Freight, IdCompany, Reference))
                 {
                     if (Print)
                     {
@@ -1233,10 +1234,14 @@ namespace WindowsFormsApplication1
 
                 this.cmbClient.SelectedValue = Entity.IdClient;
                 this.txtTotal.Text = String.Format("{0:0.00}", Entity.Total);
+                this.txtRef.Text = Entity.Reference;
 
                 this.toolStripComboBoxClient.SelectedText = Entity.PaymentType.Trim();
 
                 this.CreatedDate = Entity.CreatedDate;
+
+                this.lblRef.Visible = true;
+                this.txtRef.Visible = true;
 
                 switch (Entity.PaymentType.Trim())
                 {
@@ -1249,6 +1254,9 @@ namespace WindowsFormsApplication1
                     case "Efectivo":
 
                         this.toolStripComboBoxClient.SelectedIndex = 1;
+
+                        this.lblRef.Visible = false;
+                        this.txtRef.Visible = false;
 
                         break;
 
@@ -1353,6 +1361,21 @@ namespace WindowsFormsApplication1
             this.GetClients();
 
             this.cmbClient.SelectedValue = Id;
+        }
+
+        private void toolStripComboBoxClient_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.toolStripComboBoxClient.SelectedIndex != 1)
+            {
+                this.lblRef.Visible = true;
+                this.txtRef.Visible = true;
+            }
+            else
+            {
+                this.lblRef.Visible = false;
+                this.txtRef.Visible = false;
+                this.txtRef.Clear();
+            }
         }
     }
 

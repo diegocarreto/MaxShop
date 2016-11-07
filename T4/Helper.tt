@@ -43,7 +43,7 @@
 												  WHERE 
 													  specific_catalog = '@specific_catalog' 
 													  AND ROUTINE_TYPE = 'PROCEDURE' 
-													  AND LAST_ALTERED > DATEADD(day, -400, GETDATE())
+													  AND LAST_ALTERED > DATEADD(day, -10000, GETDATE())
 					                        	  ORDER BY 
 					 								  routine_name";
 

@@ -14,6 +14,7 @@ using posb = PosBusiness;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Diagnostics;
+using Microsoft.Office.Interop.Excel;
 
 namespace WindowsFormsApplication1
 {
@@ -105,6 +106,8 @@ namespace WindowsFormsApplication1
 
             this.GetCompanies();
 
+            this.ConfigureDialogs();
+
             this.LoadComplete = true;
 
             this.FillGridView();
@@ -152,7 +155,7 @@ namespace WindowsFormsApplication1
                 this.UpdateList(true, "");
         }
 
-        private void Result2(bool IsCorrect, String ErrorMessage, int IdPm, TextBox TxtFocus)
+        private void Result2(bool IsCorrect, String ErrorMessage, int IdPm, System.Windows.Forms.TextBox TxtFocus)
         {
             FillGridView();
 
@@ -302,6 +305,14 @@ namespace WindowsFormsApplication1
         #endregion
 
         #region Methods
+
+        private void ConfigureDialogs()
+        {
+            svdReportStock.Filter = "Archivo de Excel(*.xlsx)|*.xlsx";
+            svdReportStock.FilterIndex = 0;
+            svdReportStock.Title = "Guardar como";
+            svdReportStock.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+        }
 
         private void GetCompanies()
         {
@@ -483,6 +494,183 @@ namespace WindowsFormsApplication1
         private void cmbCompany_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.FillGridView();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            if (this.cmbCompany.SelectedIndex > 0)
+            {
+                svdReportStock.FileName = "Precios_" + this.cmbCompany.Text.Replace(" ", "_") + "_" + DateTime.Now.ToString("ddMMyyyyhhmmss");
+            }
+            else
+            {
+                svdReportStock.FileName = "Precios_" + DateTime.Now.ToString("ddMMyyyyhhmmss");
+            }
+
+            if (svdReportStock.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                Cursor.Current = Cursors.WaitCursor;
+
+                int index = 2;
+
+                Microsoft.Office.Interop.Excel.Application xlApp = null;
+                Workbook xlWorkBook = null;
+                Worksheet xlWorkSheetItems = null;
+                ColorConverter cc = new ColorConverter();
+
+                object misValue = System.Reflection.Missing.Value;
+
+                try
+                {
+                    xlApp = new Microsoft.Office.Interop.Excel.Application();
+
+                    xlApp.Visible = false;
+                    xlApp.DisplayAlerts = false;
+                    xlApp.EnableEvents = false;
+
+                    xlWorkBook = xlApp.Workbooks.Open(this.GetPath() + "\\Templates\\PM\\" + this.AppSet<string>("PM"), Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+                                                                                                                                    Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, Type.Missing,
+                                                                                                                                    Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+                                                                                                                                    Type.Missing, Microsoft.Office.Interop.Excel.XlCorruptLoad.xlNormalLoad);
+
+                    //Agrega la hoja de items
+                    xlWorkSheetItems = (Microsoft.Office.Interop.Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+
+                    int id = 0;
+
+                    this.Entity.Name = this.txtFind.Text;
+
+                    if (int.TryParse(this.Entity.Name, out id))
+                    {
+                        this.Entity.Id = id;
+                    }
+                    else
+                    {
+                        this.Entity.Id = null;
+                    }
+
+                    if (this.cmbPaymentType.SelectedValue.ToString().Equals("1"))
+                    {
+                        this.Entity.HasImageFilter = true;
+                    }
+                    else if (this.cmbPaymentType.SelectedValue.ToString().Equals("2"))
+                    {
+                        this.Entity.HasImageFilter = false;
+                    }
+                    else
+                    {
+                        this.Entity.HasImageFilter = null;
+                    }
+
+                    if (this.cmBrand.SelectedIndex > 0)
+                    {
+                        this.Entity.IdBrand = int.Parse(this.cmBrand.SelectedValue.ToString());
+                    }
+                    else
+                    {
+                        this.Entity.IdBrand = null;
+                    }
+
+                    if (this.cmbCompany.SelectedIndex > 0)
+                    {
+                        this.Entity.IdCompany = int.Parse(this.cmbCompany.SelectedValue.ToString());
+                    }
+                    else
+                    {
+                        this.Entity.IdCompany = null;
+                    }
+
+                    if (this.cmbGroup.SelectedIndex > 0)
+                    {
+                        this.Entity.IdGroup = int.Parse(this.cmbGroup.SelectedValue.ToString());
+                    }
+                    else
+                    {
+                        this.Entity.IdGroup = null;
+                    }
+
+                    int typeLike = 0;
+
+                    if (this.cmbTypeLike.SelectedValue != null && int.TryParse(this.cmbTypeLike.SelectedValue.ToString(), out typeLike))
+                    {
+                        this.Entity.TypeLike = typeLike;
+                    }
+                    else
+                    {
+                        this.Entity.TypeLike = 0;
+                    }
+
+                    List<posb.PM> lpm;
+
+                    if (this.Entity.Name.Length.Equals(13))
+                    {
+                        double barCode = 0;
+
+                        if (double.TryParse(this.Entity.Name, out barCode))
+                        {
+                            lpm = this.Entity.ListByCode();
+                        }
+                        else
+                            lpm = this.Entity.List();
+                    }
+                    else
+                        lpm = this.Entity.List();
+
+                    foreach (var pm in lpm)
+                    {
+                        (xlWorkSheetItems.Cells[index, 1] as Microsoft.Office.Interop.Excel.Range).NumberFormat = "@";
+                        xlWorkSheetItems.Cells[index, 1] = pm.Name;
+
+                        (xlWorkSheetItems.Cells[index, 2] as Microsoft.Office.Interop.Excel.Range).NumberFormat = "$###,##";
+                        xlWorkSheetItems.Cells[index, 2] = pm.Price;
+
+                        index++;
+                    }
+
+                    //Mantiene el encabezado fijo
+                    xlWorkSheetItems.Application.ActiveWindow.SplitRow = 1;
+                    xlWorkSheetItems.Application.ActiveWindow.FreezePanes = true;
+
+                    //Agrega autofiltros
+                    Microsoft.Office.Interop.Excel.Range firstRow = (Microsoft.Office.Interop.Excel.Range)xlWorkSheetItems.Rows[1];
+                    firstRow.Activate();
+                    firstRow.Select();
+                    firstRow.AutoFilter(1,
+                                        Type.Missing,
+                                        Microsoft.Office.Interop.Excel.XlAutoFilterOperator.xlAnd,
+                                        Type.Missing,
+                                        true);
+
+                    xlWorkSheetItems.Cells[1, 1].Select();
+
+                    //Ajusta el ancho de las columnas a su contenido
+                    Microsoft.Office.Interop.Excel.Range aRange = xlWorkSheetItems.get_Range("A1", "ZZ1000000");
+                    aRange.EntireColumn.AutoFit();
+
+                    xlApp.EnableEvents = true;
+
+                    xlWorkBook.SaveAs(svdReportStock.FileName, Microsoft.Office.Interop.Excel.XlFileFormat.xlOpenXMLWorkbook, Type.Missing, Type.Missing,
+                                                                                                                                                     Type.Missing, Type.Missing,
+                                                                                                                                                     Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlNoChange,
+                                                                                                                                                     Microsoft.Office.Interop.Excel.XlSaveConflictResolution.xlLocalSessionChanges, Type.Missing, Type.Missing, Type.Missing, false);
+
+                    xlWorkBook.Close(true, misValue, misValue);
+                    xlApp.Application.Quit();
+                    xlApp.Quit();
+
+                    if (this.Confirm("¿Deseas abrir el reporte?"))
+                        Process.Start(svdReportStock.FileName);
+                }
+                catch (Exception ex)
+                {
+                }
+                finally
+                {
+                    this.ReleasingObjects(xlWorkSheetItems, xlWorkBook, xlApp);
+                }
+            }
+
+            Cursor.Current = Cursors.Default;
         }
     }
 }

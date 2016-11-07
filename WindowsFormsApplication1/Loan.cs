@@ -63,7 +63,7 @@ namespace WindowsFormsApplication1
             {
                 this.OpenEdit(this.EntityId);
             }
-            else if (e.ColumnIndex.Equals(3))
+            else if (e.ColumnIndex.Equals(4))
             {
                 this.OpenPayment(this.EntityId);
             }
@@ -76,7 +76,7 @@ namespace WindowsFormsApplication1
 
         private void gvList_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.ColumnIndex.Equals(0) || e.ColumnIndex.Equals(3))
+            if (e.ColumnIndex.Equals(0) || e.ColumnIndex.Equals(4))
                 gvList.Cursor = Cursors.Hand;
             else
                 gvList.Cursor = Cursors.Default;

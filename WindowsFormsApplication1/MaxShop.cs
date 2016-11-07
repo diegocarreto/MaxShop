@@ -327,8 +327,21 @@ namespace WindowsFormsApplication1
                 toolStripMenuItem7.Checked = true;
         }
 
+        public DateTime FirstDateOfWeek(int year, int weekOfYear)
+        {
+            var firstDate = new DateTime(year, 1, 4);
+            //first thursday of the week defines the first week (https://en.wikipedia.org/wiki/ISO_8601)
+            //Wiki: the 4th of january is always in the first week
+            while (firstDate.DayOfWeek != DayOfWeek.Monday)
+                firstDate = firstDate.AddDays(-1);
+
+            return firstDate.AddDays((weekOfYear - 1) * 7);
+        }
+
         private void MaxShop_Load(object sender, EventArgs e)
         {
+            var sssssjj = this.FirstDateOfWeek(2016,1);
+
             PosBusiness.Configuration conf = new PosBusiness.Configuration();
 
             this.timer1.Interval = conf.GetValue<int>("checkBackUpHours") * 60000;

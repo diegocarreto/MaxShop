@@ -59,6 +59,8 @@
             this.bnCopiar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.cmbCompany = new System.Windows.Forms.ComboBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.svdReportStock = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.gvList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -400,11 +402,25 @@
             this.cmbCompany.TabIndex = 69;
             this.cmbCompany.SelectedIndexChanged += new System.EventHandler(this.cmbCompany_SelectedIndexChanged);
             // 
+            // button2
+            // 
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(839, 456);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 70;
+            this.button2.Text = "   Precios";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
             // PM
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(1258, 520);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.cmbCompany);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.bnCopiar);
@@ -471,6 +487,8 @@
         private System.Windows.Forms.Button bnCopiar;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cmbCompany;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.SaveFileDialog svdReportStock;
 
     }
 }

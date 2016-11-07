@@ -18,6 +18,11 @@ namespace PosBusiness
         #endregion
 
         #region Properties
+
+        public int? IdCompany { get; set; }
+
+        public string CompanyName { get; set; }
+
         #endregion
 
         #region Builder
@@ -36,7 +41,7 @@ namespace PosBusiness
         /// <returns></returns>
         public List<Concentrated> List(DateTime StartDate, DateTime FinishDate)
         {
-            return this.AccessMsSql.Pos.Getconcentratedreport.ExeList<Concentrated>(null, StartDate, FinishDate);
+            return this.AccessMsSql.Pos.Getconcentratedreport.ExeList<Concentrated>(null, StartDate, FinishDate, this.IdCompany);
         }
 
         #endregion

@@ -221,6 +221,7 @@
     <Compile Include="MsSQL\pos\updateMaterial.cs" />
     <Compile Include="MsSQL\pos\updateMeasure.cs" />
     <Compile Include="MsSQL\pos\updatePayment.cs" />
+    <Compile Include="MsSQL\pos\updatePaymentSale.cs" />
     <Compile Include="MsSQL\pos\updatePM.cs" />
     <Compile Include="MsSQL\pos\updateProduct.cs" />
     <Compile Include="MsSQL\pos\UpdatePurchase.cs" />

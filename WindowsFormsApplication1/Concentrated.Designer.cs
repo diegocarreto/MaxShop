@@ -41,15 +41,18 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.gvList = new System.Windows.Forms.DataGridView();
+            this.bntFind = new System.Windows.Forms.Button();
+            this.txtFind = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Prefijo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bntFind = new System.Windows.Forms.Button();
-            this.txtFind = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cmbCompany = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.gvList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,7 +66,7 @@
             this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExit.Location = new System.Drawing.Point(785, 424);
+            this.btnExit.Location = new System.Drawing.Point(904, 451);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
             this.btnExit.TabIndex = 44;
@@ -75,7 +78,7 @@
             // 
             this.lblTotalExpenses.AutoSize = true;
             this.lblTotalExpenses.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalExpenses.Location = new System.Drawing.Point(201, 427);
+            this.lblTotalExpenses.Location = new System.Drawing.Point(204, 454);
             this.lblTotalExpenses.Name = "lblTotalExpenses";
             this.lblTotalExpenses.Size = new System.Drawing.Size(17, 17);
             this.lblTotalExpenses.TabIndex = 76;
@@ -85,7 +88,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(145, 427);
+            this.label6.Location = new System.Drawing.Point(148, 454);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(50, 17);
             this.label6.TabIndex = 75;
@@ -95,7 +98,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(705, 14);
+            this.label3.Location = new System.Drawing.Point(820, 12);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 17);
             this.label3.TabIndex = 63;
@@ -105,7 +108,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(517, 14);
+            this.label2.Location = new System.Drawing.Point(632, 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 17);
             this.label2.TabIndex = 62;
@@ -114,7 +117,7 @@
             // dtpDate2
             // 
             this.dtpDate2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dtpDate2.Location = new System.Drawing.Point(746, 11);
+            this.dtpDate2.Location = new System.Drawing.Point(861, 9);
             this.dtpDate2.Name = "dtpDate2";
             this.dtpDate2.Size = new System.Drawing.Size(114, 20);
             this.dtpDate2.TabIndex = 61;
@@ -123,7 +126,7 @@
             // dtpDate1
             // 
             this.dtpDate1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dtpDate1.Location = new System.Drawing.Point(574, 11);
+            this.dtpDate1.Location = new System.Drawing.Point(689, 11);
             this.dtpDate1.Name = "dtpDate1";
             this.dtpDate1.Size = new System.Drawing.Size(114, 20);
             this.dtpDate1.TabIndex = 60;
@@ -134,7 +137,7 @@
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(704, 424);
+            this.button1.Location = new System.Drawing.Point(823, 451);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 58;
@@ -146,7 +149,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(9, 427);
+            this.label4.Location = new System.Drawing.Point(12, 454);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(105, 17);
             this.label4.TabIndex = 57;
@@ -156,7 +159,7 @@
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(111, 427);
+            this.lblTotal.Location = new System.Drawing.Point(114, 454);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(17, 17);
             this.lblTotal.TabIndex = 55;
@@ -171,12 +174,13 @@
             this.gvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gvList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
+            this.Column3,
             this.Column2,
             this.id,
             this.Nombre,
             this.Prefijo,
             this.Marca});
-            this.gvList.Location = new System.Drawing.Point(12, 46);
+            this.gvList.Location = new System.Drawing.Point(15, 73);
             this.gvList.MultiSelect = false;
             this.gvList.Name = "gvList";
             this.gvList.ReadOnly = true;
@@ -184,11 +188,44 @@
             this.gvList.ShowCellToolTips = false;
             this.gvList.ShowEditingIcon = false;
             this.gvList.ShowRowErrors = false;
-            this.gvList.Size = new System.Drawing.Size(848, 372);
+            this.gvList.Size = new System.Drawing.Size(964, 372);
             this.gvList.TabIndex = 40;
             this.gvList.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gvList_CellMouseDoubleClick);
             this.gvList.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvList_CellMouseLeave);
             this.gvList.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gvList_CellMouseMove);
+            // 
+            // bntFind
+            // 
+            this.bntFind.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bntFind.Image = ((System.Drawing.Image)(resources.GetObject("bntFind.Image")));
+            this.bntFind.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bntFind.Location = new System.Drawing.Point(1234, 89);
+            this.bntFind.Name = "bntFind";
+            this.bntFind.Size = new System.Drawing.Size(77, 23);
+            this.bntFind.TabIndex = 47;
+            this.bntFind.Text = "Buscar";
+            this.bntFind.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bntFind.UseVisualStyleBackColor = true;
+            this.bntFind.Click += new System.EventHandler(this.bntFind_Click);
+            // 
+            // txtFind
+            // 
+            this.txtFind.Location = new System.Drawing.Point(90, 11);
+            this.txtFind.MaxLength = 100;
+            this.txtFind.Name = "txtFind";
+            this.txtFind.Size = new System.Drawing.Size(536, 20);
+            this.txtFind.TabIndex = 46;
+            this.txtFind.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtFind_KeyUp);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(21, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 17);
+            this.label1.TabIndex = 45;
+            this.label1.Text = "Buscar:";
             // 
             // Column1
             // 
@@ -197,6 +234,14 @@
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             this.Column1.Width = 30;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "CompanyName";
+            this.Column3.HeaderText = "Negocio";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 150;
             // 
             // Column2
             // 
@@ -212,7 +257,7 @@
             this.id.MaxInputLength = 10;
             this.id.Name = "id";
             this.id.ReadOnly = true;
-            this.id.Width = 70;
+            this.id.Width = 85;
             // 
             // Nombre
             // 
@@ -239,45 +284,36 @@
             this.Marca.ReadOnly = true;
             this.Marca.Width = 150;
             // 
-            // bntFind
+            // label5
             // 
-            this.bntFind.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bntFind.Image = ((System.Drawing.Image)(resources.GetObject("bntFind.Image")));
-            this.bntFind.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bntFind.Location = new System.Drawing.Point(1234, 89);
-            this.bntFind.Name = "bntFind";
-            this.bntFind.Size = new System.Drawing.Size(77, 23);
-            this.bntFind.TabIndex = 47;
-            this.bntFind.Text = "Buscar";
-            this.bntFind.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.bntFind.UseVisualStyleBackColor = true;
-            this.bntFind.Click += new System.EventHandler(this.bntFind_Click);
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(12, 43);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(72, 17);
+            this.label5.TabIndex = 85;
+            this.label5.Text = "Negocio:";
             // 
-            // txtFind
+            // cmbCompany
             // 
-            this.txtFind.Location = new System.Drawing.Point(81, 11);
-            this.txtFind.MaxLength = 100;
-            this.txtFind.Name = "txtFind";
-            this.txtFind.Size = new System.Drawing.Size(430, 20);
-            this.txtFind.TabIndex = 46;
-            this.txtFind.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtFind_KeyUp);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 17);
-            this.label1.TabIndex = 45;
-            this.label1.Text = "Buscar:";
+            this.cmbCompany.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbCompany.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbCompany.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCompany.FormattingEnabled = true;
+            this.cmbCompany.Location = new System.Drawing.Point(90, 39);
+            this.cmbCompany.Name = "cmbCompany";
+            this.cmbCompany.Size = new System.Drawing.Size(183, 21);
+            this.cmbCompany.TabIndex = 84;
+            this.cmbCompany.SelectedIndexChanged += new System.EventHandler(this.cmbCompany_SelectedIndexChanged);
             // 
             // Concentrated
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
-            this.ClientSize = new System.Drawing.Size(869, 453);
+            this.ClientSize = new System.Drawing.Size(993, 480);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.cmbCompany);
             this.Controls.Add(this.lblTotalExpenses);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label3);
@@ -324,11 +360,14 @@
         private System.Windows.Forms.Label lblTotalExpenses;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Prefijo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cmbCompany;
 
     }
 }

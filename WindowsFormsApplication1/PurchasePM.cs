@@ -77,8 +77,15 @@ namespace WindowsFormsApplication1
 
             this.ConfigureDateTimePicker();
 
+            this.GetCompanies();
+
             this.LoadComplete = true;
 
+            this.FillGridView();
+        }
+
+        private void cmbCompany_SelectedIndexChanged(object sender, EventArgs e)
+        {
             this.FillGridView();
         }
 
@@ -390,6 +397,14 @@ namespace WindowsFormsApplication1
 
         #region Methods
 
+        private void GetCompanies()
+        {
+            using (posb.Company company = new posb.Company())
+            {
+                this.cmbCompany.Fill(company.List());
+            }
+        }
+
         private void ConfigureGridView()
         {
             this.gvList.AutoGenerateColumns = false;
@@ -403,6 +418,16 @@ namespace WindowsFormsApplication1
             {
 
                 this.Entity.Name = txtFind.Text;
+
+                int idCompany = 0;
+
+                if (int.TryParse(this.cmbCompany.SelectedValue.ToString(), out idCompany))
+                {
+                    if (idCompany.Equals(0))
+                        this.Entity.IdCompany = null;
+                    else
+                        this.Entity.IdCompany = idCompany;
+                }
 
                 List<posb.Purchase> lSale = this.Entity.List(this.dtpDate1.Value, this.dtpDate2.Value);
 

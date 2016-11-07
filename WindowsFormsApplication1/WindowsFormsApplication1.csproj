@@ -572,6 +572,9 @@
     <EmbeddedResource Include="Freight.resx">
       <DependentUpon>Freight.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ticket.resx">
+      <DependentUpon>Ticket.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TruperBrowser.resx">
       <DependentUpon>TruperBrowser.cs</DependentUpon>
     </EmbeddedResource>

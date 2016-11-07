@@ -77,9 +77,9 @@ namespace WindowsFormsApplication1
             }
             else if (e.ColumnIndex == 5)
             {
-                //PaymentSale payment = new PaymentSale(this.EntityId);
+                PaymentSale payment = new PaymentSale(this.EntityId);
 
-                //payment.ShowDialog();
+                payment.ShowDialog();
             }
             else if (e.ColumnIndex == 7)
             {
