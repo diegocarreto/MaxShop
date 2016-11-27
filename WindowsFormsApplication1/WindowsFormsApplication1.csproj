@@ -13,7 +13,7 @@
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -84,6 +84,9 @@
     </Compile>
     <Compile Include="AdvancedSearch.Designer.cs">
       <DependentUpon>AdvancedSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AutoCompleteTextBox.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="ChangeProductQuantity.cs">
       <SubType>Form</SubType>
@@ -159,6 +162,12 @@
     </Compile>
     <Compile Include="ClientEdit.Designer.cs">
       <DependentUpon>ClientEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GroupSale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GroupSale.Designer.cs">
+      <DependentUpon>GroupSale.cs</DependentUpon>
     </Compile>
     <Compile Include="PaymentEditSale.cs">
       <SubType>Form</SubType>
@@ -505,6 +514,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ClientEdit.resx">
       <DependentUpon>ClientEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GroupSale.resx">
+      <DependentUpon>GroupSale.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PaymentEditSale.resx">
       <DependentUpon>PaymentEditSale.cs</DependentUpon>

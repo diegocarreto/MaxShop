@@ -484,6 +484,11 @@ namespace DataAccess.MSSQL.Pos
 		public DataAccess.MsSqlCommands.Pos.Getsale Getsale = new DataAccess.MsSqlCommands.Pos.Getsale();
 
 		/// <summary>
+		/// Controla la ejecucion del procedimiento almacenado Getstatisticsgroup.
+		///</summary>
+		public DataAccess.MsSqlCommands.Pos.Getstatisticsgroup Getstatisticsgroup = new DataAccess.MsSqlCommands.Pos.Getstatisticsgroup();
+
+		/// <summary>
 		/// Controla la ejecucion del procedimiento almacenado Getticketcompany.
 		///</summary>
 		public DataAccess.MsSqlCommands.Pos.Getticketcompany Getticketcompany = new DataAccess.MsSqlCommands.Pos.Getticketcompany();
@@ -702,6 +707,11 @@ namespace DataAccess.MSSQL.Pos
 		/// Controla la ejecucion del procedimiento almacenado Updateclient.
 		///</summary>
 		public DataAccess.MsSqlCommands.Pos.Updateclient Updateclient = new DataAccess.MsSqlCommands.Pos.Updateclient();
+
+		/// <summary>
+		/// Controla la ejecucion del procedimiento almacenado Updatecolorpm.
+		///</summary>
+		public DataAccess.MsSqlCommands.Pos.Updatecolorpm Updatecolorpm = new DataAccess.MsSqlCommands.Pos.Updatecolorpm();
 
 		/// <summary>
 		/// Controla la ejecucion del procedimiento almacenado Updateconfiguration.
@@ -1082,6 +1092,9 @@ namespace DataAccess.MSSQL.Pos
 			if (this.Getsale != null)
 				this.Getsale.Dispose();
 
+			if (this.Getstatisticsgroup != null)
+				this.Getstatisticsgroup.Dispose();
+
 			if (this.Getticketcompany != null)
 				this.Getticketcompany.Dispose();
 
@@ -1213,6 +1226,9 @@ namespace DataAccess.MSSQL.Pos
 
 			if (this.Updateclient != null)
 				this.Updateclient.Dispose();
+
+			if (this.Updatecolorpm != null)
+				this.Updatecolorpm.Dispose();
 
 			if (this.Updateconfiguration != null)
 				this.Updateconfiguration.Dispose();

@@ -11,6 +11,7 @@ using posb = PosBusiness;
 using UtilitiesForm.Extensions;
 using System.IO;
 using System.Net;
+using System.Globalization;
 
 namespace WindowsFormsApplication1
 {
@@ -111,15 +112,27 @@ namespace WindowsFormsApplication1
                 {
                     this.Save();
 
-                    if (!this.HasImage && pbPhoto.Image != null)
+                    using (posb.PM pm = new posb.PM
                     {
-                        using (posb.PM pm = new posb.PM
-                        {
-                            Id = this.Id
-                        })
+                        Id = this.Id
+                    })
+                    {
+                        if (!this.HasImage && pbPhoto.Image != null)
                         {
                             pm.SaveImage(this.ImageToByte(pbPhoto.Image));
                         }
+
+                        var isColor = this.cbColor.Checked;
+                        var color = pbColor.BackColor;
+                        var hex = isColor ? ColorTranslator.ToHtml(Color.FromArgb(color.ToArgb())) : string.Empty;
+
+                        if (hex == "#BEDAFE")
+                        {
+                            hex = "";
+                            isColor = false;
+                        }
+
+                        pm.SaveColor(isColor, hex);
                     }
 
                     this.Result(true, "");
@@ -399,6 +412,13 @@ namespace WindowsFormsApplication1
 
                     this.HasImage = true;
                 }
+
+                if (Entity.Highlight.Value)
+                {
+                    this.cbColor.Checked = true;
+
+                    this.pbColor.BackColor = System.Drawing.ColorTranslator.FromHtml(Entity.ColorHex);
+                }
             }
         }
 
@@ -479,6 +499,28 @@ namespace WindowsFormsApplication1
             this.GetMeasures();
 
             this.cmbMeasure.SelectedValue = Id;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            if (cbColor.Checked)
+            {
+
+                DialogResult result = colorDialog1.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    this.pbColor.BackColor = colorDialog1.Color;
+                }
+            }
+        }
+
+        private void cbColor_CheckedChanged(object sender, EventArgs e)
+        {
+            this.pbColor.Enabled = cbColor.Checked;
+
+            if(!this.pbColor.Enabled)
+                this.pbColor.BackColor = System.Drawing.ColorTranslator.FromHtml("#BEDAFE");
         }
     }
 }

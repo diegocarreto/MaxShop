@@ -153,6 +153,7 @@
     <Compile Include="MsSQL\pos\GetPurchaseCost.cs" />
     <Compile Include="MsSQL\pos\GetPurchaseCostForSale.cs" />
     <Compile Include="MsSQL\pos\GetSale.cs" />
+    <Compile Include="MsSQL\pos\GetStatisticsGroup.cs" />
     <Compile Include="MsSQL\pos\GetTicketCompany.cs" />
     <Compile Include="MsSQL\pos\GetTotalDebt.cs" />
     <Compile Include="MsSQL\pos\LastBackUp.cs" />
@@ -207,6 +208,7 @@
     <Compile Include="MsSQL\pos\StockForSale.cs" />
     <Compile Include="MsSQL\pos\updateBrand.cs" />
     <Compile Include="MsSQL\pos\updateClient.cs" />
+    <Compile Include="MsSQL\pos\UpdateColorPm.cs" />
     <Compile Include="MsSQL\pos\UpdateConfiguration.cs" />
     <Compile Include="MsSQL\pos\updateDetailExpense.cs" />
     <Compile Include="MsSQL\pos\updateDetailPurchase.cs" />

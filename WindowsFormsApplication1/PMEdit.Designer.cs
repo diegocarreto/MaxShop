@@ -30,8 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PMEdit));
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.btnAccept = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.pbColor = new System.Windows.Forms.PictureBox();
+            this.cbColor = new System.Windows.Forms.CheckBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.cmbCompany = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.wbGetImagen = new System.Windows.Forms.WebBrowser();
             this.txtStockMax = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -60,14 +67,12 @@
             this.label7 = new System.Windows.Forms.Label();
             this.cmbMeasure = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.pbPhoto = new System.Windows.Forms.PictureBox();
             this.cmbProduct = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cbActive = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.cmbCompany = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbColor)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).BeginInit();
             this.SuspendLayout();
@@ -101,6 +106,68 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // pbColor
+            // 
+            this.pbColor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pbColor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbColor.Location = new System.Drawing.Point(484, 228);
+            this.pbColor.Name = "pbColor";
+            this.pbColor.Size = new System.Drawing.Size(66, 16);
+            this.pbColor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbColor.TabIndex = 89;
+            this.pbColor.TabStop = false;
+            this.pbColor.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // cbColor
+            // 
+            this.cbColor.AutoSize = true;
+            this.cbColor.Location = new System.Drawing.Point(463, 229);
+            this.cbColor.Name = "cbColor";
+            this.cbColor.Size = new System.Drawing.Size(15, 14);
+            this.cbColor.TabIndex = 88;
+            this.cbColor.UseVisualStyleBackColor = true;
+            this.cbColor.CheckedChanged += new System.EventHandler(this.cbColor_CheckedChanged);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(429, 228);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(34, 13);
+            this.label16.TabIndex = 87;
+            this.label16.Text = "Color:";
+            // 
+            // cmbCompany
+            // 
+            this.cmbCompany.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbCompany.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbCompany.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCompany.FormattingEnabled = true;
+            this.cmbCompany.Location = new System.Drawing.Point(103, 63);
+            this.cmbCompany.Name = "cmbCompany";
+            this.cmbCompany.Size = new System.Drawing.Size(324, 21);
+            this.cmbCompany.TabIndex = 86;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(47, 63);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(50, 13);
+            this.label15.TabIndex = 85;
+            this.label15.Text = "Negocio:";
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Location = new System.Drawing.Point(575, 246);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(24, 21);
+            this.button2.TabIndex = 84;
+            this.button2.UseVisualStyleBackColor = false;
+            // 
             // wbGetImagen
             // 
             this.wbGetImagen.Location = new System.Drawing.Point(703, 9);
@@ -115,7 +182,7 @@
             // txtStockMax
             // 
             this.txtStockMax.CausesValidation = false;
-            this.txtStockMax.Location = new System.Drawing.Point(447, 224);
+            this.txtStockMax.Location = new System.Drawing.Point(324, 224);
             this.txtStockMax.MaxLength = 29;
             this.txtStockMax.Name = "txtStockMax";
             this.txtStockMax.Size = new System.Drawing.Size(103, 20);
@@ -125,7 +192,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(365, 227);
+            this.label14.Location = new System.Drawing.Point(237, 227);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(76, 13);
             this.label14.TabIndex = 81;
@@ -379,17 +446,6 @@
             this.label1.TabIndex = 37;
             this.label1.Text = "A:";
             // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(575, 246);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(24, 21);
-            this.button2.TabIndex = 84;
-            this.button2.UseVisualStyleBackColor = false;
-            // 
             // pbPhoto
             // 
             this.pbPhoto.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -442,26 +498,6 @@
             this.label2.TabIndex = 33;
             this.label2.Text = "Activo:";
             // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(47, 63);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(50, 13);
-            this.label15.TabIndex = 85;
-            this.label15.Text = "Negocio:";
-            // 
-            // cmbCompany
-            // 
-            this.cmbCompany.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmbCompany.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbCompany.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCompany.FormattingEnabled = true;
-            this.cmbCompany.Location = new System.Drawing.Point(103, 63);
-            this.cmbCompany.Name = "cmbCompany";
-            this.cmbCompany.Size = new System.Drawing.Size(324, 21);
-            this.cmbCompany.TabIndex = 86;
-            // 
             // PMEdit
             // 
             this.AcceptButton = this.btnAccept;
@@ -469,6 +505,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(557, 393);
+            this.Controls.Add(this.pbColor);
+            this.Controls.Add(this.cbColor);
+            this.Controls.Add(this.label16);
             this.Controls.Add(this.cmbCompany);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.button2);
@@ -508,6 +547,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edicion Producto";
             this.Load += new System.EventHandler(this.PMEdit_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pbColor)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).EndInit();
@@ -557,5 +597,9 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox cmbCompany;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.CheckBox cbColor;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.PictureBox pbColor;
     }
 }

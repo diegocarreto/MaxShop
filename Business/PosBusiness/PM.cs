@@ -68,6 +68,10 @@ namespace PosBusiness
 
         public int? IdCompany { get; set; }
 
+        public bool? Highlight { get; set; }
+
+        public string ColorHex { get; set; }
+
         #endregion
 
         #region Builder
@@ -131,6 +135,8 @@ namespace PosBusiness
                 this.Max = oPM.Max;
                 this.Min = oPM.Min;
                 this.IdCompany = oPM.IdCompany;
+                this.Highlight = oPM.Highlight;
+                this.ColorHex = oPM.ColorHex;
 
                 this.Active = oPM.Active;
 
@@ -291,6 +297,18 @@ namespace PosBusiness
         public bool SaveImage(byte[] Image)
         {
             this.AccessMsSql.Pos.Addimage.ExeNonQuery(this.Id, "PM", Image);
+
+            return true;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Image"></param>
+        /// <returns></returns>
+        public bool SaveColor(bool WithColor, string Color = "")
+        {
+            this.AccessMsSql.Pos.Updatecolorpm.ExeNonQuery(this.Id, WithColor, Color);
 
             return true;
         }

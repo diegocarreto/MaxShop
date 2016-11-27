@@ -20,6 +20,8 @@ namespace WindowsFormsApplication1
     {
         #region Members
 
+        private GroupSale GroupSale = null;
+
         private RefillList RefillList = null;
 
         private Client Client = null;
@@ -327,26 +329,8 @@ namespace WindowsFormsApplication1
                 toolStripMenuItem7.Checked = true;
         }
 
-        public DateTime FirstDateOfWeek(int year, int weekOfYear)
-        {
-            var firstDate = new DateTime(year, 1, 4);
-            //first thursday of the week defines the first week (https://en.wikipedia.org/wiki/ISO_8601)
-            //Wiki: the 4th of january is always in the first week
-            while (firstDate.DayOfWeek != DayOfWeek.Monday)
-                firstDate = firstDate.AddDays(-1);
-
-            return firstDate.AddDays((weekOfYear - 1) * 7);
-        }
-
         private void MaxShop_Load(object sender, EventArgs e)
         {
-            var sssssjj = this.FirstDateOfWeek(2016,1);
-
-            PosBusiness.Configuration conf = new PosBusiness.Configuration();
-
-            this.timer1.Interval = conf.GetValue<int>("checkBackUpHours") * 60000;
-            this.BackUp();
-
             var currentIp = this.AppSet<string>("DataSource");
             this.AddStatusBar(currentIp);
 
@@ -374,6 +358,16 @@ namespace WindowsFormsApplication1
                 }
             }
 
+            try
+            {
+                PosBusiness.Configuration conf = new PosBusiness.Configuration();
+
+                this.timer1.Interval = conf.GetValue<int>("checkBackUpHours") * 60000;
+                this.BackUp();
+            }
+            catch (Exception ex)
+            { 
+            }
 
             this.Text = "MaxShop V1.0.0 - " + this.AppSet<string>("shopName").Replace("°", " ").Trim() + " - Suc. " + this.AppSet<string>("branchOffice") + " - Caja " + this.AppSet<string>("CashRegister");
 
@@ -1342,6 +1336,11 @@ namespace WindowsFormsApplication1
 
                 }).Start();
             }
+        }
+
+        private void gruposToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            GroupSale = ShowOrActiveForm(GroupSale, typeof(GroupSale)) as GroupSale;
         }
     }
 }

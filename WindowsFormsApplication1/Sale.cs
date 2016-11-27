@@ -24,6 +24,8 @@ namespace WindowsFormsApplication1
 
         private SearchProducts sp;
 
+        private AutoCompleteTextBox txtBuscar = new AutoCompleteTextBox();
+
         #endregion
 
         #region Properties
@@ -101,12 +103,68 @@ namespace WindowsFormsApplication1
 
             InitializeComponent();
 
+            this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscar.Location = new System.Drawing.Point(238, 47);
+            this.txtBuscar.Size = new System.Drawing.Size(847, 29);
+            this.txtBuscar.MaxLength = 100;
+
+            this.txtBuscar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBuscar_KeyUp);
+            this.txtBuscar.Leave += new System.EventHandler(this.txtBuscar_Leave);
+            this.txtBuscar.Result += new AutoCompleteTextBox.Communication(Result);
+
+            this.Controls.Add(this.txtBuscar);
+
             Instances++;
         }
 
         #endregion
 
         #region Events
+
+        private void Result()
+        {
+            this.txtCantidad.Focus();
+        }
+
+        private void toolStripComboBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUser_Click(object sender, EventArgs e)
+        {
+            this.ShowClient();
+        }
+
+        private void ResultEmployee(bool IsCorrect, String ErrorMessage, int Id)
+        {
+            this.GetClients();
+
+            this.cmbClient.SelectedValue = Id;
+        }
+
+        private void toolStripComboBoxClient_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.toolStripComboBoxClient.SelectedIndex != 1)
+            {
+                this.lblRef.Visible = true;
+                this.txtRef.Visible = true;
+            }
+            else
+            {
+                this.lblRef.Visible = false;
+                this.txtRef.Visible = false;
+                this.txtRef.Clear();
+            }
+        }
+
+        private void txtCantidad_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.Add();
+            }
+        }
 
         private void wizardToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -522,6 +580,10 @@ namespace WindowsFormsApplication1
                     this.SetAutoCompleteProducts();
                     this.SetAutoCompleteClient();
                 }
+                else
+                {
+                    this.txtCantidad.Focus();
+                }
             }
         }
 
@@ -605,6 +667,25 @@ namespace WindowsFormsApplication1
         #endregion
 
         #region Methods
+
+        private void ShowClient()
+        {
+            ClientEdit ClientEdit = new ClientEdit();
+
+            ClientEdit.Result += new ClientEdit.Communication(ResultEmployee);
+
+            ClientEdit.ShowDialog();
+        }
+
+        private void GetClients()
+        {
+            using (posb.Client client = new posb.Client())
+            {
+                this.cmbClient.Fill(client.List(), AddFirstOption: false);
+
+                this.cmbClient.SelectedValue = this.AppSet<int>("DefaultClientId");
+            }
+        }
 
         private Form ShowOrActiveForm(Form form, Type t, bool Dialog = false)
         {
@@ -737,7 +818,7 @@ namespace WindowsFormsApplication1
                                     var ids = this.Products.Select(x => x.IdCompany).Distinct().ToList();
                                     var idSale = 0;
 
-                                    decimal pagoParcial = decimal.Parse(txtPago.Text);
+                                    decimal pagoParcial = decimal.Parse(this.txtACuenta.Text);
                                     var print = (!oneTicket && printTicket);
 
                                     for (var i = 0; i < ids.Count; i++)
@@ -968,47 +1049,23 @@ namespace WindowsFormsApplication1
 
         public void SetAutoCompleteProducts()
         {
-            this.txtBuscar.AutoCompleteMode = AutoCompleteMode.None;
-            this.txtBuscar.AutoCompleteSource = AutoCompleteSource.None;
-
             List<posb.PM> pms = this.Entity.List(IsItForSale: true);
 
-            AutoCompleteStringCollection data = new AutoCompleteStringCollection();
-
-            List<string> lproducts = new List<string>();
+            List<AuxAutoCompleteTextBox> lproducts3 = new List<AuxAutoCompleteTextBox>();
 
             foreach (posb.PM pm in pms)
             {
-                data.Add(pm.Aux);
-
-                lproducts.Add(pm.Aux);
-
-                //if (!string.IsNullOrEmpty(pm.Alias))
-                //    data.Add(pm.Alias);
+                lproducts3.Add(new AuxAutoCompleteTextBox 
+                {
+                    Prop1 = pm.Aux,
+                    Prop2 = pm.Name,
+                    Prop3 = pm.Aux,
+                    Highlight = pm.Highlight,
+                    ColorHex = pm.ColorHex
+                });
             }
 
-            this.txtBuscar.AutoCompleteMode = AutoCompleteMode.Suggest;
-            this.txtBuscar.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            this.txtBuscar.AutoCompleteCustomSource = data;
-
-            return;
-
-            AutoCompleteTextBox auct = new AutoCompleteTextBox();
-
-            auct.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            //this.txtBuscar.Location = new System.Drawing.Point(238, 47);
-            auct.MaxLength = 100;
-            auct.Size = new System.Drawing.Size(847, 29);
-            auct.TabIndex = 0;
-            //this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
-            //this.txtBuscar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBuscar_KeyUp);
-            //this.txtBuscar.Leave += new System.EventHandler(this.txtBuscar_Leave);
-
-            auct.Values = lproducts.ToArray();
-
-            this.Controls.Add(auct);
-
-
+            this.txtBuscar.Content = lproducts3;
         }
 
         private void SetAutoCompleteClient()
@@ -1326,247 +1383,5 @@ namespace WindowsFormsApplication1
         }
 
         #endregion
-
-        private void toolStripComboBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void GetClients()
-        {
-            using (posb.Client client = new posb.Client())
-            {
-                this.cmbClient.Fill(client.List(), AddFirstOption: false);
-
-                this.cmbClient.SelectedValue = this.AppSet<int>("DefaultClientId");
-            }
-        }
-
-        private void btnUser_Click(object sender, EventArgs e)
-        {
-            this.ShowClient();
-        }
-
-        private void ShowClient()
-        {
-            ClientEdit ClientEdit = new ClientEdit();
-
-            ClientEdit.Result += new ClientEdit.Communication(ResultEmployee);
-
-            ClientEdit.ShowDialog();
-        }
-
-        private void ResultEmployee(bool IsCorrect, String ErrorMessage, int Id)
-        {
-            this.GetClients();
-
-            this.cmbClient.SelectedValue = Id;
-        }
-
-        private void toolStripComboBoxClient_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (this.toolStripComboBoxClient.SelectedIndex != 1)
-            {
-                this.lblRef.Visible = true;
-                this.txtRef.Visible = true;
-            }
-            else
-            {
-                this.lblRef.Visible = false;
-                this.txtRef.Visible = false;
-                this.txtRef.Clear();
-            }
-        }
-    }
-
-    public class AutoCompleteTextBox : TextBox
-    {
-        private ListBox _listBox;
-        private bool _isAdded;
-        private String[] _values;
-        private String _formerValue = String.Empty;
-
-        public AutoCompleteTextBox()
-        {
-            InitializeComponent();
-            ResetListBox();
-        }
-
-        private void InitializeComponent()
-        {
-            _listBox = new ListBox();
-
-
-
-            KeyDown += this_KeyDown;
-            KeyUp += this_KeyUp;
-        }
-
-        private void ShowListBox()
-        {
-            if (!_isAdded)
-            {
-                Parent.Controls.Add(_listBox);
-                _listBox.Left = Left;
-                _listBox.Top = Top + Height;
-                _isAdded = true;
-            }
-            _listBox.Visible = true;
-            _listBox.BringToFront();
-        }
-
-        private void ResetListBox()
-        {
-            _listBox.Visible = false;
-        }
-
-        private void this_KeyUp(object sender, KeyEventArgs e)
-        {
-            UpdateListBox();
-        }
-
-        private void this_KeyDown(object sender, KeyEventArgs e)
-        {
-            switch (e.KeyCode)
-            {
-                case Keys.Tab:
-                    {
-                        if (_listBox.Visible)
-                        {
-                            InsertWord((String)_listBox.SelectedItem);
-                            ResetListBox();
-                            _formerValue = Text;
-                        }
-                        break;
-                    }
-                case Keys.Down:
-                    {
-                        if ((_listBox.Visible) && (_listBox.SelectedIndex < _listBox.Items.Count - 1))
-                            _listBox.SelectedIndex++;
-
-                        break;
-                    }
-                case Keys.Up:
-                    {
-                        if ((_listBox.Visible) && (_listBox.SelectedIndex > 0))
-                            _listBox.SelectedIndex--;
-
-                        break;
-                    }
-            }
-        }
-
-        protected override bool IsInputKey(Keys keyData)
-        {
-            switch (keyData)
-            {
-                case Keys.Tab:
-                    return true;
-                default:
-                    return base.IsInputKey(keyData);
-            }
-        }
-
-        private void UpdateListBox()
-        {
-            if (Text == _formerValue)
-                return;
-
-            _formerValue = Text;
-            String word = GetWord();
-
-            if (_values != null && word.Length > 0)
-            {
-                String[] matches = Array.FindAll(_values,
-                                                 x => (x.StartsWith(word, StringComparison.OrdinalIgnoreCase) && !SelectedValues.Contains(x)));
-                if (matches.Length > 0)
-                {
-                    ShowListBox();
-                    _listBox.Items.Clear();
-                    Array.ForEach(matches, x => _listBox.Items.Add(x));
-                    _listBox.SelectedIndex = 0;
-                    _listBox.Height = 0;
-                    //_listBox.Width = 0;
-                    Focus();
-                    using (Graphics graphics = _listBox.CreateGraphics())
-                    {
-                        for (int i = 0; i < _listBox.Items.Count; i++)
-                        {
-                            _listBox.Height += _listBox.GetItemHeight(i);
-                            // it item width is larger than the current one
-                            // set it to the new max item width
-                            // GetItemRectangle does not work for me
-                            // we add a little extra space by using '_'
-                            int itemWidth = (int)graphics.MeasureString(((String)_listBox.Items[i]) + "_", _listBox.Font).Width;
-                            //_listBox.Width = (_listBox.Width < itemWidth) ? itemWidth : _listBox.Width;
-                        }
-                    }
-                }
-                else
-                {
-                    ResetListBox();
-                }
-            }
-            else
-            {
-                ResetListBox();
-            }
-
-            _listBox.Width = this.Width;
-        }
-
-        private String GetWord()
-        {
-            String text = Text;
-            int pos = SelectionStart;
-
-            int posStart = text.LastIndexOf(' ', (pos < 1) ? 0 : pos - 1);
-            posStart = (posStart == -1) ? 0 : posStart + 1;
-            int posEnd = text.IndexOf(' ', pos);
-            posEnd = (posEnd == -1) ? text.Length : posEnd;
-
-            int length = ((posEnd - posStart) < 0) ? 0 : posEnd - posStart;
-
-            return text.Substring(posStart, length);
-        }
-
-        private void InsertWord(String newTag)
-        {
-            String text = Text;
-            int pos = SelectionStart;
-
-            int posStart = text.LastIndexOf(' ', (pos < 1) ? 0 : pos - 1);
-            posStart = (posStart == -1) ? 0 : posStart + 1;
-            int posEnd = text.IndexOf(' ', pos);
-
-            String firstPart = text.Substring(0, posStart) + newTag;
-            String updatedText = firstPart + ((posEnd == -1) ? "" : text.Substring(posEnd, text.Length - posEnd));
-
-
-            Text = updatedText;
-            SelectionStart = firstPart.Length;
-        }
-
-        public String[] Values
-        {
-            get
-            {
-                return _values;
-            }
-            set
-            {
-                _values = value;
-            }
-        }
-
-        public List<String> SelectedValues
-        {
-            get
-            {
-                String[] result = Text.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-                return new List<String>(result);
-            }
-        }
-
     }
 }

@@ -42,7 +42,6 @@
             this.lblTotalLetter = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -154,21 +153,6 @@
             this.label4.TabIndex = 56;
             this.label4.Text = "Número de productos:";
             // 
-            // txtBuscar
-            // 
-            this.txtBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBuscar.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.Location = new System.Drawing.Point(238, 47);
-            this.txtBuscar.MaxLength = 100;
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(847, 29);
-            this.txtBuscar.TabIndex = 0;
-            this.txtBuscar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBuscar_KeyUp);
-            this.txtBuscar.Leave += new System.EventHandler(this.txtBuscar_Leave);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -192,6 +176,7 @@
             this.txtCantidad.TabIndex = 1;
             this.txtCantidad.Text = "1";
             this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
+            this.txtCantidad.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtCantidad_KeyUp);
             // 
             // label5
             // 
@@ -681,7 +666,6 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.txtCantidad);
@@ -733,7 +717,6 @@
         private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
