@@ -331,6 +331,11 @@ namespace WindowsFormsApplication1
 
         private void MaxShop_Load(object sender, EventArgs e)
         {
+            //var apriori = new PosBusiness.AprioriAssociation(50);
+
+            //var result = apriori.Analyze();
+
+
             var currentIp = this.AppSet<string>("DataSource");
             this.AddStatusBar(currentIp);
 

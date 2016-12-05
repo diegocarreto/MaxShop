@@ -22,7 +22,7 @@ namespace DataAccess.MsSqlCommands.Pos
         {
         	List<SqlParameter> parameters = new List<SqlParameter>();
 
-        	parameters.Add("@name", SqlDbType.VarChar, name, 50).Add("@date", SqlDbType.Date, date, null).Add("@total", SqlDbType.Float, total, null).Add("@idCompany", SqlDbType.Int, idCompany, null);
+        	parameters.Add("@name", SqlDbType.VarChar, name, 250).Add("@date", SqlDbType.Date, date, null).Add("@total", SqlDbType.Float, total, null).Add("@idCompany", SqlDbType.Int, idCompany, null);
 
         	return this.GetListBase<T>("pos", "AddPurchase",parameters.ToArray());
         }
@@ -35,7 +35,7 @@ namespace DataAccess.MsSqlCommands.Pos
         {
         	List<SqlParameter> parameters = new List<SqlParameter>();
 
-        	parameters.Add("@name", SqlDbType.VarChar, name, 50).Add("@date", SqlDbType.Date, date, null).Add("@total", SqlDbType.Float, total, null).Add("@idCompany", SqlDbType.Int, idCompany, null);
+        	parameters.Add("@name", SqlDbType.VarChar, name, 250).Add("@date", SqlDbType.Date, date, null).Add("@total", SqlDbType.Float, total, null).Add("@idCompany", SqlDbType.Int, idCompany, null);
 
         	return this.ExecuteScalar<T>("pos", "AddPurchase",parameters.ToArray());
         }
@@ -48,7 +48,7 @@ namespace DataAccess.MsSqlCommands.Pos
         {
         	List<SqlParameter> parameters = new List<SqlParameter>();
 
-        	parameters.Add("@name", SqlDbType.VarChar, name, 50).Add("@date", SqlDbType.Date, date, null).Add("@total", SqlDbType.Float, total, null).Add("@idCompany", SqlDbType.Int, idCompany, null);
+        	parameters.Add("@name", SqlDbType.VarChar, name, 250).Add("@date", SqlDbType.Date, date, null).Add("@total", SqlDbType.Float, total, null).Add("@idCompany", SqlDbType.Int, idCompany, null);
 
         	return this.ExecuteNonQuery("pos", "AddPurchase",parameters.ToArray());
         }
@@ -61,7 +61,7 @@ namespace DataAccess.MsSqlCommands.Pos
         {
         	List<SqlParameter> parameters = new List<SqlParameter>();
 
-        	parameters.Add("@name", SqlDbType.VarChar, name, 50).Add("@date", SqlDbType.Date, date, null).Add("@total", SqlDbType.Float, total, null).Add("@idCompany", SqlDbType.Int, idCompany, null);
+        	parameters.Add("@name", SqlDbType.VarChar, name, 250).Add("@date", SqlDbType.Date, date, null).Add("@total", SqlDbType.Float, total, null).Add("@idCompany", SqlDbType.Int, idCompany, null);
 
         	return this.GetReader("pos", "AddPurchase",parameters.ToArray());
         }

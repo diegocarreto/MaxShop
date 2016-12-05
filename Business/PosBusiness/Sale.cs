@@ -101,35 +101,49 @@ namespace PosBusiness
             var products = this.AccessMsSql.Pos.Listdetailsale.ExeList<ProductForAction>(Id);
             var name = this.AccessMsSql.Pos.Getnameforrefillcancelsale.ExeScalar<string>(Id);
 
-            foreach (var product in products)
+            var ids = products.Select(x => x.IdCompany).Distinct().ToList();
+  
+            for (var i = 0; i < ids.Count; i++)
             {
-                var cost = this.AccessMsSql.Pos.Getpurchasecost.ExeScalar<decimal>(int.Parse(product.Code));
+                var id = ids[i];
 
-                if (cost.Equals(0))
-                    cost = (decimal).1;
+                var productsCompany = products.FindAll(p => p.IdCompany.Equals(id));
 
-                if (cost > (decimal)product.Unitary)
-                    cost = (decimal).1;
+                foreach (var pc in productsCompany)
+                {
+                    var cost = this.AccessMsSql.Pos.Getpurchasecost.ExeScalar<decimal>(int.Parse(pc.Code));
 
-                product.Unitary = cost;
+                    if (cost.Equals(0))
+                        cost = (decimal).1;
 
-                product.Price = (decimal)(product.Unitary * (decimal)product.Amount);
+                    if (cost > (decimal)pc.Unitary)
+                        cost = (decimal).1;
 
-                product.Id = int.Parse(product.Code);
+                    pc.Unitary = cost;
+
+                    pc.Price = (decimal)(pc.Unitary * (decimal)pc.Amount);
+
+                    pc.Id = int.Parse(pc.Code);
+                }
+
+                using (Purchase purchase = new Purchase 
+                {
+                    IdCompany = id
+                })
+                {
+                    var nameCompany = ". Compañia: " + this.AccessMsSql.Pos.Listcompany.ExeList<Company>(id).First().Name;
+
+                    purchase.Name = name + nameCompany;
+                    purchase.CreatedDate = DateTime.Now;
+                    purchase.Id = null;
+
+                    var result = purchase.Charge(productsCompany);
+
+                    this.AccessMsSql.Pos.Addpurchasefather.ExeNonQuery(purchase.Id, Id);
+                }
             }
 
-            using (Purchase purchase = new Purchase())
-            {
-                purchase.Name = name;
-                purchase.CreatedDate = DateTime.Now;
-                purchase.Id = null;
-
-                var result = purchase.Charge(products);
-
-                this.AccessMsSql.Pos.Addpurchasefather.ExeNonQuery(purchase.Id, Id);
-
-                return result;
-            }
+            return true;
         }
 
         public void AddFather(int IdSale, int IdFather)

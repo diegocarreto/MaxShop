@@ -46,9 +46,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.gvList = new System.Windows.Forms.DataGridView();
-            this.bntFind = new System.Windows.Forms.Button();
-            this.txtFind = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Negocio = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,6 +55,9 @@
             this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cancelada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaCancelacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bntFind = new System.Windows.Forms.Button();
+            this.txtFind = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gvList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -222,7 +222,7 @@
             this.Marca,
             this.Cancelada,
             this.FechaCancelacion});
-            this.gvList.Location = new System.Drawing.Point(15, 65);
+            this.gvList.Location = new System.Drawing.Point(15, 57);
             this.gvList.MultiSelect = false;
             this.gvList.Name = "gvList";
             this.gvList.ReadOnly = true;
@@ -235,38 +235,6 @@
             this.gvList.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gvList_CellMouseDoubleClick);
             this.gvList.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvList_CellMouseLeave);
             this.gvList.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gvList_CellMouseMove);
-            // 
-            // bntFind
-            // 
-            this.bntFind.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bntFind.Image = ((System.Drawing.Image)(resources.GetObject("bntFind.Image")));
-            this.bntFind.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bntFind.Location = new System.Drawing.Point(1159, 13);
-            this.bntFind.Name = "bntFind";
-            this.bntFind.Size = new System.Drawing.Size(77, 23);
-            this.bntFind.TabIndex = 47;
-            this.bntFind.Text = "    Buscar";
-            this.bntFind.UseVisualStyleBackColor = true;
-            this.bntFind.Click += new System.EventHandler(this.bntFind_Click);
-            // 
-            // txtFind
-            // 
-            this.txtFind.Location = new System.Drawing.Point(90, 11);
-            this.txtFind.MaxLength = 100;
-            this.txtFind.Name = "txtFind";
-            this.txtFind.Size = new System.Drawing.Size(699, 20);
-            this.txtFind.TabIndex = 46;
-            this.txtFind.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtFind_KeyUp);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(21, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 17);
-            this.label1.TabIndex = 45;
-            this.label1.Text = "Buscar:";
             // 
             // Column1
             // 
@@ -343,6 +311,38 @@
             this.FechaCancelacion.Name = "FechaCancelacion";
             this.FechaCancelacion.ReadOnly = true;
             this.FechaCancelacion.Width = 170;
+            // 
+            // bntFind
+            // 
+            this.bntFind.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bntFind.Image = ((System.Drawing.Image)(resources.GetObject("bntFind.Image")));
+            this.bntFind.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bntFind.Location = new System.Drawing.Point(1159, 13);
+            this.bntFind.Name = "bntFind";
+            this.bntFind.Size = new System.Drawing.Size(77, 23);
+            this.bntFind.TabIndex = 47;
+            this.bntFind.Text = "    Buscar";
+            this.bntFind.UseVisualStyleBackColor = true;
+            this.bntFind.Click += new System.EventHandler(this.bntFind_Click);
+            // 
+            // txtFind
+            // 
+            this.txtFind.Location = new System.Drawing.Point(90, 11);
+            this.txtFind.MaxLength = 100;
+            this.txtFind.Name = "txtFind";
+            this.txtFind.Size = new System.Drawing.Size(699, 20);
+            this.txtFind.TabIndex = 46;
+            this.txtFind.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtFind_KeyUp);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(21, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 17);
+            this.label1.TabIndex = 45;
+            this.label1.Text = "Buscar:";
             // 
             // SalePM
             // 

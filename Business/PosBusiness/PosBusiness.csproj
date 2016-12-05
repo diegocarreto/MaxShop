@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AprioriAssociation.cs" />
     <Compile Include="Brand.cs" />
     <Compile Include="Budgetary.cs" />
     <Compile Include="Concentrated.cs" />

@@ -169,6 +169,21 @@ namespace DataAccess.MSSQL.Pos
 		public DataAccess.MsSqlCommands.Pos.Addunioncostandsale Addunioncostandsale = new DataAccess.MsSqlCommands.Pos.Addunioncostandsale();
 
 		/// <summary>
+		/// Controla la ejecucion del procedimiento almacenado Apriorigetname.
+		///</summary>
+		public DataAccess.MsSqlCommands.Pos.Apriorigetname Apriorigetname = new DataAccess.MsSqlCommands.Pos.Apriorigetname();
+
+		/// <summary>
+		/// Controla la ejecucion del procedimiento almacenado Aprioripmcount.
+		///</summary>
+		public DataAccess.MsSqlCommands.Pos.Aprioripmcount Aprioripmcount = new DataAccess.MsSqlCommands.Pos.Aprioripmcount();
+
+		/// <summary>
+		/// Controla la ejecucion del procedimiento almacenado Aprioripmsearch.
+		///</summary>
+		public DataAccess.MsSqlCommands.Pos.Aprioripmsearch Aprioripmsearch = new DataAccess.MsSqlCommands.Pos.Aprioripmsearch();
+
+		/// <summary>
 		/// Controla la ejecucion del procedimiento almacenado Backupdb.
 		///</summary>
 		public DataAccess.MsSqlCommands.Pos.Backupdb Backupdb = new DataAccess.MsSqlCommands.Pos.Backupdb();
@@ -902,6 +917,15 @@ namespace DataAccess.MSSQL.Pos
 
 			if (this.Addunioncostandsale != null)
 				this.Addunioncostandsale.Dispose();
+
+			if (this.Apriorigetname != null)
+				this.Apriorigetname.Dispose();
+
+			if (this.Aprioripmcount != null)
+				this.Aprioripmcount.Dispose();
+
+			if (this.Aprioripmsearch != null)
+				this.Aprioripmsearch.Dispose();
 
 			if (this.Backupdb != null)
 				this.Backupdb.Dispose();

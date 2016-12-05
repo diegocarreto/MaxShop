@@ -89,6 +89,9 @@
     <Compile Include="MsSQL\pos\AddSaleFather.cs" />
     <Compile Include="MsSQL\pos\addTelephoneRecharge.cs" />
     <Compile Include="MsSQL\pos\AddUnionCostAndSale.cs" />
+    <Compile Include="MsSQL\pos\AprioriGetName.cs" />
+    <Compile Include="MsSQL\pos\AprioriPmCount.cs" />
+    <Compile Include="MsSQL\pos\AprioriPmSearch.cs" />
     <Compile Include="MsSQL\pos\backupdb.cs" />
     <Compile Include="MsSQL\pos\BackUpGetInfo.cs" />
     <Compile Include="MsSQL\pos\BackUpGetProcedures.cs" />

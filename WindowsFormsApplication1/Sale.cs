@@ -398,7 +398,7 @@ namespace WindowsFormsApplication1
 
             this.Products = new List<posb.ProductForAction>();
 
-            txtPago.LostFocus += new EventHandler(txtPago_LostFocus);
+            this.txtPago.LostFocus += new EventHandler(txtPago_LostFocus);
 
             this.Entity = new posb.PM();
 
@@ -780,13 +780,13 @@ namespace WindowsFormsApplication1
             {
                 if (this.Confirm("¿Deseas imprimir el ticket?"))
                 {
-                    new Ticket().Print(this.IdSale.Value, 
+                    new Ticket().Print(this.IdSale.Value,
                                        this.Products,
-                                       double.Parse(txtPago.Text), 
-                                       lblTotalLetter.Text, 
-                                       this.cmbClient.Text, 
+                                       double.Parse(txtPago.Text),
+                                       lblTotalLetter.Text,
+                                       this.cmbClient.Text,
                                        this.toolStripComboBoxClient.Text,
-                                       double.Parse(this.txtACuenta.Text), 
+                                       double.Parse(this.txtACuenta.Text),
                                        this.CreatedDate.Value.ToString("dd/MM/yyyy hh:mm:ss"));
                 }
 
@@ -812,39 +812,65 @@ namespace WindowsFormsApplication1
                             {
                                 using (posb.Sale sale = new posb.Sale())
                                 {
-                                    bool oneTicket = this.AppSet<bool>("OneTicket");
-                                    bool printTicket = this.Confirm("¿Deseas imprimir el ticket?");
+                                    var oneTicket = this.AppSet<bool>("OneTicket");
+                                    var printTicket = this.Confirm("¿Deseas imprimir el ticket?");
 
                                     var ids = this.Products.Select(x => x.IdCompany).Distinct().ToList();
                                     var idSale = 0;
 
-                                    decimal pagoParcial = decimal.Parse(this.txtACuenta.Text);
+                                    var pagoParcial = double.Parse(this.txtACuenta.Text);
                                     var print = (!oneTicket && printTicket);
+
+                                    double acuenta = double.Parse(this.txtACuenta.Text);
+                                    double pago = double.Parse(txtPago.Text);
+                                    double acuentaEstatico = acuenta;
+
+                                    double aCuentaPorNegocio = 0;
+                                    double cambioPorNegocio = 0;
+                                    double pagoPorNegocio = 0;
 
                                     for (var i = 0; i < ids.Count; i++)
                                     {
                                         var id = ids[i];
 
                                         var products = this.Products.FindAll(p => p.IdCompany.Equals(id));
-                                        decimal precioProductosPorNegocio = products.Sum(p => p.Price);
+                                        double precioProductosPorNegocio = (double)products.Sum(p => p.Price);
 
-                                        pagoParcial -= precioProductosPorNegocio;
-
-                                        double pago = (double)precioProductosPorNegocio;
-
-                                        if (i.Equals(ids.Count - 1))
+                                        if (ids.Count.Equals(1))
                                         {
-                                            pago = (double)(pagoParcial + precioProductosPorNegocio);
+                                            aCuentaPorNegocio = acuenta;
+                                            pagoPorNegocio = pago;
+                                            cambioPorNegocio = pago - acuenta;
+                                        }
+                                        else
+                                        {
+                                            if (precioProductosPorNegocio <= acuenta)
+                                            {
+                                                aCuentaPorNegocio = precioProductosPorNegocio;
+                                                pagoPorNegocio = precioProductosPorNegocio;
+                                                cambioPorNegocio = 0;
+                                            }
+                                            else
+                                            {
+                                                aCuentaPorNegocio = acuenta;
+                                                pagoPorNegocio = acuenta;
+                                                cambioPorNegocio = acuenta - precioProductosPorNegocio;
+                                            }
+
+                                            acuenta -= aCuentaPorNegocio;
                                         }
 
                                         idSale = this.Charge2(products,
                                                               int.Parse(this.cmbClient.SelectedValue.ToString()),
                                                               this.toolStripComboBoxClient.Text,
-                                                              pago,
+                                                              pagoPorNegocio,
+                                                              aCuentaPorNegocio,
+                                                              cambioPorNegocio,
                                                               false,
                                                               id,
-                                                              Print: (!oneTicket && printTicket), 
+                                                              Print: (!oneTicket && printTicket),
                                                               Reference: this.txtRef.Text);
+
                                     }
 
                                     if (oneTicket && printTicket)
@@ -902,11 +928,11 @@ namespace WindowsFormsApplication1
             this.SetAutoCompleteClient();
         }
 
-        private int Charge2(List<ProductForAction> Products, int IdClient, string PaymentType, double Payment, bool Freight = false, int? IdCompany = null, bool Print = true, string Reference = "")
+        private int Charge2(List<ProductForAction> Products, int IdClient, string PaymentType, double Payment, double ACuenta, double Cambio, bool Freight = false, int? IdCompany = null, bool Print = true, string Reference = "")
         {
             using (posb.Sale sale = new posb.Sale())
             {
-                if (sale.Charge(Products, IdClient, PaymentType, Payment, double.Parse(this.txtACuenta.Text), double.Parse(this.txtCambio.Text), Freight, IdCompany, Reference))
+                if (sale.Charge(Products, IdClient, PaymentType, Payment, ACuenta, Cambio, Freight, IdCompany, Reference))
                 {
                     if (Print)
                     {
@@ -914,14 +940,14 @@ namespace WindowsFormsApplication1
 
                         string ltr = new Numalet().Convert(total.ToString());
 
-                        new Ticket().Print(sale.Id.Value, 
-                                           Products, 
-                                           Payment, 
-                                           ltr, 
-                                           this.cmbClient.Text, 
-                                           PaymentType, 
-                                           double.Parse(this.txtACuenta.Text), 
-                                           IdCompany: IdCompany, 
+                        new Ticket().Print(sale.Id.Value,
+                                           Products,
+                                           Payment,
+                                           ltr,
+                                           this.cmbClient.Text,
+                                           PaymentType,
+                                           double.Parse(this.txtACuenta.Text),
+                                           IdCompany: IdCompany,
                                            Principal: null);
                     }
 
@@ -1055,7 +1081,7 @@ namespace WindowsFormsApplication1
 
             foreach (posb.PM pm in pms)
             {
-                lproducts3.Add(new AuxAutoCompleteTextBox 
+                lproducts3.Add(new AuxAutoCompleteTextBox
                 {
                     Prop1 = pm.Aux,
                     Prop2 = pm.Name,
