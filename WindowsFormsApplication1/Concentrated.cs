@@ -201,7 +201,7 @@ namespace WindowsFormsApplication1
                         {
                             xlWorkSheetItems.Cells[index, 1] = concentrated.Type;
 
-                            xlWorkSheetItems.Cells[index, 2] = concentrated.Id.ToString();
+                            xlWorkSheetItems.Cells[index, 2] = concentrated.Id.ToString().PadLeft(10,'0');
 
                             (xlWorkSheetItems.Cells[index, 3] as Microsoft.Office.Interop.Excel.Range).NumberFormat = "@";
                             xlWorkSheetItems.Cells[index, 3] = concentrated.Name;

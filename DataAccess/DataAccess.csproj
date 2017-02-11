@@ -98,6 +98,7 @@
     <Compile Include="MsSQL\pos\BackupGetProcedureText.cs" />
     <Compile Include="MsSQL\pos\BackUpGetTables.cs" />
     <Compile Include="MsSQL\pos\BackUpGetTableText.cs" />
+    <Compile Include="MsSQL\pos\BinnacleAdd.cs" />
     <Compile Include="MsSQL\pos\CancelSale.cs" />
     <Compile Include="MsSQL\pos\CheckBox.cs" />
     <Compile Include="MsSQL\pos\CheckPmInDetailPurchase.cs" />
@@ -133,6 +134,7 @@
     <Compile Include="MsSQL\pos\existMeasure.cs" />
     <Compile Include="MsSQL\pos\existPM.cs" />
     <Compile Include="MsSQL\pos\existProduct.cs" />
+    <Compile Include="MsSQL\pos\ExpenseAdd.cs" />
     <Compile Include="MsSQL\pos\GetBarCode.cs" />
     <Compile Include="MsSQL\pos\GetBrandURLSearch.cs" />
     <Compile Include="MsSQL\pos\GetClientName.cs" />
@@ -159,6 +161,8 @@
     <Compile Include="MsSQL\pos\GetStatisticsGroup.cs" />
     <Compile Include="MsSQL\pos\GetTicketCompany.cs" />
     <Compile Include="MsSQL\pos\GetTotalDebt.cs" />
+    <Compile Include="MsSQL\pos\HabitantDelete.cs" />
+    <Compile Include="MsSQL\pos\HabitantList.cs" />
     <Compile Include="MsSQL\pos\LastBackUp.cs" />
     <Compile Include="MsSQL\pos\listBrand.cs" />
     <Compile Include="MsSQL\pos\listCategoryExpense.cs" />

@@ -581,7 +581,10 @@ namespace WindowsFormsApplication1
 
             this.txtCode.Clear();
 
-            this.GetCaptcha();
+            if (this.AppSet<bool>("CaptchaForRecharge"))
+            {
+                this.GetCaptcha();
+            }
         }
 
         private void GetCaptcha()
@@ -722,7 +725,7 @@ namespace WindowsFormsApplication1
                 string option = optionHTML.InnerText.Trim();
                 string value = optionHTML.GetAttribute("value").Trim();
 
-                if (!string.IsNullOrEmpty(option) && !option.Equals("seleccione", StringComparison.InvariantCultureIgnoreCase))
+                if (!string.IsNullOrEmpty(option) && !option.Equals("seleccione", StringComparison.InvariantCultureIgnoreCase) && value != "0")
                 {
                     lAmount.Add(new { Id = value, Name = option });
                 }

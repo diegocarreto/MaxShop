@@ -1190,6 +1190,14 @@ namespace WindowsFormsApplication1
                     this.SetGrid();
 
                     this.CleanControls();
+
+                    decimal pago = 0;
+                    decimal.TryParse(this.txtPago.Text, out pago);
+
+                    if (decimal.Parse(this.txtACuenta.Text) <= pago)
+                        this.txtCambio.Text = (pago - decimal.Parse(this.txtACuenta.Text)).ToString();
+                    else
+                        this.txtPago.Text = "0.00";
                 }
             }
         }

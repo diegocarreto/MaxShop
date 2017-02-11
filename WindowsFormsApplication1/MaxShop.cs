@@ -331,7 +331,7 @@ namespace WindowsFormsApplication1
 
         private void MaxShop_Load(object sender, EventArgs e)
         {
-            //var apriori = new PosBusiness.AprioriAssociation(50);
+            //var apriori = new PosBusiness.AprioriAssociation(5.5);
 
             //var result = apriori.Analyze();
 
