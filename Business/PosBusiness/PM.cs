@@ -159,11 +159,11 @@ namespace PosBusiness
         /// 
         /// </summary>
         /// <returns></returns>
-        public List<PM> List(int? Id = null, bool IsItForSale = false, string BarCode = "")
+        public List<PM> List(int? Id = null, bool IsItForSale = false, string BarCode = "", int? IdCompany = null)
         {
             if (IsItForSale)
             {
-                return this.AccessMsSql.Pos.Listpmventas.ExeList<PM>(Id, this.Aux2, this.Aux, BarCode);
+                return this.AccessMsSql.Pos.Listpmventas.ExeList<PM>(Id, this.Aux2, this.Aux, BarCode, IdCompany);
             }
             else
             {

@@ -46,6 +46,14 @@ namespace WindowsFormsApplication1
             }
         }
 
+        private string CompanyName
+        {
+            get
+            {
+                return gvList[2, this.SelectRowIndex].Value.ToString();
+            }
+        }
+
         private int SelectRowIndex
         {
             get
@@ -547,9 +555,18 @@ namespace WindowsFormsApplication1
 
         private void OpenEdit(int? Id = null,bool Cancellation = false, int? IdFhater = null)
         {
-            Sale sale = new Sale(Id, Cancellation, IdFhater);
+            if (this.CompanyName.Equals("Tabiquera San Jorge", StringComparison.InvariantCultureIgnoreCase))
+            {
+                //SaleBlock sale = new SaleBlock(Id, Cancellation, IdFhater);
 
-            sale.ShowDialog();
+                //sale.ShowDialog();
+            }
+            else
+            {
+                Sale sale = new Sale(Id, Cancellation, IdFhater);
+
+                sale.ShowDialog();
+            }
         }
 
         #endregion

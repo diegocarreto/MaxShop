@@ -20,6 +20,8 @@ namespace WindowsFormsApplication1
     {
         #region Members
 
+        private SaleBlock SaleBlock = null;
+
         private GroupSale GroupSale = null;
 
         private RefillList RefillList = null;
@@ -292,26 +294,26 @@ namespace WindowsFormsApplication1
 
         private void toolStripTextBox1_KeyUp_1(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter && !string.IsNullOrEmpty(toolStripTextBox1.Text))
-            {
-                string url = "https://www.truper.com.mx/CatVigente/buscador.php?palabra=" + toolStripTextBox1.Text.Trim().Replace(" ", "+");
+            //if (e.KeyCode == Keys.Enter && !string.IsNullOrEmpty(toolStripTextBox1.Text))
+            //{
+            //    string url = "https://www.truper.com.mx/CatVigente/buscador.php?palabra=" + toolStripTextBox1.Text.Trim().Replace(" ", "+");
 
-                if (toolStripMenuItem7.Checked)
-                {
-                    LoadProcessInControl("chrome.exe", this, false, url);
-                }
-                else
-                {
-                    TruperBrowser = ShowOrActiveForm(TruperBrowser, typeof(TruperBrowser)) as TruperBrowser;
+            //    if (toolStripMenuItem7.Checked)
+            //    {
+            //        LoadProcessInControl("chrome.exe", this, false, url);
+            //    }
+            //    else
+            //    {
+            //        TruperBrowser = ShowOrActiveForm(TruperBrowser, typeof(TruperBrowser)) as TruperBrowser;
 
-                    TruperBrowser.ChangeUrl(url);
-                }
+            //        TruperBrowser.ChangeUrl(url);
+            //    }
 
-                for (int x = 0; x < menuStrip1.Items.Count; x++)
-                    ((System.Windows.Forms.ToolStripDropDownItem)menuStrip1.Items[x]).HideDropDown();
+            //    for (int x = 0; x < menuStrip1.Items.Count; x++)
+            //        ((System.Windows.Forms.ToolStripDropDownItem)menuStrip1.Items[x]).HideDropDown();
 
-                toolStripTextBox1.Text = string.Empty;
-            }
+            //    toolStripTextBox1.Text = string.Empty;
+            //}
         }
 
         private void toolStripMenuItem4_Click_1(object sender, EventArgs e)
@@ -323,18 +325,21 @@ namespace WindowsFormsApplication1
 
         private void toolStripMenuItem7_Click_1(object sender, EventArgs e)
         {
-            if (toolStripMenuItem7.Checked)
-                toolStripMenuItem7.Checked = false;
-            else
-                toolStripMenuItem7.Checked = true;
+            //if (toolStripMenuItem7.Checked)
+            //    toolStripMenuItem7.Checked = false;
+            //else
+            //    toolStripMenuItem7.Checked = true;
         }
 
         private void MaxShop_Load(object sender, EventArgs e)
         {
+            //var time = new Codility().solution(0,2,0,1);
+
+            //time = time;
+
             //var apriori = new PosBusiness.AprioriAssociation(5.5);
 
             //var result = apriori.Analyze();
-
 
             var currentIp = this.AppSet<string>("DataSource");
             this.AddStatusBar(currentIp);
@@ -371,15 +376,15 @@ namespace WindowsFormsApplication1
                 this.BackUp();
             }
             catch (Exception ex)
-            { 
+            {
             }
 
             this.Text = "MaxShop V1.0.0 - " + this.AppSet<string>("shopName").Replace("°", " ").Trim() + " - Suc. " + this.AppSet<string>("branchOffice") + " - Caja " + this.AppSet<string>("CashRegister");
 
-            toolStripMenuItem3.Visible = this.AppSet<bool>("ShowOptionTruper");
+            //toolStripMenuItem3.Visible = this.AppSet<bool>("ShowOptionTruper");
 
 
-            using (PosBusiness.Box box = new PosBusiness.Box 
+            using (PosBusiness.Box box = new PosBusiness.Box
             {
                 IdUser = 1,
                 CashRegister = this.AppSet<int>("CashRegister")
@@ -400,8 +405,10 @@ namespace WindowsFormsApplication1
 
             //new Codility().CyclicRotation(arr, -1);
 
+
+
             this.comprasToolStripMenuItem1.ShortcutKeys = Keys.Alt | Keys.C;
-            this.googleToolStripMenuItem.ShortcutKeys = Keys.Alt | Keys.G;
+            //this.googleToolStripMenuItem.ShortcutKeys = Keys.Alt | Keys.G;
             this.mnCatalogosPM.ShortcutKeys = Keys.Alt | Keys.P;
             this.toolStripMenuItem12.ShortcutKeys = Keys.Alt | Keys.R;
             this.ventasToolStripMenuItem.ShortcutKeys = Keys.Alt | Keys.V;
@@ -422,12 +429,12 @@ namespace WindowsFormsApplication1
 
         private void toolStripTextBox3_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter && !string.IsNullOrEmpty(toolStripTextBox3.Text))
-            {
-                string find = toolStripTextBox3.Text.Trim().Replace(" ", "+");
+            //if (e.KeyCode == Keys.Enter && !string.IsNullOrEmpty(toolStripTextBox3.Text))
+            //{
+            //    string find = toolStripTextBox3.Text.Trim().Replace(" ", "+");
 
-                LoadProcessInControl("chrome.exe", this, false, "https://www.google.com.mx/search?q=" + find + "&source=lnms&tbm=isch&sa=X&ved=0ahUKEwj0wIT4pv_JAhVB5iYKHUEoBr0Q_AUIBygB&biw=1366&bih=667");
-            }
+            //    LoadProcessInControl("chrome.exe", this, false, "https://www.google.com.mx/search?q=" + find + "&source=lnms&tbm=isch&sa=X&ved=0ahUKEwj0wIT4pv_JAhVB5iYKHUEoBr0Q_AUIBygB&biw=1366&bih=667");
+            //}
         }
 
         private void googleToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -776,6 +783,80 @@ namespace WindowsFormsApplication1
 
         public class Codility
         {
+            /// <summary>
+            // Given four digits, find the maximum valid time that can be displayed on a digital clock (in 24-hour format) using those digits. For example, given digits 1, 8, 3, 2, the maximum valid time is "23:18". Note that "28:31" is not a valid time.
+            // Write a function:
+            // class Solution { public string solution(int A, int B, int C, int D); }
+            // that, given four integers A, B, C, D, returns the maximum valid time in string format "HH:MM" or "NOT POSSIBLE" if it is not possible to display a valid time.
+            // For example, given 1, 8, 3, 2, the function should return "23:18".
+            // Given 2, 4, 0, 0, the function should return "20:40".
+            // Given 3, 0, 7, 0, the function should return "07:30".
+            // Given 9, 1, 9, 7, the function should return "NOT POSSIBLE".
+            // Assume that:
+            // A, B, C and D are integers within the range [0..9].
+            // In your solution, focus on correctness. The performance of your solution will not be the focus of the assessment.
+            /// </summary>
+            /// <param name="A"></param>
+            /// <param name="B"></param>
+            /// <param name="C"></param>
+            /// <param name="D"></param>
+            /// <returns></returns>
+            public string solution(int A, int B, int C, int D)
+            {
+                string notPossible = "NOT POSSIBLE";
+                List<int> numbers = new List<int> { A, B, C, D };
+                int hour1 = -1,
+                    hour2 = -1,
+                    minute1 = 0,
+                    minute2 = 0;
+
+                if (numbers.Contains(2))
+                    hour1 = 2;
+                else if (numbers.Contains(1))
+                    hour1 = 1;
+                else
+                    hour1 = 0;
+
+                numbers.Remove(hour1);
+
+                if (numbers.Count().Equals(4))
+                    return notPossible;
+
+                if (hour1.Equals(2))
+                {
+                    var values = numbers.FindAll(p => p < 4);
+
+                    if (values.Count > 0)
+                    {
+                        hour2 = values.Max();
+                        numbers.Remove(hour2);
+                    }
+                    else
+                        return notPossible;
+                }
+                else if (hour1.Equals(0) || hour1.Equals(1))
+                {
+                    hour2 = numbers.Max();
+                    numbers.Remove(hour2);
+                }
+
+                minute1 = numbers[0];
+                minute2 = numbers[1];
+
+                if (minute1 > 5 || (minute1 < minute2 && minute2 < 6))
+                {
+                    minute1 = minute2;
+                    minute2 = numbers[0];
+                }
+
+                if (minute1 > 5)
+                    return notPossible;
+
+                var time = hour1.ToString() + hour2.ToString() + ":" + minute1.ToString() + minute2.ToString();
+
+                return time;
+            }
+
             /// <summary>
             /// A small frog wants to get to the other side of the road. The frog is currently located at position X and wants to get to a position greater than or equal to Y. The small frog always jumps a fixed distance, D.
             ///
@@ -1346,6 +1427,15 @@ namespace WindowsFormsApplication1
         private void gruposToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             GroupSale = ShowOrActiveForm(GroupSale, typeof(GroupSale)) as GroupSale;
+        }
+
+        private void ventasTabiqueraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaleBlock mySale = new SaleBlock();
+
+            mySale.MdiParent = this;
+            mySale.Show();
+
         }
     }
 }

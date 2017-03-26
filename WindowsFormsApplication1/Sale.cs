@@ -1319,7 +1319,7 @@ namespace WindowsFormsApplication1
         {
             using (posb.Sale Entity = new posb.Sale())
             {
-                Entity.Get(Id);
+                Entity.Get(Id, null);
 
                 this.txtCantidad.Clear();
 

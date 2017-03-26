@@ -169,6 +169,21 @@ namespace DataAccess.MSSQL.Pos
 		public DataAccess.MsSqlCommands.Pos.Addunioncostandsale Addunioncostandsale = new DataAccess.MsSqlCommands.Pos.Addunioncostandsale();
 
 		/// <summary>
+		/// Controla la ejecucion del procedimiento almacenado Apriorigetname.
+		///</summary>
+		public DataAccess.MsSqlCommands.Pos.Apriorigetname Apriorigetname = new DataAccess.MsSqlCommands.Pos.Apriorigetname();
+
+		/// <summary>
+		/// Controla la ejecucion del procedimiento almacenado Aprioripmcount.
+		///</summary>
+		public DataAccess.MsSqlCommands.Pos.Aprioripmcount Aprioripmcount = new DataAccess.MsSqlCommands.Pos.Aprioripmcount();
+
+		/// <summary>
+		/// Controla la ejecucion del procedimiento almacenado Aprioripmsearch.
+		///</summary>
+		public DataAccess.MsSqlCommands.Pos.Aprioripmsearch Aprioripmsearch = new DataAccess.MsSqlCommands.Pos.Aprioripmsearch();
+
+		/// <summary>
 		/// Controla la ejecucion del procedimiento almacenado Backupdb.
 		///</summary>
 		public DataAccess.MsSqlCommands.Pos.Backupdb Backupdb = new DataAccess.MsSqlCommands.Pos.Backupdb();
@@ -197,11 +212,6 @@ namespace DataAccess.MSSQL.Pos
 		/// Controla la ejecucion del procedimiento almacenado Backupgettabletext.
 		///</summary>
 		public DataAccess.MsSqlCommands.Pos.Backupgettabletext Backupgettabletext = new DataAccess.MsSqlCommands.Pos.Backupgettabletext();
-
-		/// <summary>
-		/// Controla la ejecucion del procedimiento almacenado Binnacleadd.
-		///</summary>
-		public DataAccess.MsSqlCommands.Pos.Binnacleadd Binnacleadd = new DataAccess.MsSqlCommands.Pos.Binnacleadd();
 
 		/// <summary>
 		/// Controla la ejecucion del procedimiento almacenado Cancelsale.
@@ -379,11 +389,6 @@ namespace DataAccess.MSSQL.Pos
 		public DataAccess.MsSqlCommands.Pos.Existproduct Existproduct = new DataAccess.MsSqlCommands.Pos.Existproduct();
 
 		/// <summary>
-		/// Controla la ejecucion del procedimiento almacenado Expenseadd.
-		///</summary>
-		public DataAccess.MsSqlCommands.Pos.Expenseadd Expenseadd = new DataAccess.MsSqlCommands.Pos.Expenseadd();
-
-		/// <summary>
 		/// Controla la ejecucion del procedimiento almacenado Getbarcode.
 		///</summary>
 		public DataAccess.MsSqlCommands.Pos.Getbarcode Getbarcode = new DataAccess.MsSqlCommands.Pos.Getbarcode();
@@ -507,16 +512,6 @@ namespace DataAccess.MSSQL.Pos
 		/// Controla la ejecucion del procedimiento almacenado Gettotaldebt.
 		///</summary>
 		public DataAccess.MsSqlCommands.Pos.Gettotaldebt Gettotaldebt = new DataAccess.MsSqlCommands.Pos.Gettotaldebt();
-
-		/// <summary>
-		/// Controla la ejecucion del procedimiento almacenado Habitantdelete.
-		///</summary>
-		public DataAccess.MsSqlCommands.Pos.Habitantdelete Habitantdelete = new DataAccess.MsSqlCommands.Pos.Habitantdelete();
-
-		/// <summary>
-		/// Controla la ejecucion del procedimiento almacenado Habitantlist.
-		///</summary>
-		public DataAccess.MsSqlCommands.Pos.Habitantlist Habitantlist = new DataAccess.MsSqlCommands.Pos.Habitantlist();
 
 		/// <summary>
 		/// Controla la ejecucion del procedimiento almacenado Lastbackup.
@@ -923,6 +918,15 @@ namespace DataAccess.MSSQL.Pos
 			if (this.Addunioncostandsale != null)
 				this.Addunioncostandsale.Dispose();
 
+			if (this.Apriorigetname != null)
+				this.Apriorigetname.Dispose();
+
+			if (this.Aprioripmcount != null)
+				this.Aprioripmcount.Dispose();
+
+			if (this.Aprioripmsearch != null)
+				this.Aprioripmsearch.Dispose();
+
 			if (this.Backupdb != null)
 				this.Backupdb.Dispose();
 
@@ -940,9 +944,6 @@ namespace DataAccess.MSSQL.Pos
 
 			if (this.Backupgettabletext != null)
 				this.Backupgettabletext.Dispose();
-
-			if (this.Binnacleadd != null)
-				this.Binnacleadd.Dispose();
 
 			if (this.Cancelsale != null)
 				this.Cancelsale.Dispose();
@@ -1049,9 +1050,6 @@ namespace DataAccess.MSSQL.Pos
 			if (this.Existproduct != null)
 				this.Existproduct.Dispose();
 
-			if (this.Expenseadd != null)
-				this.Expenseadd.Dispose();
-
 			if (this.Getbarcode != null)
 				this.Getbarcode.Dispose();
 
@@ -1126,12 +1124,6 @@ namespace DataAccess.MSSQL.Pos
 
 			if (this.Gettotaldebt != null)
 				this.Gettotaldebt.Dispose();
-
-			if (this.Habitantdelete != null)
-				this.Habitantdelete.Dispose();
-
-			if (this.Habitantlist != null)
-				this.Habitantlist.Dispose();
 
 			if (this.Lastbackup != null)
 				this.Lastbackup.Dispose();

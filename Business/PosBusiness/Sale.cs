@@ -72,7 +72,7 @@ namespace PosBusiness
 
         #region Methods
 
-        public bool Get(int? Id)
+        public bool Get(int? Id, int? IdBlock)
         {
             Sale sale = this.AccessMsSql.Pos.Getsale.ExeList<Sale>(Id).First();
 
@@ -102,7 +102,7 @@ namespace PosBusiness
             var name = this.AccessMsSql.Pos.Getnameforrefillcancelsale.ExeScalar<string>(Id);
 
             var ids = products.Select(x => x.IdCompany).Distinct().ToList();
-  
+
             for (var i = 0; i < ids.Count; i++)
             {
                 var id = ids[i];
@@ -126,7 +126,7 @@ namespace PosBusiness
                     pc.Id = int.Parse(pc.Code);
                 }
 
-                using (Purchase purchase = new Purchase 
+                using (Purchase purchase = new Purchase
                 {
                     IdCompany = id
                 })
@@ -180,7 +180,7 @@ namespace PosBusiness
             this.AccessMsSql.Pos.Addpaymentsale.ExeNonQuery(IdSale, Type, Amount, Cash, Change, Date);
         }
 
-        public bool Charge(List<ProductForAction> Products, int IdClient, string PaymentType, double Payment, double OnAccount, double Change, bool Freight = false, int? IdCompany = null, string Reference = "")
+        public bool Charge(List<ProductForAction> Products, int IdClient, string PaymentType, double Payment, double OnAccount, double Change, bool Freight = false, int? IdCompany = null, string Reference = "", bool Block = false)
         {
             try
             {
@@ -188,7 +188,7 @@ namespace PosBusiness
 
                 if (!total.Equals(0))
                 {
-                    this.Id = this.AccessMsSql.Pos.Addsale.ExeScalar<int>(total, IdClient, PaymentType, Payment, Freight, OnAccount, Change, IdCompany, Reference);
+                    this.Id = this.AccessMsSql.Pos.Addsale.ExeScalar<int>(total, IdClient, PaymentType, Payment, Freight, OnAccount, Change, IdCompany, Reference, Block);
 
                     foreach (ProductForAction p in Products)
                     {

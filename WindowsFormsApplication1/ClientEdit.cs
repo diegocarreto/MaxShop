@@ -59,14 +59,14 @@ namespace WindowsFormsApplication1
         {
             if (!string.IsNullOrEmpty(this.txtName.Text))
             {
-                if (!string.IsNullOrEmpty(this.txtPhone1.Text))
-                {
-                    if (!string.IsNullOrEmpty(this.txtStreet.Text))
-                    {
-                        if (!string.IsNullOrEmpty(this.txtMunicipality.Text))
-                        {
-                            if (!string.IsNullOrEmpty(this.txtState.Text))
-                            {
+                //if (!string.IsNullOrEmpty(this.txtPhone1.Text))
+                //{
+                //    if (!string.IsNullOrEmpty(this.txtStreet.Text))
+                //    {
+                //        if (!string.IsNullOrEmpty(this.txtMunicipality.Text))
+                //        {
+                //            if (!string.IsNullOrEmpty(this.txtState.Text))
+                //            {
                                 if (this.Id.HasValue)
                                 {
                                     if (!this.Name.Equals(txtName.Text, StringComparison.InvariantCultureIgnoreCase))
@@ -76,30 +76,30 @@ namespace WindowsFormsApplication1
                                 }
                                 else
                                     this.Save();
-                            }
-                            else
-                            {
-                                this.Alert("Debe indicar el estado");
-                                this.txtState.Focus();
-                            }
-                        }
-                        else
-                        {
-                            this.Alert("Debe indicar el municipio");
-                            this.txtMunicipality.Focus();
-                        }
-                    }
-                    else
-                    {
-                        this.Alert("Debe indicar la calle");
-                        this.txtStreet.Focus();
-                    }
-                }
-                else
-                {
-                    this.Alert("Debe indicar un número telefónico");
-                    this.txtPhone1.Focus();
-                }
+                            //}
+                            //else
+                            //{
+                            //    this.Alert("Debe indicar el estado");
+                            //    this.txtState.Focus();
+                            //}
+                //        }
+                //        else
+                //        {
+                //            this.Alert("Debe indicar el municipio");
+                //            this.txtMunicipality.Focus();
+                //        }
+                //    }
+                //    else
+                //    {
+                //        this.Alert("Debe indicar la calle");
+                //        this.txtStreet.Focus();
+                //    }
+                //}
+                //else
+                //{
+                //    this.Alert("Debe indicar un número telefónico");
+                //    this.txtPhone1.Focus();
+                //}
             }
             else
             {

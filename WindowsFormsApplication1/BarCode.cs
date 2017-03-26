@@ -107,7 +107,7 @@ namespace WindowsFormsApplication1
                             {
                                 var price = new posb.PM { Id = this.Id }.GetPriceForBarCode();
 
-                                g.DrawString("Precio: " + String.Format("{0:0.00}", price), fontTime, brushTime, 25, 69);
+                                g.DrawString("Precio: $" + String.Format("{0:0.00}", price), fontTime, brushTime, 25, 69);
                             }
                         }
                         else if (this.cbPrice.Checked)
