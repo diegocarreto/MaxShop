@@ -116,7 +116,11 @@ namespace DataAccess.MSSQL
         {
             using (SqlCommand cmd = GetCommand(ConnectionName, StoreProcedure, Parameters))
             {
-                return cmd.ExecuteNonQuery();
+                var result = cmd.ExecuteNonQuery();
+
+                cmd.Connection.Close();
+
+                return result;
             }
         }
 
@@ -140,6 +144,8 @@ namespace DataAccess.MSSQL
                     objR = (T)objR;
                 else
                     objR = default(T);
+
+                cmd.Connection.Close();
 
                 return objR;
             }
@@ -174,27 +180,25 @@ namespace DataAccess.MSSQL
         /// <returns>Objeto SqlConnection.</returns>
         private SqlConnection GetConnection(string ConnectionName)
         {
-            SqlConnection Connection;
+            //SqlConnection Connection;
 
-            if (ConnectionPool.ContainsKey(ConnectionName))
-                Connection = ConnectionPool[ConnectionName];
-            else
-            {
-                Connection = new FunctionsSql().GetConnectionMsSQL(ConnectionName);
+            //if (ConnectionPool.ContainsKey(ConnectionName))
+            //    Connection = ConnectionPool[ConnectionName];
+            //else
+            //{
+            SqlConnection Connection = new FunctionsSql().GetConnectionMsSQL(ConnectionName);
 
-                ConnectionPool.Add(ConnectionName, Connection);
+            //ConnectionPool.Add(ConnectionName, Connection);
 
-                try
-                {
+            //try
+            //{
+                Connection.Open();
+            //}
+            //catch (Exception ex)
+            //{
 
-                    Connection.Open();
-
-                }
-                catch (Exception ex)
-                { 
-                
-                }
-            }
+            //}
+            //}
 
             return Connection;
         }
@@ -219,6 +223,8 @@ namespace DataAccess.MSSQL
                     {
                         list.Add(ToObject<T>(reader));
                     }
+
+                    cmd.Connection.Close();
 
                     return list;
                 }

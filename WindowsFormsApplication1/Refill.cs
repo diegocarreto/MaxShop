@@ -589,33 +589,43 @@ namespace WindowsFormsApplication1
 
         private void GetCaptcha()
         {
-            var bmp = new Bitmap(pictureBox1.Image);
-            var ocr = new Tesseract();
-            var path = System.AppDomain.CurrentDomain.BaseDirectory + "tessdata";
-
-            ocr.SetVariable("tessedit_char_whitelist", "0123456789");
-            ocr.Init(path, "eng", true);
-
-            var result = ocr.DoOCR(bmp, Rectangle.Empty);
-
-            foreach (var word in result)
+            try
             {
-                this.txtCode.Text = word.Text.Trim();
 
-                break;
+                var bmp = new Bitmap(pictureBox1.Image);
+                var ocr = new Tesseract();
+                var path = System.AppDomain.CurrentDomain.BaseDirectory + "tessdata";
+
+                ocr.SetVariable("tessedit_char_whitelist", "0123456789");
+                ocr.Init(path, "eng", true);
+
+                var result = ocr.DoOCR(bmp, Rectangle.Empty);
+
+                foreach (var word in result)
+                {
+                    this.txtCode.Text = word.Text.Trim();
+
+                    break;
+                }
+
+                HtmlElement htmlElement = this.webBrowser1.Document.GetElementsByTagName("input")["cap"];
+
+                if (htmlElement != null)
+                {
+                    htmlElement.SetAttribute("value", this.txtCode.Text.Trim());
+                }
+
+                if (this.AppSet<bool>("AutomaticLoginRefill"))
+                {
+                    System.Threading.Thread.Sleep(1000);
+
+                    this.Enabled = true;
+                    this.Login();
+                }
             }
-
-            HtmlElement htmlElement = this.webBrowser1.Document.GetElementsByTagName("input")["cap"];
-
-            if (htmlElement != null)
+            catch (Exception ex)
             {
-                htmlElement.SetAttribute("value", this.txtCode.Text);
-            }
-
-            if (this.AppSet<bool>("AutomaticLoginRefill"))
-            {
-                this.Enabled = true;
-                this.Login();
+            
             }
         }
 
@@ -1182,5 +1192,10 @@ namespace WindowsFormsApplication1
         }
 
         #endregion
+
+        private void pnlRecargas_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

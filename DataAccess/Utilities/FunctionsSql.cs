@@ -16,9 +16,7 @@ namespace DataAccess
         {
             try
             {
-                SqlConnection cn = new SqlConnection(this.GetConnection(Name));
-
-                return cn;
+                return new SqlConnection(this.GetConnection(Name));
             }
             catch (Exception er)
             {

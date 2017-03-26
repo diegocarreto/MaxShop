@@ -244,6 +244,7 @@
             this.pnlRecargas.Size = new System.Drawing.Size(771, 353);
             this.pnlRecargas.TabIndex = 24;
             this.pnlRecargas.Visible = false;
+            this.pnlRecargas.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlRecargas_Paint);
             // 
             // label15
             // 
@@ -314,6 +315,7 @@
             this.btnView.TabIndex = 12;
             this.btnView.Text = "Ver";
             this.btnView.UseVisualStyleBackColor = true;
+            this.btnView.Visible = false;
             this.btnView.Click += new System.EventHandler(this.btnView_Click);
             // 
             // btnClear

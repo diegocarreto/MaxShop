@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Net;
+using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
@@ -368,16 +369,16 @@ namespace WindowsFormsApplication1
                 }
             }
 
-            try
-            {
-                PosBusiness.Configuration conf = new PosBusiness.Configuration();
+            //try
+            //{
+            //    PosBusiness.Configuration conf = new PosBusiness.Configuration();
 
-                this.timer1.Interval = conf.GetValue<int>("checkBackUpHours") * 60000;
-                this.BackUp();
-            }
-            catch (Exception ex)
-            {
-            }
+            //    this.timer1.Interval = conf.GetValue<int>("checkBackUpHours") * 60000;
+            //    this.BackUp();
+            //}
+            //catch (Exception ex)
+            //{
+            //}
 
             this.Text = "MaxShop V1.0.0 - " + this.AppSet<string>("shopName").Replace("°", " ").Trim() + " - Suc. " + this.AppSet<string>("branchOffice") + " - Caja " + this.AppSet<string>("CashRegister");
 
@@ -414,6 +415,20 @@ namespace WindowsFormsApplication1
             this.ventasToolStripMenuItem.ShortcutKeys = Keys.Alt | Keys.V;
 
             this.OpenSale();
+        }
+
+        public  string GetLocalIPAddress()
+        {
+            var host = Dns.GetHostEntry(Dns.GetHostName());
+
+            foreach (var ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    return ip.ToString();
+                }
+            }
+            throw new Exception("Local IP Address Not Found!");
         }
 
         private void gastosToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -713,12 +728,12 @@ namespace WindowsFormsApplication1
             StatusBarPanel statusVersion = new StatusBarPanel();
             StatusBarPanel dateTimePanel = new StatusBarPanel();
             StatusBarPanel serverPanel = new StatusBarPanel();
-
+            StatusBarPanel serverPane2 = new StatusBarPanel();
 
             statusPanel.BorderStyle = StatusBarPanelBorderStyle.Sunken;
             statusPanel.Text = "Usuario.- Administrador";
             statusPanel.ToolTipText = "Administrador";
-            statusPanel.AutoSize = StatusBarPanelAutoSize.Spring;
+            statusPanel.AutoSize = StatusBarPanelAutoSize.Contents;
 
             main.Panels.Add(statusPanel);
 
@@ -731,11 +746,10 @@ namespace WindowsFormsApplication1
 
 
             serverPanel.BorderStyle = StatusBarPanelBorderStyle.Sunken;
-            serverPanel.Text = "Repositorio.-" + Server;
+            serverPanel.Text = "Central.-" + Server + "  ---  Local.-" + this.GetLocalIPAddress(); ;
             serverPanel.AutoSize = StatusBarPanelAutoSize.Spring;
 
             main.Panels.Add(serverPanel);
-
 
 
             dateTimePanel.BorderStyle = StatusBarPanelBorderStyle.Raised;
